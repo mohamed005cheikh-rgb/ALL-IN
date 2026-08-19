@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Magic - 5 Themes × 20 Links</title>
+    <title>MOHAMED/CHEIKH REPOSITORIES</title>
     <style>
         /* ============================================
                    THEME 1: MIDNIGHT NEON (Default)
@@ -533,6 +533,28 @@
         }
 
         /* ============================================
+                   FOOTER
+                   ============================================ */
+        .footer {
+            text-align: center;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            transition: color var(--transition-speed) ease;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer a {
+            color: var(--text-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
                    RESPONSIVE DESIGN
                    ============================================ */
         @media (max-width: 768px) {
@@ -646,10 +668,10 @@
 
     <!-- Header -->
     <header class="header">
-        <h1>CSS&nbsp;Theater</h1>
-        <p class="subtitle">20 Links · 5 Themes · Infinite Magic</p>
+        <h1>MOHAMED/CHEIKH REPOSITORIES</h1>
+        <p class="subtitle">20 Links · 5 Themes · CSS Magic</p>
         <div class="divider"></div>
-        <span class="theme-badge" id="themeBadge">🎨 Midnight Neon</span>
+        <span class="theme-badge" id="themeBadge">Midnight Neon</span>
     </header>
 
     <!-- Grid of 20 Links -->
@@ -657,24 +679,42 @@
         <!-- 20 link cards will be generated here -->
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 <a href="mailto:mohamed005cheikh@gmail.com">mohamed005cheikh@gmail.com</a> | by MC88</p>
+    </footer>
+
     <script>
         (function() {
             // ============================================
-            // CONFIGURATION
+            // CONFIGURATION SECTION
             // ============================================
-            const THEMES = [
-                { id: 'midnight', label: 'Midnight Neon', emoji: '🌌' },
-                { id: 'frosted', label: 'Frosted Glass', emoji: '❄️' },
-                { id: 'brutalist', label: 'Neo Brutalism', emoji: '⚡' },
-                { id: 'elegant', label: 'Elegant Light', emoji: '🕊️' },
-                { id: 'cyberpunk', label: 'Cyberpunk', emoji: '🤖' },
-            ];
-
+            // 👇 EDIT HERE: Paste your links and change the names.
+            // Each entry in LINK_NAMES corresponds to the same index in LINK_URLS.
+            // For example: LINK_NAMES[0] = 'GitHub', LINK_URLS[0] = 'https://github.com/yourname'
+            // You can change all 20 to whatever you like. The grid will update automatically.
             const LINK_NAMES = [
                 'Portfolio', 'GitHub', 'LinkedIn', 'Twitter / X', 'Instagram',
                 'YouTube', 'Medium', 'Dev.to', 'CodePen', 'Dribbble',
                 'Behance', 'Figma', 'Notion', 'Resume', 'Blog',
                 'Projects', 'Contact', 'About', 'Services', 'Shop'
+            ];
+
+            const LINK_URLS = [
+                '#', '#', '#', '#', '#',
+                '#', '#', '#', '#', '#',
+                '#', '#', '#', '#', '#',
+                '#', '#', '#', '#', '#'
+            ];
+            // Replace '#' with your actual links, e.g. 'https://example.com'
+            // ============================================
+
+            const THEMES = [
+                { id: 'midnight', label: 'Midnight Neon' },
+                { id: 'frosted', label: 'Frosted Glass' },
+                { id: 'brutalist', label: 'Neo Brutalism' },
+                { id: 'elegant', label: 'Elegant Light' },
+                { id: 'cyberpunk', label: 'Cyberpunk' },
             ];
 
             const PLACEHOLDER_TEXT = 'Paste your link here';
@@ -700,31 +740,32 @@
                 for (let i = 0; i < 20; i++) {
                     const card = document.createElement('a');
                     card.className = 'link-card';
-                    card.href = '#';
+                    card.href = LINK_URLS[i] || '#';
                     card.setAttribute('data-index', i);
                     card.setAttribute('aria-label', `Link placeholder ${i + 1}`);
 
-                    const labelText = LINK_NAMES[i % LINK_NAMES.length];
-                    const displayLabel = i < LINK_NAMES.length ? labelText : `${labelText} ${Math.floor(i / LINK_NAMES.length) + 1}`;
+                    const label = LINK_NAMES[i] || `Link ${i + 1}`;
 
                     card.innerHTML = `
                         <span class="link-number">${String(i + 1).padStart(2, '0')}</span>
                         <span class="link-info">
-                            <span class="link-label">${displayLabel}</span>
+                            <span class="link-label">${label}</span>
                             <span class="link-placeholder">${PLACEHOLDER_TEXT}</span>
                         </span>
                         <span class="link-arrow">→</span>
                         <span class="accent-line"></span>
                     `;
 
-                    // Prevent default on click (placeholder)
+                    // Allow click to navigate if link is not '#'
                     card.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        // Subtle feedback animation
-                        card.style.transform = 'scale(0.96)';
-                        setTimeout(() => {
-                            card.style.transform = '';
-                        }, 150);
+                        if (card.href === '#' || card.href.endsWith('#')) {
+                            e.preventDefault();
+                            // Subtle feedback animation
+                            card.style.transform = 'scale(0.96)';
+                            setTimeout(() => {
+                                card.style.transform = '';
+                            }, 150);
+                        }
                     });
 
                     fragment.appendChild(card);
@@ -740,7 +781,6 @@
                 if (themeIndex === -1) return;
                 if (themeIndex === currentThemeIndex && body.hasAttribute('data-theme')) return;
 
-                const previousIndex = currentThemeIndex;
                 currentThemeIndex = themeIndex;
 
                 const theme = THEMES[themeIndex];
@@ -753,7 +793,7 @@
                 }
 
                 // Update badge
-                themeBadge.textContent = `${theme.emoji} ${theme.label}`;
+                themeBadge.textContent = theme.label;
 
                 // Update active dot
                 themeDots.forEach(dot => {
@@ -783,7 +823,6 @@
                     const themeId = dot.dataset.dot;
                     if (dot.classList.contains('active') && body.hasAttribute('data-theme') === false &&
                         themeId === 'midnight') {
-                        // Already on midnight
                         return;
                     }
                     setTheme(themeId);
@@ -804,7 +843,6 @@
             // KEYBOARD SHORTCUTS
             // ============================================
             document.addEventListener('keydown', (e) => {
-                // Ctrl+1 through Ctrl+5 to switch themes
                 if (e.ctrlKey || e.metaKey) {
                     const num = parseInt(e.key);
                     if (num >= 1 && num <= 5) {
@@ -813,7 +851,6 @@
                         setTheme(themeId);
                     }
                 }
-                // Arrow keys to cycle themes
                 if (e.key === 'ArrowRight' && e.shiftKey) {
                     e.preventDefault();
                     const nextIndex = (currentThemeIndex + 1) % THEMES.length;
@@ -824,7 +861,6 @@
                     const prevIndex = (currentThemeIndex - 1 + THEMES.length) % THEMES.length;
                     setTheme(THEMES[prevIndex].id);
                 }
-                // 'T' key to cycle themes
                 if (e.key.toLowerCase() === 't' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
                     e.preventDefault();
                     const nextIndex = (currentThemeIndex + 1) % THEMES.length;
@@ -833,24 +869,20 @@
             });
 
             // ============================================
-            // CLICK ANYWHERE ON CARD (already handled)
-            // ============================================
-
-            // ============================================
             // INITIALIZE
             // ============================================
             buildLinkCards();
 
             // Set initial theme (midnight = default, no data-theme)
-            themeBadge.textContent = `${THEMES[0].emoji} ${THEMES[0].label}`;
+            themeBadge.textContent = THEMES[0].label;
             themeDots[0].classList.add('active');
 
             // ============================================
-            // CONSOLE WELCOME
+            // CONSOLE WELCOME (no emojis)
             // ============================================
-            console.log('%c✨ CSS Theater ✨', 'font-size:24px; font-weight:bold; color:#a855f7;');
-            console.log('%c20 Links · 5 Themes · Pure CSS Magic', 'font-size:14px; color:#06b6d4;');
-            console.log('%cShortcuts: [Ctrl+1..5] switch theme | [T] cycle theme | [Shift+←/→] cycle', 'font-size:12px; color:#888;');
+            console.log('CSS Theater');
+            console.log('20 Links, 5 Themes, Pure CSS Magic');
+            console.log('Shortcuts: [Ctrl+1..5] switch theme | [T] cycle theme | [Shift+Arrow] cycle');
         })();
     </script>
 </body>
