@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Magic - 5 Themes × 20 Links</title>
+    <style>
+        /* ============================================
+                   THEME 1: MIDNIGHT NEON (Default)
+                   ============================================ */
+        :root {
+            /* Theme 1 - Midnight Neon */
+            --bg-primary: #0a0a14;
+            --bg-secondary: #12121f;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #22223a;
+            --text-primary: #e8e8f0;
+            --text-secondary: #a0a0b8;
+            --text-accent: #c084fc;
+            --accent-1: #a855f7;
+            --accent-2: #06b6d4;
+            --accent-glow: rgba(168, 85, 247, 0.35);
+            --border-color: rgba(168, 85, 247, 0.25);
+            --border-hover: rgba(168, 85, 247, 0.6);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+            --shadow-hover: 0 8px 40px rgba(168, 85, 247, 0.3), 0 0 20px rgba(6, 182, 212, 0.2);
+            --radius-card: 16px;
+            --radius-btn: 12px;
+            --font-heading: 'Georgia', serif;
+            --font-body: 'Inter', 'Segoe UI', sans-serif;
+            --transition-speed: 0.5s;
+            --card-transform: translateY(-4px) scale(1.02);
+            --header-gradient: linear-gradient(135deg, #c084fc, #06b6d4);
+            --chip-bg: rgba(168, 85, 247, 0.15);
+            --theme-dot-size: 40px;
+            --theme-active-ring: rgba(168, 85, 247, 0.7);
+            --number-bg: rgba(168, 85, 247, 0.2);
+            --number-color: #c084fc;
+            --divider-gradient: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.5), transparent);
+            --button-bg: linear-gradient(135deg, #a855f7, #7c3aed);
+            --button-text: #ffffff;
+            --button-hover-shadow: 0 6px 30px rgba(168, 85, 247, 0.5);
+            --badge-bg: rgba(6, 182, 212, 0.2);
+            --badge-text: #67e8f9;
+            --badge-border: rgba(6, 182, 212, 0.4);
+        }
+
+        /* Theme 2 - Frosted Glass */
+        [data-theme="frosted"] {
+            --bg-primary: linear-gradient(135deg, #e0e7ff 0%, #f0e6ff 25%, #ffe4f0 50%, #e0f7ff 75%, #fef3c7 100%);
+            --bg-secondary: rgba(255, 255, 255, 0.4);
+            --bg-card: rgba(255, 255, 255, 0.45);
+            --bg-card-hover: rgba(255, 255, 255, 0.65);
+            --text-primary: #1e1b4b;
+            --text-secondary: #4c4a6e;
+            --text-accent: #6d28d9;
+            --accent-1: #8b5cf6;
+            --accent-2: #ec4899;
+            --accent-glow: rgba(139, 92, 246, 0.2);
+            --border-color: rgba(255, 255, 255, 0.6);
+            --border-hover: rgba(255, 255, 255, 0.9);
+            --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(139, 92, 246, 0.2);
+            --radius-card: 20px;
+            --radius-btn: 50px;
+            --font-heading: 'Georgia', serif;
+            --font-body: 'Inter', 'Segoe UI', sans-serif;
+            --transition-speed: 0.5s;
+            --card-transform: translateY(-6px) scale(1.03);
+            --header-gradient: linear-gradient(135deg, #6d28d9, #ec4899, #f59e0b);
+            --chip-bg: rgba(255, 255, 255, 0.6);
+            --theme-dot-size: 40px;
+            --theme-active-ring: rgba(139, 92, 246, 0.7);
+            --number-bg: rgba(139, 92, 246, 0.15);
+            --number-color: #6d28d9;
+            --divider-gradient: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), transparent);
+            --button-bg: linear-gradient(135deg, #8b5cf6, #ec4899);
+            --button-text: #ffffff;
+            --button-hover-shadow: 0 6px 30px rgba(139, 92, 246, 0.4);
+            --badge-bg: rgba(236, 72, 153, 0.15);
+            --badge-text: #be185d;
+            --badge-border: rgba(236, 72, 153, 0.3);
+        }
+
+        /* Theme 3 - Neo Brutalism */
+        [data-theme="brutalist"] {
+            --bg-primary: #f5f0e8;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --bg-card-hover: #fffef5;
+            --text-primary: #111111;
+            --text-secondary: #333333;
+            --text-accent: #ff3d00;
+            --accent-1: #ff3d00;
+            --accent-2: #0066ff;
+            --accent-glow: rgba(255, 61, 0, 0.15);
+            --border-color: #111111;
+            --border-hover: #ff3d00;
+            --shadow-card: 6px 6px 0px #111111;
+            --shadow-hover: 10px 10px 0px #ff3d00;
+            --radius-card: 0px;
+            --radius-btn: 0px;
+            --font-heading: 'Arial Black', 'Impact', sans-serif;
+            --font-body: 'Courier New', 'Inter', monospace;
+            --transition-speed: 0.3s;
+            --card-transform: translate(-3px, -3px);
+            --header-gradient: none;
+            --chip-bg: #f5f0e8;
+            --theme-dot-size: 40px;
+            --theme-active-ring: #ff3d00;
+            --number-bg: #111111;
+            --number-color: #ffffff;
+            --divider-gradient: none;
+            --button-bg: #ff3d00;
+            --button-text: #111111;
+            --button-hover-shadow: 6px 6px 0px #111111;
+            --badge-bg: #0066ff;
+            --badge-text: #ffffff;
+            --badge-border: #111111;
+        }
+
+        /* Theme 4 - Elegant Light */
+        [data-theme="elegant"] {
+            --bg-primary: #faf7f2;
+            --bg-secondary: #f5f0e8;
+            --bg-card: #ffffff;
+            --bg-card-hover: #fdfcf9;
+            --text-primary: #2c2420;
+            --text-secondary: #6b5d54;
+            --text-accent: #b8860b;
+            --accent-1: #c4a265;
+            --accent-2: #8b7355;
+            --accent-glow: rgba(196, 162, 101, 0.2);
+            --border-color: #e8e0d5;
+            --border-hover: #c4a265;
+            --shadow-card: 0 2px 20px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 8px 40px rgba(139, 115, 85, 0.15), 0 2px 8px rgba(139, 115, 85, 0.08);
+            --radius-card: 12px;
+            --radius-btn: 6px;
+            --font-heading: 'Georgia', 'Times New Roman', serif;
+            --font-body: 'Inter', 'Segoe UI', sans-serif;
+            --transition-speed: 0.5s;
+            --card-transform: translateY(-4px);
+            --header-gradient: none;
+            --chip-bg: #faf7f2;
+            --theme-dot-size: 40px;
+            --theme-active-ring: #c4a265;
+            --number-bg: #faf7f2;
+            --number-color: #8b7355;
+            --divider-gradient: linear-gradient(90deg, transparent, rgba(139, 115, 85, 0.3), transparent);
+            --button-bg: #2c2420;
+            --button-text: #faf7f2;
+            --button-hover-shadow: 0 4px 20px rgba(44, 36, 32, 0.3);
+            --badge-bg: #f5f0e8;
+            --badge-text: #8b7355;
+            --badge-border: #e8e0d5;
+        }
+
+        /* Theme 5 - Cyberpunk */
+        [data-theme="cyberpunk"] {
+            --bg-primary: #0d0015;
+            --bg-secondary: #1a0030;
+            --bg-card: #1a0025;
+            --bg-card-hover: #250038;
+            --text-primary: #f0e6ff;
+            --text-secondary: #b8a0cc;
+            --text-accent: #ff00e6;
+            --accent-1: #ff00e6;
+            --accent-2: #00f0ff;
+            --accent-glow: rgba(255, 0, 230, 0.4);
+            --border-color: rgba(255, 0, 230, 0.4);
+            --border-hover: rgba(255, 0, 230, 0.8);
+            --shadow-card: 0 0 20px rgba(255, 0, 230, 0.2), 0 0 40px rgba(0, 240, 255, 0.1);
+            --shadow-hover: 0 0 30px rgba(255, 0, 230, 0.5), 0 0 60px rgba(0, 240, 255, 0.3), 0 0 15px rgba(255, 0, 230, 0.4);
+            --radius-card: 8px;
+            --radius-btn: 4px;
+            --font-heading: 'Arial Black', 'Impact', sans-serif;
+            --font-body: 'Consolas', 'Courier New', monospace;
+            --transition-speed: 0.4s;
+            --card-transform: translateY(-4px) scale(1.02);
+            --header-gradient: linear-gradient(90deg, #ff00e6, #00f0ff);
+            --chip-bg: rgba(255, 0, 230, 0.15);
+            --theme-dot-size: 40px;
+            --theme-active-ring: rgba(255, 0, 230, 0.8);
+            --number-bg: rgba(255, 0, 230, 0.2);
+            --number-color: #ff00e6;
+            --divider-gradient: linear-gradient(90deg, transparent, #ff00e6, #00f0ff, transparent);
+            --button-bg: linear-gradient(90deg, #ff00e6, #00f0ff);
+            --button-text: #0d0015;
+            --button-hover-shadow: 0 0 30px rgba(255, 0, 230, 0.7), 0 0 60px rgba(0, 240, 255, 0.4);
+            --badge-bg: rgba(0, 240, 255, 0.15);
+            --badge-text: #00f0ff;
+            --badge-border: rgba(0, 240, 255, 0.4);
+        }
+
+        /* ============================================
+                   GLOBAL RESET & BASE
+                   ============================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: background var(--transition-speed) ease, color var(--transition-speed) ease;
+            padding: 0 20px 60px;
+            overflow-x: hidden;
+        }
+
+        /* For gradient backgrounds */
+        [data-theme="frosted"] body,
+        body:has([data-theme="frosted"]) {
+            background: var(--bg-primary);
+        }
+
+        /* ============================================
+                   THEME SWITCHER
+                   ============================================ */
+        .theme-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 12px;
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            border-radius: 60px;
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .theme-dot {
+            width: var(--theme-dot-size);
+            height: var(--theme-dot-size);
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .theme-dot:hover {
+            transform: scale(1.15);
+        }
+        .theme-dot.active {
+            border-color: var(--theme-active-ring);
+            box-shadow: 0 0 20px var(--accent-glow), 0 0 40px var(--accent-glow);
+        }
+        .theme-dot[data-dot="midnight"] {
+            background: linear-gradient(135deg, #0a0a14, #a855f7, #06b6d4);
+        }
+        .theme-dot[data-dot="frosted"] {
+            background: linear-gradient(135deg, #e0e7ff, #f0e6ff, #ffe4f0, #e0f7ff);
+        }
+        .theme-dot[data-dot="brutalist"] {
+            background: linear-gradient(135deg, #f5f0e8, #ff3d00, #111111);
+            border-radius: 4px;
+        }
+        .theme-dot[data-dot="elegant"] {
+            background: linear-gradient(135deg, #faf7f2, #c4a265, #8b7355);
+        }
+        .theme-dot[data-dot="cyberpunk"] {
+            background: linear-gradient(135deg, #0d0015, #ff00e6, #00f0ff);
+        }
+
+        /* Tooltip */
+        .theme-dot::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            letter-spacing: 0.5px;
+        }
+        .theme-dot:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ============================================
+                   HEADER
+                   ============================================ */
+        .header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .header h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: var(--header-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: var(--accent-1);
+            font-family: var(--font-heading);
+            transition: all var(--transition-speed) ease;
+        }
+        [data-theme="brutalist"] .header h1 {
+            -webkit-text-fill-color: #111111;
+            color: #111111;
+            text-shadow: 4px 4px 0px #ff3d00;
+        }
+        [data-theme="elegant"] .header h1 {
+            -webkit-text-fill-color: #2c2420;
+            color: #2c2420;
+            text-shadow: none;
+        }
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color var(--transition-speed) ease;
+        }
+        .header .divider {
+            width: 180px;
+            height: 3px;
+            margin: 24px auto 0;
+            background: var(--divider-gradient);
+            border-radius: 10px;
+            transition: all var(--transition-speed) ease;
+        }
+        [data-theme="brutalist"] .header .divider {
+            height: 6px;
+            background: #111111;
+        }
+
+        /* ============================================
+                   THEME BADGE
+                   ============================================ */
+        .theme-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid var(--badge-border);
+            margin-top: 16px;
+            transition: all var(--transition-speed) ease;
+        }
+        [data-theme="brutalist"] .theme-badge {
+            border-radius: 0px;
+            border: 2px solid #111111;
+        }
+
+        /* ============================================
+                   GRID LAYOUT
+                   ============================================ */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* ============================================
+                   LINK CARD
+                   ============================================ */
+        .link-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-card);
+            padding: 28px 24px;
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all var(--transition-speed) ease;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            overflow: hidden;
+            isolation: isolate;
+            user-select: none;
+        }
+        .link-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--bg-card-hover);
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+            z-index: -1;
+            border-radius: inherit;
+        }
+        .link-card:hover {
+            transform: var(--card-transform);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-hover);
+            color: var(--text-accent);
+        }
+        .link-card:hover::before {
+            opacity: 1;
+        }
+        .link-card:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Number badge */
+        .link-number {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--number-bg);
+            color: var(--number-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            transition: all var(--transition-speed) ease;
+            border: 2px solid var(--border-color);
+            font-family: var(--font-body);
+        }
+        [data-theme="brutalist"] .link-number {
+            border-radius: 0px;
+            border: 2px solid #111111;
+        }
+        .link-card:hover .link-number {
+            border-color: var(--border-hover);
+            transform: scale(1.1);
+        }
+
+        /* Link content */
+        .link-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+            min-width: 0;
+        }
+        .link-label {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            transition: color var(--transition-speed) ease;
+            font-family: var(--font-body);
+        }
+        .link-placeholder {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            transition: color var(--transition-speed) ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .link-card:hover .link-placeholder {
+            color: var(--text-accent);
+            opacity: 0.8;
+        }
+
+        /* Arrow indicator */
+        .link-arrow {
+            font-size: 1.4rem;
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all var(--transition-speed) ease;
+            color: var(--accent-1);
+            flex-shrink: 0;
+            font-weight: 400;
+        }
+        .link-card:hover .link-arrow {
+            opacity: 1;
+            transform: translateX(4px);
+        }
+        [data-theme="brutalist"] .link-arrow {
+            color: #ff3d00;
+        }
+        [data-theme="cyberpunk"] .link-arrow {
+            color: #ff00e6;
+            text-shadow: 0 0 10px rgba(255, 0, 230, 0.8);
+        }
+
+        /* Glow accent line */
+        .link-card .accent-line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-speed) ease;
+            border-radius: 0 0 var(--radius-card) var(--radius-card);
+        }
+        .link-card:hover .accent-line {
+            transform: scaleX(1);
+        }
+        [data-theme="brutalist"] .link-card .accent-line {
+            height: 5px;
+            background: #ff3d00;
+        }
+
+        /* ============================================
+                   RESPONSIVE DESIGN
+                   ============================================ */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 14px;
+                padding: 10px 0;
+            }
+            .link-card {
+                padding: 18px 16px;
+                gap: 12px;
+            }
+            .link-number {
+                width: 32px;
+                height: 32px;
+                font-size: 0.7rem;
+            }
+            .link-label {
+                font-size: 0.9rem;
+            }
+            .link-placeholder {
+                font-size: 0.68rem;
+            }
+            .link-arrow {
+                font-size: 1.1rem;
+            }
+            .theme-switcher {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                gap: 8px;
+            }
+            .theme-dot {
+                width: 32px;
+                height: 32px;
+            }
+            .header {
+                padding: 60px 16px 24px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+            .header .subtitle {
+                font-size: 0.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            body {
+                padding: 0 10px 40px;
+            }
+            .theme-switcher {
+                flex-wrap: wrap;
+                max-width: 90vw;
+                justify-content: center;
+                border-radius: 30px;
+            }
+        }
+
+        /* ============================================
+                   THEME TRANSITION OVERLAY
+                   ============================================ */
+        .theme-transition {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .theme-transition.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* ============================================
+                   SMOOTH SCROLLBAR
+                   ============================================ */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-1);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Theme Transition Overlay -->
+    <div class="theme-transition" id="themeTransition"></div>
+
+    <!-- Theme Switcher -->
+    <div class="theme-switcher" id="themeSwitcher">
+        <div class="theme-dot active" data-dot="midnight" data-label="Midnight Neon" title="Midnight Neon"></div>
+        <div class="theme-dot" data-dot="frosted" data-label="Frosted Glass" title="Frosted Glass"></div>
+        <div class="theme-dot" data-dot="brutalist" data-label="Neo Brutalism" title="Neo Brutalism"></div>
+        <div class="theme-dot" data-dot="elegant" data-label="Elegant Light" title="Elegant Light"></div>
+        <div class="theme-dot" data-dot="cyberpunk" data-label="Cyberpunk" title="Cyberpunk"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>CSS&nbsp;Theater</h1>
+        <p class="subtitle">20 Links · 5 Themes · Infinite Magic</p>
+        <div class="divider"></div>
+        <span class="theme-badge" id="themeBadge">🎨 Midnight Neon</span>
+    </header>
+
+    <!-- Grid of 20 Links -->
+    <div class="grid-container" id="gridContainer">
+        <!-- 20 link cards will be generated here -->
+    </div>
+
+    <script>
+        (function() {
+            // ============================================
+            // CONFIGURATION
+            // ============================================
+            const THEMES = [
+                { id: 'midnight', label: 'Midnight Neon', emoji: '🌌' },
+                { id: 'frosted', label: 'Frosted Glass', emoji: '❄️' },
+                { id: 'brutalist', label: 'Neo Brutalism', emoji: '⚡' },
+                { id: 'elegant', label: 'Elegant Light', emoji: '🕊️' },
+                { id: 'cyberpunk', label: 'Cyberpunk', emoji: '🤖' },
+            ];
+
+            const LINK_NAMES = [
+                'Portfolio', 'GitHub', 'LinkedIn', 'Twitter / X', 'Instagram',
+                'YouTube', 'Medium', 'Dev.to', 'CodePen', 'Dribbble',
+                'Behance', 'Figma', 'Notion', 'Resume', 'Blog',
+                'Projects', 'Contact', 'About', 'Services', 'Shop'
+            ];
+
+            const PLACEHOLDER_TEXT = 'Paste your link here';
+
+            let currentThemeIndex = 0;
+            let transitionTimeout = null;
+
+            // ============================================
+            // DOM REFERENCES
+            // ============================================
+            const body = document.body;
+            const gridContainer = document.getElementById('gridContainer');
+            const themeSwitcher = document.getElementById('themeSwitcher');
+            const themeBadge = document.getElementById('themeBadge');
+            const themeTransition = document.getElementById('themeTransition');
+            const themeDots = themeSwitcher.querySelectorAll('.theme-dot');
+
+            // ============================================
+            // BUILD 20 LINK CARDS
+            // ============================================
+            function buildLinkCards() {
+                const fragment = document.createDocumentFragment();
+                for (let i = 0; i < 20; i++) {
+                    const card = document.createElement('a');
+                    card.className = 'link-card';
+                    card.href = '#';
+                    card.setAttribute('data-index', i);
+                    card.setAttribute('aria-label', `Link placeholder ${i + 1}`);
+
+                    const labelText = LINK_NAMES[i % LINK_NAMES.length];
+                    const displayLabel = i < LINK_NAMES.length ? labelText : `${labelText} ${Math.floor(i / LINK_NAMES.length) + 1}`;
+
+                    card.innerHTML = `
+                        <span class="link-number">${String(i + 1).padStart(2, '0')}</span>
+                        <span class="link-info">
+                            <span class="link-label">${displayLabel}</span>
+                            <span class="link-placeholder">${PLACEHOLDER_TEXT}</span>
+                        </span>
+                        <span class="link-arrow">→</span>
+                        <span class="accent-line"></span>
+                    `;
+
+                    // Prevent default on click (placeholder)
+                    card.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Subtle feedback animation
+                        card.style.transform = 'scale(0.96)';
+                        setTimeout(() => {
+                            card.style.transform = '';
+                        }, 150);
+                    });
+
+                    fragment.appendChild(card);
+                }
+                gridContainer.appendChild(fragment);
+            }
+
+            // ============================================
+            // THEME SWITCHING
+            // ============================================
+            function setTheme(themeId, animate = true) {
+                const themeIndex = THEMES.findIndex(t => t.id === themeId);
+                if (themeIndex === -1) return;
+                if (themeIndex === currentThemeIndex && body.hasAttribute('data-theme')) return;
+
+                const previousIndex = currentThemeIndex;
+                currentThemeIndex = themeIndex;
+
+                const theme = THEMES[themeIndex];
+
+                // Update data-theme on body
+                if (themeId === 'midnight') {
+                    body.removeAttribute('data-theme');
+                } else {
+                    body.setAttribute('data-theme', themeId);
+                }
+
+                // Update badge
+                themeBadge.textContent = `${theme.emoji} ${theme.label}`;
+
+                // Update active dot
+                themeDots.forEach(dot => {
+                    if (dot.dataset.dot === themeId) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+
+                // Trigger transition overlay
+                if (animate) {
+                    themeTransition.classList.add('active');
+                    if (transitionTimeout) clearTimeout(transitionTimeout);
+                    transitionTimeout = setTimeout(() => {
+                        themeTransition.classList.remove('active');
+                        transitionTimeout = null;
+                    }, 350);
+                }
+            }
+
+            // ============================================
+            // THEME DOT EVENT LISTENERS
+            // ============================================
+            themeDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const themeId = dot.dataset.dot;
+                    if (dot.classList.contains('active') && body.hasAttribute('data-theme') === false &&
+                        themeId === 'midnight') {
+                        // Already on midnight
+                        return;
+                    }
+                    setTheme(themeId);
+                });
+                dot.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const themeId = dot.dataset.dot;
+                        setTheme(themeId);
+                    }
+                });
+                dot.setAttribute('tabindex', '0');
+                dot.setAttribute('role', 'button');
+                dot.setAttribute('aria-label', `Switch to ${dot.dataset.label} theme`);
+            });
+
+            // ============================================
+            // KEYBOARD SHORTCUTS
+            // ============================================
+            document.addEventListener('keydown', (e) => {
+                // Ctrl+1 through Ctrl+5 to switch themes
+                if (e.ctrlKey || e.metaKey) {
+                    const num = parseInt(e.key);
+                    if (num >= 1 && num <= 5) {
+                        e.preventDefault();
+                        const themeId = THEMES[num - 1].id;
+                        setTheme(themeId);
+                    }
+                }
+                // Arrow keys to cycle themes
+                if (e.key === 'ArrowRight' && e.shiftKey) {
+                    e.preventDefault();
+                    const nextIndex = (currentThemeIndex + 1) % THEMES.length;
+                    setTheme(THEMES[nextIndex].id);
+                }
+                if (e.key === 'ArrowLeft' && e.shiftKey) {
+                    e.preventDefault();
+                    const prevIndex = (currentThemeIndex - 1 + THEMES.length) % THEMES.length;
+                    setTheme(THEMES[prevIndex].id);
+                }
+                // 'T' key to cycle themes
+                if (e.key.toLowerCase() === 't' && !e.ctrlKey && !e.metaKey && !e.shiftKey) {
+                    e.preventDefault();
+                    const nextIndex = (currentThemeIndex + 1) % THEMES.length;
+                    setTheme(THEMES[nextIndex].id);
+                }
+            });
+
+            // ============================================
+            // CLICK ANYWHERE ON CARD (already handled)
+            // ============================================
+
+            // ============================================
+            // INITIALIZE
+            // ============================================
+            buildLinkCards();
+
+            // Set initial theme (midnight = default, no data-theme)
+            themeBadge.textContent = `${THEMES[0].emoji} ${THEMES[0].label}`;
+            themeDots[0].classList.add('active');
+
+            // ============================================
+            // CONSOLE WELCOME
+            // ============================================
+            console.log('%c✨ CSS Theater ✨', 'font-size:24px; font-weight:bold; color:#a855f7;');
+            console.log('%c20 Links · 5 Themes · Pure CSS Magic', 'font-size:14px; color:#06b6d4;');
+            console.log('%cShortcuts: [Ctrl+1..5] switch theme | [T] cycle theme | [Shift+←/→] cycle', 'font-size:12px; color:#888;');
+        })();
+    </script>
+</body>
+</html>
