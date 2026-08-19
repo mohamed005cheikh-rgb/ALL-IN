@@ -9,7 +9,6 @@
                    THEME 1: MIDNIGHT NEON (Default)
                    ============================================ */
         :root {
-            /* Theme 1 - Midnight Neon */
             --bg-primary: #0a0a14;
             --bg-secondary: #12121f;
             --bg-card: #1a1a2e;
@@ -669,14 +668,14 @@
     <!-- Header -->
     <header class="header">
         <h1>MOHAMED/CHEIKH REPOSITORIES</h1>
-        <p class="subtitle">20 Links · 5 Themes · CSS Magic</p>
+        <p class="subtitle">17 Repositories · 5 Themes · CSS Magic</p>
         <div class="divider"></div>
         <span class="theme-badge" id="themeBadge">Midnight Neon</span>
     </header>
 
-    <!-- Grid of 20 Links -->
+    <!-- Grid of Links (17 displayed, 3 future commented out) -->
     <div class="grid-container" id="gridContainer">
-        <!-- 20 link cards will be generated here -->
+        <!-- 17 link cards will be generated here -->
     </div>
 
     <!-- Footer -->
@@ -687,26 +686,60 @@
     <script>
         (function() {
             // ============================================
-            // CONFIGURATION SECTION
+            // CONFIGURATION SECTION – EDIT HERE
             // ============================================
-            // 👇 EDIT HERE: Paste your links and change the names.
+            // Add your repositories below.
             // Each entry in LINK_NAMES corresponds to the same index in LINK_URLS.
-            // For example: LINK_NAMES[0] = 'GitHub', LINK_URLS[0] = 'https://github.com/yourname'
-            // You can change all 20 to whatever you like. The grid will update automatically.
+            // To add a new repo, uncomment the lines at the end and fill in the details.
+            // The grid will automatically update to show exactly the number of entries.
+
             const LINK_NAMES = [
-                'Portfolio', 'GitHub', 'LinkedIn', 'Twitter / X', 'Instagram',
-                'YouTube', 'Medium', 'Dev.to', 'CodePen', 'Dribbble',
-                'Behance', 'Figma', 'Notion', 'Resume', 'Blog',
-                'Projects', 'Contact', 'About', 'Services', 'Shop'
+                'ATT',                        // 1
+                'ntlas',                      // 2
+                'PC.MC',                      // 3
+                'PIC_MC',                     // 4
+                'cabinet-isi-2',              // 5
+                'BM_88',                      // 6
+                'RESTAU-ISI',                 // 7
+                '0-click',                    // 8
+                'DOCTOOLS',                   // 9
+                'MP88',                       // 10
+                'TFT-MC',                     // 11
+                'STYLE_88',                   // 12
+                'SM_88',                      // 13
+                'Data_MC',                    // 14
+                'WSR88',                      // 15
+                'ALL-IN',                     // 16
+                'REPO 17',                    // 17 (add your real name)
+                // Uncomment the following lines and replace with your future repos:
+                // 'REPO 18',                 // 18
+                // 'REPO 19',                 // 19
+                // 'REPO 20',                 // 20
             ];
 
             const LINK_URLS = [
-                '#', '#', '#', '#', '#',
-                '#', '#', '#', '#', '#',
-                '#', '#', '#', '#', '#',
-                '#', '#', '#', '#', '#'
+                'https://att-mc88.streamlit.app/',            // 1
+                'https://mohamed005cheikh-rgb.github.io/ntlas/', // 2
+                'https://mohamed005cheikh-rgb.github.io/PC.MC/', // 3
+                'https://mohamed005cheikh-rgb.github.io/PIC_MC/', // 4
+                'https://mohamed005cheikh-rgb.github.io/cabinet-isi-2/', // 5
+                'https://mohamed005cheikh-rgb.github.io/BM_88/', // 6
+                'https://mohamed005cheikh-rgb.github.io/RESTAU-ISI/', // 7
+                'https://mohamed005cheikh-rgb.github.io/0-click/', // 8
+                'https://mohamed005cheikh-rgb.github.io/DOCTOOLS/', // 9
+                'https://mohamed005cheikh-rgb.github.io/MP88/', // 10
+                'https://mohamed005cheikh-rgb.github.io/TFT-MC/', // 11
+                'https://mohamed005cheikh-rgb.github.io/STYLE_88/', // 12
+                'https://mohamed005cheikh-rgb.github.io/SM_88/', // 13
+                'https://mohamed005cheikh-rgb.github.io/Data_MC/', // 14
+                'https://mohamed005cheikh-rgb.github.io/WSR88/', // 15
+                'https://mohamed005cheikh-rgb.github.io/ALL-IN/', // 16
+                'https://mohamed005cheikh-rgb.github.io/REPO17', // 17 (add real URL)
+                // Uncomment the following lines and replace with your future repos:
+                // 'https://your-repo-18-url.com',            // 18
+                // 'https://your-repo-19-url.com',            // 19
+                // 'https://your-repo-20-url.com',            // 20
             ];
-            // Replace '#' with your actual links, e.g. 'https://example.com'
             // ============================================
 
             const THEMES = [
@@ -717,7 +750,7 @@
                 { id: 'cyberpunk', label: 'Cyberpunk' },
             ];
 
-            const PLACEHOLDER_TEXT = 'Paste your link here';
+            const PLACEHOLDER_TEXT = 'Visit repository';
 
             let currentThemeIndex = 0;
             let transitionTimeout = null;
@@ -733,18 +766,20 @@
             const themeDots = themeSwitcher.querySelectorAll('.theme-dot');
 
             // ============================================
-            // BUILD 20 LINK CARDS
+            // BUILD LINK CARDS (dynamic based on arrays)
             // ============================================
             function buildLinkCards() {
                 const fragment = document.createDocumentFragment();
-                for (let i = 0; i < 20; i++) {
+                const totalLinks = LINK_NAMES.length; // 17 entries
+
+                for (let i = 0; i < totalLinks; i++) {
                     const card = document.createElement('a');
                     card.className = 'link-card';
                     card.href = LINK_URLS[i] || '#';
                     card.setAttribute('data-index', i);
-                    card.setAttribute('aria-label', `Link placeholder ${i + 1}`);
+                    card.setAttribute('aria-label', `Repository ${i + 1}`);
 
-                    const label = LINK_NAMES[i] || `Link ${i + 1}`;
+                    const label = LINK_NAMES[i] || `Repo ${i + 1}`;
 
                     card.innerHTML = `
                         <span class="link-number">${String(i + 1).padStart(2, '0')}</span>
@@ -756,11 +791,10 @@
                         <span class="accent-line"></span>
                     `;
 
-                    // Allow click to navigate if link is not '#'
+                    // Allow click to navigate; if link is '#' placeholder, prevent default
                     card.addEventListener('click', (e) => {
                         if (card.href === '#' || card.href.endsWith('#')) {
                             e.preventDefault();
-                            // Subtle feedback animation
                             card.style.transform = 'scale(0.96)';
                             setTimeout(() => {
                                 card.style.transform = '';
@@ -873,15 +907,15 @@
             // ============================================
             buildLinkCards();
 
-            // Set initial theme (midnight = default, no data-theme)
+            // Set initial theme (midnight = default)
             themeBadge.textContent = THEMES[0].label;
             themeDots[0].classList.add('active');
 
             // ============================================
-            // CONSOLE WELCOME (no emojis)
+            // CONSOLE WELCOME
             // ============================================
-            console.log('CSS Theater');
-            console.log('20 Links, 5 Themes, Pure CSS Magic');
+            console.log('MOHAMED/CHEIKH REPOSITORIES');
+            console.log('17 repos · 5 themes · Pure CSS Magic');
             console.log('Shortcuts: [Ctrl+1..5] switch theme | [T] cycle theme | [Shift+Arrow] cycle');
         })();
     </script>
