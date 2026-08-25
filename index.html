@@ -3,209 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOHAMED / CHEIKH  | MC</title>
+    <title>MOHAMED / CHEIKH || by MC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* ============================================
-           GLASSMORPHISM THEMES — iOS INSPIRED
+           GLASSMORPHISM THEMES — 4 PREMIUM PALETTES
            ============================================ */
         :root {
-            /* Midnight Glass */
-            --bg-primary: #08080f;
-            --bg-secondary: #0e0e18;
-            --bg-card: rgba(20, 20, 30, 0.65);
-            --bg-card-hover: rgba(25, 25, 40, 0.8);
-            --text-primary: #f0f0f8;
-            --text-secondary: #9a9ab5;
-            --text-muted: #5a5a75;
-            --accent-1: #a855f7;
-            --accent-1-glow: rgba(168, 85, 247, 0.35);
-            --accent-2: #06b6d4;
-            --accent-2-glow: rgba(6, 182, 212, 0.35);
-            --accent-3: #f43f5e;
-            --border-color: rgba(255, 255, 255, 0.12);
-            --border-hover: rgba(168, 85, 247, 0.5);
-            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
-            --shadow-card-hover: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 30px rgba(168, 85, 247, 0.15);
-            --header-gradient: linear-gradient(135deg, #c084fc 0%, #818cf8 25%, #06b6d4 50%, #34d399 75%, #fbbf24 100%);
-            --button-bg: linear-gradient(135deg, #a855f7, #06b6d4);
-            --button-text: #ffffff;
-            --font-heading: 'Playfair Display', Georgia, serif;
-            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-            --font-mono: 'JetBrains Mono', monospace;
-            --card-visual-bg: rgba(255, 255, 255, 0.03);
-            --touch-line-gradient: linear-gradient(90deg, #a855f7, #06b6d4, #34d399, #fbbf24, #f43f5e);
-            --glass-bg: rgba(20, 20, 30, 0.5);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --overlay-pattern: radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.04) 0%, transparent 50%),
-            radial-gradient(circle at 80% 50%, rgba(6, 182, 212, 0.04) 0%, transparent 50%);
-            --scrollbar-track: #0e0e18;
-            --scrollbar-thumb: #2a2a3e;
-            --badge-bg: rgba(168, 85, 247, 0.1);
-            --badge-text: #c084fc;
-            --blur-amount: 24px;
-            --saturation: 180%;
-        }
-
-        /* Frosted Pearl Glass */
-        [data-theme="frosted"] {
+            /* Frosted Pearl Glass (Default) */
             --bg-primary: #f5f3f0;
             --bg-secondary: #ebe8e3;
-            --bg-card: rgba(255, 255, 255, 0.6);
-            --bg-card-hover: rgba(255, 255, 255, 0.8);
+            --bg-card: rgba(255, 255, 255, 0.55);
+            --bg-card-hover: rgba(255, 255, 255, 0.75);
             --text-primary: #1a1a2e;
             --text-secondary: #5a5a6e;
             --text-muted: #9a9aaa;
             --accent-1: #8b5cf6;
-            --accent-1-glow: rgba(139, 92, 246, 0.25);
+            --accent-1-glow: rgba(139, 92, 246, 0.2);
             --accent-2: #ec4899;
-            --accent-2-glow: rgba(236, 72, 153, 0.25);
+            --accent-2-glow: rgba(236, 72, 153, 0.2);
             --accent-3: #3b82f6;
             --border-color: rgba(139, 92, 246, 0.15);
             --border-hover: rgba(139, 92, 246, 0.35);
-            --shadow-card: 0 15px 30px rgba(0, 0, 0, 0.06), 0 3px 8px rgba(0, 0, 0, 0.04);
-            --shadow-card-hover: 0 25px 50px rgba(0, 0, 0, 0.1), 0 0 30px rgba(139, 92, 246, 0.08);
-            --header-gradient: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 30%, #ec4899 60%, #3b82f6 100%);
+            --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.03);
+            --shadow-card-hover: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 25px rgba(139, 92, 246, 0.06);
+            --header-gradient: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 35%, #ec4899 65%, #3b82f6 100%);
             --button-bg: linear-gradient(135deg, #8b5cf6, #ec4899);
             --button-text: #ffffff;
+            --font-heading: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Manrope', system-ui, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
             --card-visual-bg: rgba(241, 240, 238, 0.5);
-            --touch-line-gradient: linear-gradient(90deg, #8b5cf6, #ec4899, #3b82f6, #8b5cf6);
             --glass-bg: rgba(255, 255, 255, 0.4);
             --glass-border: rgba(255, 255, 255, 0.6);
-            --overlay-pattern: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+            --overlay-pattern: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
             --scrollbar-track: #e8e6e2;
             --scrollbar-thumb: #c5c0b8;
             --badge-bg: rgba(139, 92, 246, 0.1);
             --badge-text: #6d28d9;
-        }
-
-        /* Neo Brutalist Glass */
-        [data-theme="brutalist"] {
-            --bg-primary: #f0ebe3;
-            --bg-secondary: #e8e0d6;
-            --bg-card: rgba(255, 255, 255, 0.75);
-            --bg-card-hover: rgba(255, 255, 255, 0.9);
-            --text-primary: #111111;
-            --text-secondary: #444444;
-            --text-muted: #888888;
-            --accent-1: #ff3d00;
-            --accent-1-glow: rgba(255, 61, 0, 0.2);
-            --accent-2: #0066ff;
-            --accent-2-glow: rgba(0, 102, 255, 0.2);
-            --accent-3: #00e676;
-            --border-color: rgba(17, 17, 17, 0.2);
-            --border-hover: #ff3d00;
-            --shadow-card: 8px 8px 0px rgba(17, 17, 17, 0.2);
-            --shadow-card-hover: 12px 12px 0px #ff3d00, 16px 16px 0px rgba(17, 17, 17, 0.5);
-            --header-gradient: linear-gradient(135deg, #111111, #111111);
-            --button-bg: #ff3d00;
-            --button-text: #ffffff;
-            --card-visual-bg: rgba(240, 235, 227, 0.5);
-            --touch-line-gradient: linear-gradient(90deg, #ff3d00, #0066ff, #00e676, #ff3d00);
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(17, 17, 17, 0.2);
-            --overlay-pattern: none;
-            --scrollbar-track: #e8e0d6;
-            --scrollbar-thumb: #111111;
-            --badge-bg: rgba(17, 17, 17, 0.8);
-            --badge-text: #ffffff;
+            --blur-amount: 28px;
+            --saturation: 160%;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Royal Gold Glass */
         [data-theme="elegant"] {
             --bg-primary: #faf8f4;
             --bg-secondary: #f0ece6;
-            --bg-card: rgba(255, 255, 255, 0.55);
-            --bg-card-hover: rgba(255, 255, 255, 0.8);
+            --bg-card: rgba(255, 255, 255, 0.65);
+            --bg-card-hover: rgba(255, 255, 255, 0.85);
             --text-primary: #1c1917;
             --text-secondary: #57534e;
             --text-muted: #a8a29e;
             --accent-1: #c4a265;
-            --accent-1-glow: rgba(196, 162, 101, 0.3);
+            --accent-1-glow: rgba(196, 162, 101, 0.25);
             --accent-2: #8b7355;
-            --accent-2-glow: rgba(139, 115, 85, 0.25);
+            --accent-2-glow: rgba(139, 115, 85, 0.2);
             --accent-3: #a67c52;
-            --border-color: rgba(232, 224, 213, 0.8);
-            --border-hover: #c4a265;
-            --shadow-card: 0 20px 40px rgba(139, 115, 85, 0.08), 0 4px 10px rgba(139, 115, 85, 0.05);
-            --shadow-card-hover: 0 30px 60px rgba(139, 115, 85, 0.14), 0 0 35px rgba(196, 162, 101, 0.12);
+            --border-color: rgba(196, 162, 101, 0.2);
+            --border-hover: rgba(196, 162, 101, 0.45);
+            --shadow-card: 0 15px 35px rgba(139, 115, 85, 0.08), 0 3px 10px rgba(139, 115, 85, 0.05);
+            --shadow-card-hover: 0 25px 55px rgba(139, 115, 85, 0.14), 0 0 30px rgba(196, 162, 101, 0.1);
             --header-gradient: linear-gradient(135deg, #1c1917 0%, #57534e 40%, #8b7355 70%, #c4a265 100%);
             --button-bg: linear-gradient(135deg, #c4a265, #8b7355);
             --button-text: #ffffff;
             --card-visual-bg: rgba(253, 251, 247, 0.5);
-            --touch-line-gradient: linear-gradient(90deg, #c4a265, #e6c594, #8b7355, #c4a265);
             --glass-bg: rgba(255, 255, 255, 0.5);
             --glass-border: rgba(196, 162, 101, 0.3);
-            --overlay-pattern: radial-gradient(circle at 15% 50%, rgba(196, 162, 101, 0.06) 0%, transparent 50%),
-            radial-gradient(circle at 85% 50%, rgba(139, 115, 85, 0.06) 0%, transparent 50%);
+            --overlay-pattern: radial-gradient(circle at 15% 50%, rgba(196, 162, 101, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 85% 50%, rgba(139, 115, 85, 0.05) 0%, transparent 50%);
             --scrollbar-track: #f0ece6;
             --scrollbar-thumb: #c4a265;
             --badge-bg: rgba(196, 162, 101, 0.12);
             --badge-text: #8b7355;
         }
 
-        /* Cyberpunk Neon Glass */
-        [data-theme="cyberpunk"] {
-            --bg-primary: #0a0010;
-            --bg-secondary: #12001a;
-            --bg-card: rgba(24, 0, 37, 0.7);
-            --bg-card-hover: rgba(34, 0, 56, 0.85);
-            --text-primary: #00f0ff;
-            --text-secondary: #a080c0;
-            --text-muted: #604880;
-            --accent-1: #ff00e6;
-            --accent-1-glow: rgba(255, 0, 230, 0.4);
-            --accent-2: #00f0ff;
-            --accent-2-glow: rgba(0, 240, 255, 0.4);
-            --accent-3: #ffe600;
-            --border-color: rgba(255, 0, 230, 0.25);
-            --border-hover: #ff00e6;
-            --shadow-card: 0 15px 40px rgba(255, 0, 230, 0.2), 0 0 30px rgba(0, 240, 255, 0.1);
-            --shadow-card-hover: 0 25px 60px rgba(255, 0, 230, 0.35), 0 0 60px rgba(0, 240, 255, 0.2);
-            --header-gradient: linear-gradient(90deg, #ff00e6, #00f0ff, #ffe600);
-            --button-bg: linear-gradient(90deg, #ff00e6, #00f0ff);
-            --button-text: #0a0010;
-            --card-visual-bg: rgba(24, 0, 37, 0.5);
-            --touch-line-gradient: linear-gradient(90deg, #ff00e6, #00f0ff, #ffe600, #ff00e6);
-            --glass-bg: rgba(255, 0, 230, 0.05);
-            --glass-border: rgba(255, 0, 230, 0.2);
-            --overlay-pattern: repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(255, 0, 230, 0.02) 30px, rgba(255, 0, 230, 0.02) 31px);
-            --scrollbar-track: #12001a;
-            --scrollbar-thumb: #ff00e6;
-            --badge-bg: rgba(255, 0, 230, 0.15);
-            --badge-text: #ff00e6;
-        }
-
         /* Ocean Deep Glass */
         [data-theme="ocean"] {
             --bg-primary: #020a12;
             --bg-secondary: #06141e;
-            --bg-card: rgba(10, 26, 40, 0.7);
-            --bg-card-hover: rgba(16, 37, 54, 0.85);
+            --bg-card: rgba(10, 26, 40, 0.6);
+            --bg-card-hover: rgba(16, 37, 54, 0.8);
             --text-primary: #e0f0ff;
             --text-secondary: #80a8c8;
             --text-muted: #406080;
             --accent-1: #007fff;
-            --accent-1-glow: rgba(0, 127, 255, 0.35);
+            --accent-1-glow: rgba(0, 127, 255, 0.3);
             --accent-2: #00e5ff;
-            --accent-2-glow: rgba(0, 229, 255, 0.35);
+            --accent-2-glow: rgba(0, 229, 255, 0.3);
             --accent-3: #7000ff;
-            --border-color: rgba(0, 127, 255, 0.2);
-            --border-hover: rgba(0, 229, 255, 0.5);
-            --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 127, 255, 0.1);
-            --shadow-card-hover: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 229, 255, 0.2);
+            --border-color: rgba(0, 127, 255, 0.18);
+            --border-hover: rgba(0, 229, 255, 0.4);
+            --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 127, 255, 0.08);
+            --shadow-card-hover: 0 28px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 229, 255, 0.15);
             --header-gradient: linear-gradient(135deg, #007fff 0%, #00e5ff 50%, #7000ff 100%);
             --button-bg: linear-gradient(135deg, #007fff, #00e5ff);
             --button-text: #ffffff;
             --card-visual-bg: rgba(13, 33, 54, 0.5);
-            --touch-line-gradient: linear-gradient(90deg, #007fff, #00e5ff, #7000ff, #007fff);
             --glass-bg: rgba(0, 127, 255, 0.04);
             --glass-border: rgba(0, 127, 255, 0.15);
-            --overlay-pattern: radial-gradient(circle at 30% 50%, rgba(0, 127, 255, 0.06) 0%, transparent 50%),
-            radial-gradient(circle at 70% 50%, rgba(0, 229, 255, 0.06) 0%, transparent 50%);
+            --overlay-pattern: radial-gradient(circle at 30% 50%, rgba(0, 127, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 70% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
             --scrollbar-track: #06141e;
             --scrollbar-thumb: #1a3a55;
             --badge-bg: rgba(0, 127, 255, 0.12);
@@ -216,29 +117,28 @@
         [data-theme="sunset"] {
             --bg-primary: #140a0c;
             --bg-secondary: #1e1012;
-            --bg-card: rgba(36, 21, 24, 0.7);
-            --bg-card-hover: rgba(48, 26, 30, 0.85);
+            --bg-card: rgba(36, 21, 24, 0.6);
+            --bg-card-hover: rgba(48, 26, 30, 0.8);
             --text-primary: #ffece8;
             --text-secondary: #d4a5a5;
             --text-muted: #906060;
             --accent-1: #ff4757;
-            --accent-1-glow: rgba(255, 71, 87, 0.4);
+            --accent-1-glow: rgba(255, 71, 87, 0.3);
             --accent-2: #ffa502;
-            --accent-2-glow: rgba(255, 165, 2, 0.4);
+            --accent-2-glow: rgba(255, 165, 2, 0.3);
             --accent-3: #ff6b81;
-            --border-color: rgba(255, 71, 87, 0.2);
-            --border-hover: rgba(255, 165, 2, 0.5);
-            --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 71, 87, 0.1);
-            --shadow-card-hover: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 50px rgba(255, 165, 2, 0.18);
+            --border-color: rgba(255, 71, 87, 0.18);
+            --border-hover: rgba(255, 165, 2, 0.4);
+            --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 71, 87, 0.08);
+            --shadow-card-hover: 0 28px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 165, 2, 0.15);
             --header-gradient: linear-gradient(135deg, #ff4757 0%, #ff6b81 30%, #ffa502 70%, #ffca28 100%);
             --button-bg: linear-gradient(135deg, #ff4757, #ffa502);
             --button-text: #ffffff;
-            --card-visual-bg: rgba(255, 71, 87, 0.1);
-            --touch-line-gradient: linear-gradient(90deg, #ff4757, #ffa502, #ffca28, #ff4757);
+            --card-visual-bg: rgba(255, 71, 87, 0.08);
             --glass-bg: rgba(255, 71, 87, 0.04);
             --glass-border: rgba(255, 71, 87, 0.15);
-            --overlay-pattern: radial-gradient(circle at 25% 50%, rgba(255, 71, 87, 0.06) 0%, transparent 50%),
-            radial-gradient(circle at 75% 50%, rgba(255, 165, 2, 0.06) 0%, transparent 50%);
+            --overlay-pattern: radial-gradient(circle at 25% 50%, rgba(255, 71, 87, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 75% 50%, rgba(255, 165, 2, 0.05) 0%, transparent 50%);
             --scrollbar-track: #1e1012;
             --scrollbar-thumb: #5a2a30;
             --badge-bg: rgba(255, 71, 87, 0.12);
@@ -248,9 +148,7 @@
         /* ============================================
            GLOBAL RESET & BASE
            ============================================ */
-        *,
-        *::before,
-        *::after {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -268,39 +166,22 @@
             background: var(--bg-primary);
             color: var(--text-primary);
             min-height: 100vh;
-            transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: background 0.6s var(--transition-smooth), color 0.6s var(--transition-smooth);
             overflow-x: hidden;
             padding-bottom: 40px;
-            position: relative;
             background-image: var(--overlay-pattern);
             background-attachment: fixed;
-            backdrop-filter: blur(0px);
         }
 
-        /* Premium Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--scrollbar-track);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--scrollbar-thumb);
-            border-radius: 3px;
-            transition: background 0.3s ease;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent-1);
-        }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-1); }
 
-        ::selection {
-            background: var(--accent-1);
-            color: #ffffff;
-        }
+        ::selection { background: var(--accent-1); color: #fff; }
 
         /* ============================================
-           THEME SWITCHER — GLASSY PILL
+           THEME SWITCHER — MINIMAL GLASS PILL
            ============================================ */
         .theme-switcher {
             position: fixed;
@@ -309,25 +190,24 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: 50px;
-            padding: 6px 16px 6px 10px;
+            padding: 6px 18px 6px 8px;
             cursor: pointer;
             box-shadow: var(--shadow-card);
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth), border-color 0.3s var(--transition-smooth);
             user-select: none;
             -webkit-tap-highlight-color: transparent;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             color: var(--text-secondary);
             backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
             -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
-            will-change: transform, box-shadow, border-color;
         }
 
         .theme-switcher:hover {
@@ -337,45 +217,41 @@
             color: var(--text-primary);
         }
 
-        .theme-switcher:active {
-            transform: scale(0.94);
-            transition-duration: 0.1s;
-        }
-
         .theme-icon-wrap {
-            width: 38px;
-            height: 38px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             background: var(--button-bg);
-            font-size: 20px;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-size: 18px;
             flex-shrink: 0;
+            transition: transform 0.3s var(--transition-smooth);
+        }
+
+        .theme-switcher:hover .theme-icon-wrap {
+            transform: rotate(12deg);
         }
 
         .theme-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 700;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
             white-space: nowrap;
-            transition: color 0.3s ease;
             color: var(--text-secondary);
+            transition: color 0.3s var(--transition-smooth);
         }
 
-        .theme-switcher:hover .theme-label {
-            color: var(--text-primary);
-        }
+        .theme-switcher:hover .theme-label { color: var(--text-primary); }
 
         /* ============================================
-           HEADER — GLASS HERO
+           HEADER
            ============================================ */
         .header {
             text-align: center;
-            padding: 90px 20px 40px;
-            max-width: 700px;
+            padding: 80px 20px 40px;
+            max-width: 680px;
             margin: 0 auto;
             position: relative;
         }
@@ -386,10 +262,11 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--touch-line-gradient);
+            width: 60px;
+            height: 2px;
+            background: var(--accent-1);
             border-radius: 2px;
+            opacity: 0.5;
         }
 
         .header-badge {
@@ -397,25 +274,24 @@
             background: var(--badge-bg);
             color: var(--badge-text);
             font-family: var(--font-mono);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            padding: 6px 16px;
+            padding: 7px 20px;
             border-radius: 50px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
         }
 
         .header h1 {
-            font-size: clamp(2.4rem, 8vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            line-height: 1.1;
-            margin-bottom: 12px;
+            font-size: clamp(2.2rem, 7vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 10px;
             background: var(--header-gradient);
             -webkit-background-clip: text;
             background-clip: text;
@@ -424,20 +300,13 @@
             font-style: italic;
         }
 
-        [data-theme="brutalist"] .header h1 {
-            -webkit-text-fill-color: #111111;
-            text-shadow: 3px 3px 0px #ff3d00, -2px -2px 0px #0066ff;
-            font-style: normal;
-        }
-
         .header p {
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            letter-spacing: 4px;
+            font-size: 0.72rem;
+            letter-spacing: 3.5px;
             text-transform: uppercase;
             font-family: var(--font-mono);
             font-weight: 500;
-            transition: color 0.3s ease;
         }
 
         /* ============================================
@@ -446,8 +315,8 @@
         .feed-container {
             display: flex;
             flex-direction: column;
-            gap: 24px;
-            max-width: 560px;
+            gap: 20px;
+            max-width: 540px;
             margin: 0 auto;
             padding: 20px 20px 40px;
         }
@@ -458,7 +327,7 @@
         .repo-card {
             position: relative;
             background: var(--bg-card);
-            border-radius: 18px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow-card);
             border: 1px solid var(--border-color);
@@ -467,38 +336,14 @@
             text-decoration: none;
             color: var(--text-primary);
             opacity: 0;
-            will-change: transform, opacity, box-shadow, border-color;
-            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                border-color 0.4s ease,
-                box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                background 0.4s ease;
+            will-change: transform, opacity;
+            transition: transform 0.4s var(--transition-smooth), border-color 0.35s ease, box-shadow 0.4s var(--transition-smooth), background 0.35s ease;
             -webkit-tap-highlight-color: transparent;
             cursor: pointer;
             backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
             -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
         }
 
-        [data-theme="brutalist"] .repo-card {
-            border-radius: 4px;
-            border: 2px solid rgba(17, 17, 17, 0.3);
-            backdrop-filter: blur(12px) saturate(100%);
-        }
-
-        /* Top color line */
-        .repo-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: var(--touch-line-gradient);
-            z-index: 10;
-            transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-            border-radius: 0 0 2px 2px;
-        }
-
-        /* Glow ring on hover */
         .repo-card::after {
             content: '';
             position: absolute;
@@ -506,83 +351,44 @@
             border-radius: inherit;
             pointer-events: none;
             opacity: 0;
-            transition: opacity 0.5s ease;
-            box-shadow: inset 0 0 40px rgba(168, 85, 247, 0.06), inset 0 0 80px rgba(6, 182, 212, 0.04);
+            transition: opacity 0.4s ease;
+            box-shadow: inset 0 0 30px var(--accent-1-glow);
         }
 
         .repo-card:hover::after,
-        .repo-card.active-touch::after {
-            opacity: 1;
-        }
-
-        .repo-card:hover::before,
-        .repo-card.active-touch::before {
-            width: 100%;
-        }
+        .repo-card.active-touch::after { opacity: 1; }
 
         .repo-card:hover,
         .repo-card.active-touch {
-            transform: translateY(-6px) scale(1.01);
+            transform: translateY(-4px);
             border-color: var(--border-hover);
             box-shadow: var(--shadow-card-hover);
             background: var(--bg-card-hover);
         }
 
-        [data-theme="brutalist"] .repo-card:hover,
-        [data-theme="brutalist"] .repo-card.active-touch {
-            transform: translate(-2px, -2px);
-            box-shadow: 12px 12px 0px #ff3d00, 16px 16px 0px rgba(17, 17, 17, 0.5);
-        }
-
-        .repo-card:active {
-            transform: translateY(-2px) scale(0.98);
-            transition-duration: 0.1s;
-        }
-
-        /* Visual banner area (no emoji) */
         .card-visual-banner {
-            height: 70px;
+            height: 50px;
             background: var(--card-visual-bg);
             border-bottom: 1px solid var(--border-color);
-            position: relative;
-            transition: background 0.5s ease, height 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .card-visual-banner::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.04) 50%, transparent 60%);
-            transform: translateX(-100%);
-            transition: transform 0.8s ease;
-        }
-
-        .repo-card:hover .card-visual-banner::after,
-        .repo-card.active-touch .card-visual-banner::after {
-            transform: translateX(100%);
+            transition: background 0.4s ease, height 0.35s var(--transition-smooth);
         }
 
         .repo-card:hover .card-visual-banner,
         .repo-card.active-touch .card-visual-banner {
-            height: 80px;
+            height: 60px;
             background: var(--header-gradient);
-            opacity: 0.85;
+            opacity: 0.7;
         }
 
-        /* Card content */
         .card-content {
-            padding: 22px 24px 20px;
+            padding: 20px 22px 18px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .repo-title {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             line-height: 1.3;
             word-break: break-word;
@@ -592,22 +398,14 @@
         }
 
         .repo-card:hover .repo-title,
-        .repo-card.active-touch .repo-title {
-            color: var(--accent-1);
-        }
+        .repo-card.active-touch .repo-title { color: var(--accent-1); }
 
-        [data-theme="brutalist"] .repo-card:hover .repo-title,
-        [data-theme="brutalist"] .repo-card.active-touch .repo-title {
-            color: #ff3d00;
-        }
-
-        /* Meta row */
         .repo-meta {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             font-family: var(--font-mono);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -615,32 +413,19 @@
         }
 
         .repo-card:hover .repo-meta,
-        .repo-card.active-touch .repo-meta {
-            color: var(--text-secondary);
-        }
+        .repo-card.active-touch .repo-meta { color: var(--text-secondary); }
 
         .repo-meta-dot {
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background: var(--accent-1);
-            animation: pulse-dot 2s infinite;
-            transition: background 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
-        @keyframes pulse-dot {
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.4;
-                transform: scale(0.7);
-            }
-        }
+        .repo-card:hover .repo-meta-dot,
+        .repo-card.active-touch .repo-meta-dot { transform: scale(1.5); }
 
-        /* Action button */
         .repo-action {
             display: inline-flex;
             align-items: center;
@@ -648,90 +433,56 @@
             gap: 8px;
             background: var(--button-bg);
             color: var(--button-text);
-            padding: 13px 20px;
-            border-radius: 50px;
+            padding: 12px 18px;
+            border-radius: 40px;
             font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
-            margin-top: 6px;
-            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
+            margin-top: 4px;
+            transition: transform 0.3s var(--transition-smooth), filter 0.3s ease, box-shadow 0.3s ease;
             font-family: var(--font-body);
             position: relative;
             overflow: hidden;
-        }
-
-        [data-theme="brutalist"] .repo-action {
-            border-radius: 4px;
-            border: 2px solid rgba(17, 17, 17, 0.5);
-            box-shadow: 3px 3px 0px rgba(17, 17, 17, 0.3);
         }
 
         .repo-action::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             transform: translateX(-100%);
-            transition: transform 0.5s ease;
+            transition: transform 0.5s var(--transition-smooth);
         }
 
         .repo-card:hover .repo-action::before,
-        .repo-card.active-touch .repo-action::before {
-            transform: translateX(100%);
-        }
+        .repo-card.active-touch .repo-action::before { transform: translateX(100%); }
 
         .repo-card:hover .repo-action,
         .repo-card.active-touch .repo-action {
-            transform: translateX(6px);
-            filter: brightness(1.08);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            transform: translateX(4px);
+            filter: brightness(1.05);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
         }
 
         .repo-action-arrow {
-            font-size: 1rem;
-            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+            transition: transform 0.3s var(--transition-smooth);
         }
 
         .repo-card:hover .repo-action-arrow,
-        .repo-card.active-touch .repo-action-arrow {
-            transform: translateX(4px);
-        }
+        .repo-card.active-touch .repo-action-arrow { transform: translateX(3px); }
 
         /* ============================================
-           SCROLL ANIMATIONS
+           SCROLL ANIMATIONS — SMOOTH & SUBTLE
            ============================================ */
-        .anim-fade-up {
-            transform: translateY(50px);
-            transition: opacity 0.8s ease,
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .anim-slide-left {
-            transform: translateX(-60px);
-            transition: opacity 0.8s ease,
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .anim-slide-right {
-            transform: translateX(60px);
-            transition: opacity 0.8s ease,
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .anim-zoom {
-            transform: scale(0.88);
-            transition: opacity 0.7s ease,
-                transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .anim-blur {
-            transform: translateY(30px) scale(0.95);
-            filter: blur(12px);
-            transition: opacity 0.8s ease,
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-                filter 0.8s ease;
-        }
+        .anim-fade-up { transform: translateY(35px); transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth); }
+        .anim-slide-left { transform: translateX(-35px); transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth); }
+        .anim-slide-right { transform: translateX(35px); transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth); }
+        .anim-zoom { transform: scale(0.92); transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth); }
 
         .is-visible {
             opacity: 1 !important;
             transform: translate(0) scale(1) !important;
-            filter: blur(0) !important;
         }
 
         /* ============================================
@@ -739,154 +490,69 @@
            ============================================ */
         .footer {
             text-align: center;
-            padding: 32px 20px 16px;
-            font-size: 0.78rem;
+            padding: 28px 20px 14px;
+            font-size: 0.7rem;
             color: var(--text-muted);
             border-top: 1px solid var(--glass-border);
-            max-width: 560px;
+            max-width: 540px;
             margin: 0 auto;
             font-family: var(--font-mono);
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            letter-spacing: 0.8px;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            transition: color 0.3s ease;
         }
         .footer a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             transition: color 0.3s ease;
-            letter-spacing: 0;
         }
-        .footer a:hover {
-            color: var(--accent-1);
-        }
+        .footer a:hover { color: var(--accent-1); }
 
         /* ============================================
            RESPONSIVE
            ============================================ */
         @media (max-width: 600px) {
-            .theme-switcher {
-                top: 12px;
-                right: 12px;
-                padding: 4px 12px 4px 6px;
-                gap: 6px;
-                font-size: 0.65rem;
-            }
-            .theme-icon-wrap {
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
-            .theme-label {
-                font-size: 0.6rem;
-                letter-spacing: 0.5px;
-            }
-            .header {
-                padding: 70px 16px 32px;
-            }
-            .header h1 {
-                font-size: clamp(2rem, 9vw, 3rem);
-            }
-            .header-badge {
-                font-size: 0.6rem;
-                padding: 5px 12px;
-                letter-spacing: 1.5px;
-                margin-bottom: 14px;
-            }
-            .header p {
-                font-size: 0.7rem;
-                letter-spacing: 3px;
-            }
-            .feed-container {
-                padding: 14px 14px 30px;
-                gap: 18px;
-            }
-            .card-visual-banner {
-                height: 55px;
-            }
-            .repo-card:hover .card-visual-banner,
-            .repo-card.active-touch .card-visual-banner {
-                height: 65px;
-            }
-            .card-content {
-                padding: 18px 18px 16px;
-                gap: 10px;
-            }
-            .repo-title {
-                font-size: 1.1rem;
-            }
-            .repo-action {
-                padding: 11px 16px;
-                font-size: 0.78rem;
-                border-radius: 40px;
-            }
-            .repo-meta {
-                font-size: 0.6rem;
-                gap: 8px;
-            }
-            .footer {
-                font-size: 0.68rem;
-                padding: 24px 16px 12px;
-            }
+            .theme-switcher { top: 12px; right: 12px; padding: 4px 12px 4px 6px; gap: 6px; }
+            .theme-icon-wrap { width: 30px; height: 30px; font-size: 15px; }
+            .theme-label { font-size: 0.55rem; letter-spacing: 0.5px; }
+            .header { padding: 60px 14px 30px; }
+            .header h1 { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+            .header-badge { font-size: 0.55rem; padding: 5px 14px; margin-bottom: 14px; }
+            .header p { font-size: 0.6rem; letter-spacing: 2.5px; }
+            .feed-container { padding: 14px 12px 30px; gap: 16px; }
+            .card-visual-banner { height: 40px; }
+            .repo-card:hover .card-visual-banner, .repo-card.active-touch .card-visual-banner { height: 50px; }
+            .card-content { padding: 16px 16px 14px; gap: 8px; }
+            .repo-title { font-size: 1rem; }
+            .repo-action { padding: 10px 14px; font-size: 0.72rem; }
+            .repo-meta { font-size: 0.55rem; gap: 7px; }
+            .footer { font-size: 0.6rem; padding: 20px 14px 10px; }
         }
 
-        @media (min-width: 601px) and (max-width: 900px) {
-            .header h1 {
-                font-size: clamp(2.5rem, 7vw, 3.5rem);
-            }
-            .feed-container {
-                max-width: 600px;
-            }
-            .footer {
-                max-width: 600px;
-            }
-        }
-
-        @media (min-width: 901px) {
-            .feed-container {
-                max-width: 580px;
-            }
-            .footer {
-                max-width: 580px;
-            }
-        }
-
-        /* Reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            html {
-                scroll-behavior: auto;
-            }
-            .repo-card {
-                opacity: 1;
-                transform: none;
-            }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .repo-card { opacity: 1; transform: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Premium Glass Theme Switcher — single 🛎 -->
+    <!-- Theme Switcher — only 🛎 emoji -->
     <div class="theme-switcher" id="themeSwitcher" role="button" tabindex="0" aria-label="Switch theme">
         <div class="theme-icon-wrap">🛎</div>
-        <span class="theme-label" id="themeLabel">Midnight Glass</span>
+        <span class="theme-label" id="themeLabel">Frosted Pearl</span>
     </div>
 
-    <!-- Header without emoji -->
+    <!-- Header -->
     <header class="header">
         <div class="header-badge">Premium Portfolio</div>
         <h1>Repositories</h1>
         <p>MC88 — Crafted with Precision</p>
     </header>
 
-    <!-- Single Column Feed -->
+    <!-- Feed -->
     <main class="feed-container" id="feedContainer"></main>
 
     <!-- Footer -->
@@ -897,7 +563,7 @@
     <script>
         (function() {
             // ============================================
-            // ALL REPOSITORIES (NO EMOJIS)
+            // ALL REPOSITORIES
             // ============================================
             const REPOSITORIES = [
                 { name: 'pharmacie-MC88-', url: 'https://mohamed005cheikh-rgb.github.io/pharmacie-MC88-/' },
@@ -925,16 +591,13 @@
             ];
 
             const THEMES = [
-                { id: 'midnight', label: 'Midnight Glass' },
                 { id: 'frosted', label: 'Frosted Pearl' },
-                { id: 'brutalist', label: 'Neo Brutalist' },
                 { id: 'elegant', label: 'Royal Gold' },
-                { id: 'cyberpunk', label: 'Cyberpunk' },
                 { id: 'ocean', label: 'Ocean Deep' },
                 { id: 'sunset', label: 'Sunset Ember' }
             ];
 
-            const ANIMATIONS = ['anim-slide-right', 'anim-slide-left', 'anim-zoom', 'anim-fade-up', 'anim-blur'];
+            const ANIMATIONS = ['anim-fade-up', 'anim-slide-left', 'anim-slide-right', 'anim-zoom'];
 
             let currentThemeIndex = 0;
             const body = document.body;
@@ -943,16 +606,7 @@
             const themeLabel = document.getElementById('themeLabel');
 
             // ============================================
-            // VIBRATION HELPER
-            // ============================================
-            function triggerVibration(pattern) {
-                if ('vibrate' in navigator) {
-                    navigator.vibrate(pattern || 35);
-                }
-            }
-
-            // ============================================
-            // BUILD FEED
+            // BUILD FEED — NO VIBRATION, SMOOTH RENDER
             // ============================================
             function buildFeed() {
                 feedContainer.innerHTML = '';
@@ -968,9 +622,6 @@
                     card.rel = "noopener noreferrer";
                     card.setAttribute('aria-label', `Open ${repo.name} repository`);
 
-                    // Stagger delay for premium feel
-                    card.style.transitionDelay = `${(index % 5) * 40}ms`;
-
                     card.innerHTML = `
                         <div class="card-visual-banner"></div>
                         <div class="card-content">
@@ -982,85 +633,57 @@
                             </div>
                             <h2 class="repo-title">${repo.name}</h2>
                             <div class="repo-action">
-                                <span>Explore Project</span>
+                                <span>Explore</span>
                                 <span class="repo-action-arrow">→</span>
                             </div>
                         </div>
                     `;
 
-                    // Touch and Vibration Event Listeners
-                    card.addEventListener('touchstart', function(e) {
+                    // Touch feedback class only (no vibration)
+                    card.addEventListener('touchstart', function() {
                         this.classList.add('active-touch');
-                        triggerVibration(25);
                     }, { passive: true });
 
                     card.addEventListener('touchend', function() {
-                        setTimeout(() => this.classList.remove('active-touch'), 300);
-                    });
-
-                    card.addEventListener('click', function() {
-                        triggerVibration([15, 30, 15]);
-                    });
-
-                    // Hover sound-like feedback via animation
-                    card.addEventListener('mouseenter', function() {
-                        this.style.transitionDelay = '0ms';
+                        setTimeout(() => this.classList.remove('active-touch'), 250);
                     });
 
                     fragment.appendChild(card);
                 });
 
                 feedContainer.appendChild(fragment);
-
-                // Reset transition delays after initial render for hover
-                requestAnimationFrame(() => {
-                    document.querySelectorAll('.repo-card').forEach(card => {
-                        card.style.transitionDelay = '0ms';
-                    });
-                });
-
                 setupObserver();
             }
 
             // ============================================
-            // SCROLL OBSERVER — INTERSECTION OBSERVER
+            // SCROLL OBSERVER — EFFICIENT
             // ============================================
             function setupObserver() {
                 const cards = document.querySelectorAll('.repo-card');
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            // Slight stagger for cards entering viewport
-                            const index = Array.from(cards).indexOf(entry.target);
-                            entry.target.style.transitionDelay = `${Math.min(index % 3 * 60, 180)}ms`;
                             entry.target.classList.add('is-visible');
                             observer.unobserve(entry.target);
-                            // Cleanup delay after animation
-                            setTimeout(() => {
-                                entry.target.style.transitionDelay = '0ms';
-                            }, 1000);
                         }
                     });
-                }, { threshold: 0.1, rootMargin: '50px 0px' });
+                }, { threshold: 0.08, rootMargin: '40px 0px' });
 
                 cards.forEach(card => observer.observe(card));
             }
 
             // ============================================
-            // THEME SWITCHER
+            // THEME SWITCHER — NO VIBRATION
             // ============================================
             function updateThemeUI() {
-                const theme = THEMES[currentThemeIndex];
-                themeLabel.textContent = theme.label;
-                // Icon stays 🛎 always
+                themeLabel.textContent = THEMES[currentThemeIndex].label;
             }
 
             themeBtn.addEventListener('click', () => {
-                triggerVibration([20, 40, 20]);
                 currentThemeIndex = (currentThemeIndex + 1) % THEMES.length;
                 const themeId = THEMES[currentThemeIndex].id;
 
-                if (themeId === 'midnight') {
+                if (themeId === 'frosted') {
                     body.removeAttribute('data-theme');
                 } else {
                     body.setAttribute('data-theme', themeId);
@@ -1069,7 +692,6 @@
                 updateThemeUI();
             });
 
-            // Keyboard support
             themeBtn.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -1082,19 +704,6 @@
             // ============================================
             updateThemeUI();
             buildFeed();
-
-            // Handle initial cards that may already be in viewport
-            setTimeout(() => {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.05 });
-                document.querySelectorAll('.repo-card:not(.is-visible)').forEach(card => observer.observe(card));
-            }, 100);
         })();
     </script>
 </body>
