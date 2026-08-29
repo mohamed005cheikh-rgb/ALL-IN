@@ -1,710 +1,4252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOHAMED / CHEIKH || by MC</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        /* ============================================
-           GLASSMORPHISM THEMES — 4 PREMIUM PALETTES
-           ============================================ */
-        :root {
-            /* Frosted Pearl Glass (Default) */
-            --bg-primary: #f5f3f0;
-            --bg-secondary: #ebe8e3;
-            --bg-card: rgba(255, 255, 255, 0.55);
-            --bg-card-hover: rgba(255, 255, 255, 0.75);
-            --text-primary: #1a1a2e;
-            --text-secondary: #5a5a6e;
-            --text-muted: #9a9aaa;
-            --accent-1: #8b5cf6;
-            --accent-1-glow: rgba(139, 92, 246, 0.2);
-            --accent-2: #ec4899;
-            --accent-2-glow: rgba(236, 72, 153, 0.2);
-            --accent-3: #3b82f6;
-            --border-color: rgba(139, 92, 246, 0.15);
-            --border-hover: rgba(139, 92, 246, 0.35);
-            --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.03);
-            --shadow-card-hover: 0 20px 45px rgba(0, 0, 0, 0.08), 0 0 25px rgba(139, 92, 246, 0.06);
-            --header-gradient: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 35%, #ec4899 65%, #3b82f6 100%);
-            --button-bg: linear-gradient(135deg, #8b5cf6, #ec4899);
-            --button-text: #ffffff;
-            --font-heading: 'Cormorant Garamond', Georgia, serif;
-            --font-body: 'Manrope', system-ui, sans-serif;
-            --font-mono: 'IBM Plex Mono', monospace;
-            --card-visual-bg: rgba(241, 240, 238, 0.5);
-            --glass-bg: rgba(255, 255, 255, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --overlay-pattern: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
-            radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
-            --scrollbar-track: #e8e6e2;
-            --scrollbar-thumb: #c5c0b8;
-            --badge-bg: rgba(139, 92, 246, 0.1);
-            --badge-text: #6d28d9;
-            --blur-amount: 28px;
-            --saturation: 160%;
-            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* Royal Gold Glass */
-        [data-theme="elegant"] {
-            --bg-primary: #faf8f4;
-            --bg-secondary: #f0ece6;
-            --bg-card: rgba(255, 255, 255, 0.65);
-            --bg-card-hover: rgba(255, 255, 255, 0.85);
-            --text-primary: #1c1917;
-            --text-secondary: #57534e;
-            --text-muted: #a8a29e;
-            --accent-1: #c4a265;
-            --accent-1-glow: rgba(196, 162, 101, 0.25);
-            --accent-2: #8b7355;
-            --accent-2-glow: rgba(139, 115, 85, 0.2);
-            --accent-3: #a67c52;
-            --border-color: rgba(196, 162, 101, 0.2);
-            --border-hover: rgba(196, 162, 101, 0.45);
-            --shadow-card: 0 15px 35px rgba(139, 115, 85, 0.08), 0 3px 10px rgba(139, 115, 85, 0.05);
-            --shadow-card-hover: 0 25px 55px rgba(139, 115, 85, 0.14), 0 0 30px rgba(196, 162, 101, 0.1);
-            --header-gradient: linear-gradient(135deg, #1c1917 0%, #57534e 40%, #8b7355 70%, #c4a265 100%);
-            --button-bg: linear-gradient(135deg, #c4a265, #8b7355);
-            --button-text: #ffffff;
-            --card-visual-bg: rgba(253, 251, 247, 0.5);
-            --glass-bg: rgba(255, 255, 255, 0.5);
-            --glass-border: rgba(196, 162, 101, 0.3);
-            --overlay-pattern: radial-gradient(circle at 15% 50%, rgba(196, 162, 101, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 85% 50%, rgba(139, 115, 85, 0.05) 0%, transparent 50%);
-            --scrollbar-track: #f0ece6;
-            --scrollbar-thumb: #c4a265;
-            --badge-bg: rgba(196, 162, 101, 0.12);
-            --badge-text: #8b7355;
-        }
+<title>MC88 — Digital Universe</title>
 
-        /* Ocean Deep Glass */
-        [data-theme="ocean"] {
-            --bg-primary: #020a12;
-            --bg-secondary: #06141e;
-            --bg-card: rgba(10, 26, 40, 0.6);
-            --bg-card-hover: rgba(16, 37, 54, 0.8);
-            --text-primary: #e0f0ff;
-            --text-secondary: #80a8c8;
-            --text-muted: #406080;
-            --accent-1: #007fff;
-            --accent-1-glow: rgba(0, 127, 255, 0.3);
-            --accent-2: #00e5ff;
-            --accent-2-glow: rgba(0, 229, 255, 0.3);
-            --accent-3: #7000ff;
-            --border-color: rgba(0, 127, 255, 0.18);
-            --border-hover: rgba(0, 229, 255, 0.4);
-            --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 127, 255, 0.08);
-            --shadow-card-hover: 0 28px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 229, 255, 0.15);
-            --header-gradient: linear-gradient(135deg, #007fff 0%, #00e5ff 50%, #7000ff 100%);
-            --button-bg: linear-gradient(135deg, #007fff, #00e5ff);
-            --button-text: #ffffff;
-            --card-visual-bg: rgba(13, 33, 54, 0.5);
-            --glass-bg: rgba(0, 127, 255, 0.04);
-            --glass-border: rgba(0, 127, 255, 0.15);
-            --overlay-pattern: radial-gradient(circle at 30% 50%, rgba(0, 127, 255, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 70% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 50%);
-            --scrollbar-track: #06141e;
-            --scrollbar-thumb: #1a3a55;
-            --badge-bg: rgba(0, 127, 255, 0.12);
-            --badge-text: #00e5ff;
-        }
+<meta name="description"
+      content="MOHAMED / CHEIKH — MC88 Digital Portfolio, Projects & Creative Work">
 
-        /* Sunset Ember Glass */
-        [data-theme="sunset"] {
-            --bg-primary: #140a0c;
-            --bg-secondary: #1e1012;
-            --bg-card: rgba(36, 21, 24, 0.6);
-            --bg-card-hover: rgba(48, 26, 30, 0.8);
-            --text-primary: #ffece8;
-            --text-secondary: #d4a5a5;
-            --text-muted: #906060;
-            --accent-1: #ff4757;
-            --accent-1-glow: rgba(255, 71, 87, 0.3);
-            --accent-2: #ffa502;
-            --accent-2-glow: rgba(255, 165, 2, 0.3);
-            --accent-3: #ff6b81;
-            --border-color: rgba(255, 71, 87, 0.18);
-            --border-hover: rgba(255, 165, 2, 0.4);
-            --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 71, 87, 0.08);
-            --shadow-card-hover: 0 28px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(255, 165, 2, 0.15);
-            --header-gradient: linear-gradient(135deg, #ff4757 0%, #ff6b81 30%, #ffa502 70%, #ffca28 100%);
-            --button-bg: linear-gradient(135deg, #ff4757, #ffa502);
-            --button-text: #ffffff;
-            --card-visual-bg: rgba(255, 71, 87, 0.08);
-            --glass-bg: rgba(255, 71, 87, 0.04);
-            --glass-border: rgba(255, 71, 87, 0.15);
-            --overlay-pattern: radial-gradient(circle at 25% 50%, rgba(255, 71, 87, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 75% 50%, rgba(255, 165, 2, 0.05) 0%, transparent 50%);
-            --scrollbar-track: #1e1012;
-            --scrollbar-thumb: #5a2a30;
-            --badge-bg: rgba(255, 71, 87, 0.12);
-            --badge-text: #ffa502;
-        }
+<meta name="author" content="Mohamed Cheikh — MC88">
 
-        /* ============================================
-           GLOBAL RESET & BASE
-           ============================================ */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!-- =========================================================
+     GOOGLE FONTS
+     ---------------------------------------------------------
+     The themes use different font combinations.
+     ========================================================= -->
 
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        body {
-            font-family: var(--font-body);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            min-height: 100vh;
-            transition: background 0.6s var(--transition-smooth), color 0.6s var(--transition-smooth);
-            overflow-x: hidden;
-            padding-bottom: 40px;
-            background-image: var(--overlay-pattern);
-            background-attachment: fixed;
-        }
+<link href="https://fonts.googleapis.com/css2?
+family=Space+Grotesk:wght@300;400;500;600;700&
+family=DM+Sans:wght@300;400;500;600;700&
+family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&
+family=IBM+Plex+Mono:wght@400;500;600&
+family=Syne:wght@400;500;600;700;800&
+display=swap"
+rel="stylesheet">
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
-        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--accent-1); }
+<!-- =========================================================
+     ICONS
+     ========================================================= -->
 
-        ::selection { background: var(--accent-1); color: #fff; }
+<script src="https://unpkg.com/lucide@latest"></script>
 
-        /* ============================================
-           THEME SWITCHER — MINIMAL GLASS PILL
-           ============================================ */
-        .theme-switcher {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            padding: 6px 18px 6px 8px;
-            cursor: pointer;
-            box-shadow: var(--shadow-card);
-            transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s var(--transition-smooth), border-color 0.3s var(--transition-smooth);
-            user-select: none;
-            -webkit-tap-highlight-color: transparent;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
-            -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
-        }
 
-        .theme-switcher:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-card-hover);
-            color: var(--text-primary);
-        }
+<style>
 
-        .theme-icon-wrap {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--button-bg);
-            font-size: 18px;
-            flex-shrink: 0;
-            transition: transform 0.3s var(--transition-smooth);
-        }
+/* ============================================================
+   MC88 DIGITAL UNIVERSE
+   ------------------------------------------------------------
+   SINGLE FILE PORTFOLIO
+   ============================================================ */
 
-        .theme-switcher:hover .theme-icon-wrap {
-            transform: rotate(12deg);
-        }
 
-        .theme-label {
-            font-size: 0.65rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            white-space: nowrap;
-            color: var(--text-secondary);
-            transition: color 0.3s var(--transition-smooth);
-        }
+/* ============================================================
+   01 — ROOT VARIABLES
+   ============================================================ */
 
-        .theme-switcher:hover .theme-label { color: var(--text-primary); }
+:root {
 
-        /* ============================================
-           HEADER
-           ============================================ */
-        .header {
-            text-align: center;
-            padding: 80px 20px 40px;
-            max-width: 680px;
-            margin: 0 auto;
-            position: relative;
-        }
+    --bg: #050507;
+    --surface: #0c0c11;
+    --surface-2: #111118;
 
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background: var(--accent-1);
-            border-radius: 2px;
-            opacity: 0.5;
-        }
+    --text: #f5f5f7;
+    --text-soft: #a6a6b2;
+    --text-muted: #666673;
 
-        .header-badge {
-            display: inline-block;
-            background: var(--badge-bg);
-            color: var(--badge-text);
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            padding: 7px 20px;
-            border-radius: 50px;
-            margin-bottom: 18px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
+    --accent: #7c5cff;
+    --accent-2: #00e5ff;
+    --accent-3: #ff4ecd;
 
-        .header h1 {
-            font-size: clamp(2.2rem, 7vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.15;
-            margin-bottom: 10px;
-            background: var(--header-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: var(--font-heading);
-            font-style: italic;
-        }
+    --border: rgba(255,255,255,.10);
 
-        .header p {
-            color: var(--text-secondary);
-            font-size: 0.72rem;
-            letter-spacing: 3.5px;
-            text-transform: uppercase;
-            font-family: var(--font-mono);
-            font-weight: 500;
-        }
+    --radius-xl: 30px;
+    --radius-lg: 22px;
+    --radius-md: 16px;
 
-        /* ============================================
-           FEED CONTAINER
-           ============================================ */
-        .feed-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 540px;
-            margin: 0 auto;
-            padding: 20px 20px 40px;
-        }
+    --shadow:
+        0 25px 80px rgba(0,0,0,.35);
 
-        /* ============================================
-           GLASSMORPHIC REPO CARD
-           ============================================ */
-        .repo-card {
-            position: relative;
-            background: var(--bg-card);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: var(--text-primary);
-            opacity: 0;
-            will-change: transform, opacity;
-            transition: transform 0.4s var(--transition-smooth), border-color 0.35s ease, box-shadow 0.4s var(--transition-smooth), background 0.35s ease;
-            -webkit-tap-highlight-color: transparent;
-            cursor: pointer;
-            backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
-            -webkit-backdrop-filter: blur(var(--blur-amount)) saturate(var(--saturation));
-        }
+    --ease:
+        cubic-bezier(.22,1,.36,1);
 
-        .repo-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            box-shadow: inset 0 0 30px var(--accent-1-glow);
-        }
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
 
-        .repo-card:hover::after,
-        .repo-card.active-touch::after { opacity: 1; }
+    --transition: .6s var(--ease);
+}
 
-        .repo-card:hover,
-        .repo-card.active-touch {
-            transform: translateY(-4px);
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-card-hover);
-            background: var(--bg-card-hover);
-        }
 
-        .card-visual-banner {
-            height: 50px;
-            background: var(--card-visual-bg);
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.4s ease, height 0.35s var(--transition-smooth);
-        }
+/* ============================================================
+   02 — THEME: NEON
+   Futuristic / developer / cyber
+   ============================================================ */
 
-        .repo-card:hover .card-visual-banner,
-        .repo-card.active-touch .card-visual-banner {
-            height: 60px;
-            background: var(--header-gradient);
-            opacity: 0.7;
-        }
+body.theme-neon {
 
-        .card-content {
-            padding: 20px 22px 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    --bg: #03040a;
+    --surface: #080b16;
+    --surface-2: #0d1122;
 
-        .repo-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            line-height: 1.3;
-            word-break: break-word;
-            font-family: var(--font-body);
-            letter-spacing: -0.3px;
-            transition: color 0.3s ease;
-        }
+    --text: #f7f9ff;
+    --text-soft: #98a3bd;
+    --text-muted: #59647b;
 
-        .repo-card:hover .repo-title,
-        .repo-card.active-touch .repo-title { color: var(--accent-1); }
+    --accent: #705cff;
+    --accent-2: #00d9ff;
+    --accent-3: #ff39d7;
 
-        .repo-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
+    --font-display: "Space Grotesk", sans-serif;
+    --font-body: "DM Sans", sans-serif;
 
-        .repo-card:hover .repo-meta,
-        .repo-card.active-touch .repo-meta { color: var(--text-secondary); }
+    --theme-speed: .7s;
+}
 
-        .repo-meta-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--accent-1);
-            transition: transform 0.3s ease;
-        }
 
-        .repo-card:hover .repo-meta-dot,
-        .repo-card.active-touch .repo-meta-dot { transform: scale(1.5); }
+/* ============================================================
+   03 — THEME: EDITORIAL
+   Luxury / magazine / university / professional
+   ============================================================ */
 
-        .repo-action {
-            display: inline-flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            background: var(--button-bg);
-            color: var(--button-text);
-            padding: 12px 18px;
-            border-radius: 40px;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.3px;
-            margin-top: 4px;
-            transition: transform 0.3s var(--transition-smooth), filter 0.3s ease, box-shadow 0.3s ease;
-            font-family: var(--font-body);
-            position: relative;
-            overflow: hidden;
-        }
+body.theme-editorial {
 
-        .repo-action::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateX(-100%);
-            transition: transform 0.5s var(--transition-smooth);
-        }
+    --bg: #f2eee7;
+    --surface: #faf8f3;
+    --surface-2: #e8e2d7;
 
-        .repo-card:hover .repo-action::before,
-        .repo-card.active-touch .repo-action::before { transform: translateX(100%); }
+    --text: #191714;
+    --text-soft: #655f56;
+    --text-muted: #958e84;
 
-        .repo-card:hover .repo-action,
-        .repo-card.active-touch .repo-action {
-            transform: translateX(4px);
-            filter: brightness(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-        }
+    --accent: #9c6d32;
+    --accent-2: #c99b58;
+    --accent-3: #4c4033;
 
-        .repo-action-arrow {
-            font-size: 0.9rem;
-            transition: transform 0.3s var(--transition-smooth);
-        }
+    --border: rgba(25,23,20,.12);
 
-        .repo-card:hover .repo-action-arrow,
-        .repo-card.active-touch .repo-action-arrow { transform: translateX(3px); }
+    --font-display: "Playfair Display", serif;
+    --font-body: "DM Sans", sans-serif;
 
-        /* ============================================
-           SCROLL ANIMATIONS — SMOOTH & SUBTLE
-           ============================================ */
-        .anim-fade-up { transform: translateY(35px); transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth); }
-        .anim-slide-left { transform: translateX(-35px); transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth); }
-        .anim-slide-right { transform: translateX(35px); transition: opacity 0.7s var(--transition-smooth), transform 0.7s var(--transition-smooth); }
-        .anim-zoom { transform: scale(0.92); transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth); }
+    --theme-speed: 1s;
+}
 
-        .is-visible {
-            opacity: 1 !important;
-            transform: translate(0) scale(1) !important;
-        }
 
-        /* ============================================
-           FOOTER
-           ============================================ */
-        .footer {
-            text-align: center;
-            padding: 28px 20px 14px;
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--glass-border);
-            max-width: 540px;
-            margin: 0 auto;
-            font-family: var(--font-mono);
-            letter-spacing: 0.8px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: color 0.3s ease;
-        }
-        .footer a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        .footer a:hover { color: var(--accent-1); }
+/* ============================================================
+   04 — THEME: AURORA
+   Artistic / experimental / colorful
+   ============================================================ */
 
-        /* ============================================
-           RESPONSIVE
-           ============================================ */
-        @media (max-width: 600px) {
-            .theme-switcher { top: 12px; right: 12px; padding: 4px 12px 4px 6px; gap: 6px; }
-            .theme-icon-wrap { width: 30px; height: 30px; font-size: 15px; }
-            .theme-label { font-size: 0.55rem; letter-spacing: 0.5px; }
-            .header { padding: 60px 14px 30px; }
-            .header h1 { font-size: clamp(1.8rem, 8vw, 2.5rem); }
-            .header-badge { font-size: 0.55rem; padding: 5px 14px; margin-bottom: 14px; }
-            .header p { font-size: 0.6rem; letter-spacing: 2.5px; }
-            .feed-container { padding: 14px 12px 30px; gap: 16px; }
-            .card-visual-banner { height: 40px; }
-            .repo-card:hover .card-visual-banner, .repo-card.active-touch .card-visual-banner { height: 50px; }
-            .card-content { padding: 16px 16px 14px; gap: 8px; }
-            .repo-title { font-size: 1rem; }
-            .repo-action { padding: 10px 14px; font-size: 0.72rem; }
-            .repo-meta { font-size: 0.55rem; gap: 7px; }
-            .footer { font-size: 0.6rem; padding: 20px 14px 10px; }
-        }
+body.theme-aurora {
 
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after { animation: none !important; transition: none !important; }
-            .repo-card { opacity: 1; transform: none; }
-        }
-    </style>
+    --bg: #090713;
+    --surface: #100d1d;
+    --surface-2: #171128;
+
+    --text: #fff9ff;
+    --text-soft: #c0b5ca;
+    --text-muted: #75677f;
+
+    --accent: #ff6b9d;
+    --accent-2: #7c7cff;
+    --accent-3: #45f0c8;
+
+    --font-display: "Syne", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+
+    --theme-speed: 1.2s;
+}
+
+
+/* ============================================================
+   RESET
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--bg);
+    color: var(--text);
+
+    font-family: var(--font-body);
+
+    overflow-x: hidden;
+
+    transition:
+        background var(--theme-speed, .7s) ease,
+        color var(--theme-speed, .7s) ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   CUSTOM CURSOR GLOW
+   ============================================================ */
+
+.cursor-glow {
+
+    position: fixed;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            color-mix(in srgb, var(--accent) 18%, transparent),
+            transparent 70%
+        );
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index: 0;
+
+    opacity: .7;
+
+    transition:
+        background .5s ease;
+}
+
+
+/* ============================================================
+   BACKGROUND
+   ============================================================ */
+
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    overflow: hidden;
+}
+
+.background::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -20%;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            color-mix(in srgb, var(--accent) 18%, transparent),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 25%,
+            color-mix(in srgb, var(--accent-2) 12%, transparent),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 50% 90%,
+            color-mix(in srgb, var(--accent-3) 10%, transparent),
+            transparent 30%
+        );
+
+    filter: blur(60px);
+
+    animation:
+        backgroundFloat 16s ease-in-out infinite alternate;
+}
+
+.background-grid {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: .08;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.12) 1px,
+            transparent 1px
+        );
+
+    background-size: 60px 60px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+}
+
+@keyframes backgroundFloat {
+
+    from {
+        transform: translate(-3%, -2%) scale(1);
+    }
+
+    to {
+        transform: translate(3%, 2%) scale(1.08);
+    }
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 78px;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--bg) 72%,
+            transparent
+        );
+
+    backdrop-filter: blur(24px);
+
+    transition:
+        background .5s ease,
+        border .5s ease;
+}
+
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-family: var(--font-display);
+
+    font-weight: 700;
+
+    letter-spacing: -.03em;
+}
+
+.logo-mark {
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 14px;
+
+    display: grid;
+    place-items: center;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-2)
+        );
+
+    color: white;
+
+    box-shadow:
+        0 0 35px
+        color-mix(
+            in srgb,
+            var(--accent) 30%,
+            transparent
+        );
+
+    animation:
+        logoFloat 4s ease-in-out infinite;
+}
+
+.logo-mark::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -3px;
+
+    border-radius: inherit;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            var(--accent),
+            var(--accent-2),
+            var(--accent-3),
+            var(--accent)
+        );
+
+    z-index: -1;
+
+    animation:
+        logoSpin 5s linear infinite;
+}
+
+.logo-mark span {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+}
+
+.logo-name {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+.logo-name strong {
+
+    font-size: 15px;
+}
+
+.logo-name small {
+
+    margin-top: 4px;
+
+    font-family: var(--font-mono);
+
+    font-size: 8px;
+
+    letter-spacing: .18em;
+
+    color: var(--text-muted);
+}
+
+@keyframes logoFloat {
+
+    0%,100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-4px) rotate(2deg);
+    }
+}
+
+@keyframes logoSpin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ============================================================
+   NAV LINKS
+   ============================================================ */
+
+.nav-links {
+
+    display: flex;
+
+    gap: 8px;
+}
+
+.nav-links a {
+
+    padding: 10px 15px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    color: var(--text-soft);
+
+    transition:
+        .35s var(--ease);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    color: var(--text);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--accent) 12%,
+            transparent
+        );
+
+    transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   THEME BUTTON
+   ============================================================ */
+
+.theme-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 100px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--surface) 80%,
+            transparent
+        );
+
+    color: var(--text-soft);
+
+    transition: .4s var(--ease);
+}
+
+.theme-button:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 50%,
+            var(--border)
+        );
+
+    color: var(--text);
+}
+
+.theme-dot {
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--accent);
+
+    box-shadow:
+        0 0 12px var(--accent);
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: grid;
+
+    place-items: center;
+
+    padding:
+        130px 5vw
+        90px;
+}
+
+.hero-inner {
+
+    width: 100%;
+
+    max-width: 1350px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr .85fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+/* ============================================================
+   HERO TEXT
+   ============================================================ */
+
+.eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 8px 13px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 100px;
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--surface) 65%,
+            transparent
+        );
+
+    margin-bottom: 25px;
+
+    animation:
+        fadeUp .9s var(--ease) both;
+}
+
+.status-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #36e69b;
+
+    box-shadow:
+        0 0 12px #36e69b;
+
+    animation:
+        pulseDot 2s ease infinite;
+}
+
+@keyframes pulseDot {
+
+    50% {
+        transform: scale(.6);
+        opacity: .5;
+    }
+}
+
+.hero h1 {
+
+    font-family: var(--font-display);
+
+    font-size:
+        clamp(
+            4rem,
+            9vw,
+            9rem
+        );
+
+    line-height: .88;
+
+    letter-spacing: -.07em;
+
+    max-width: 900px;
+
+    animation:
+        heroTitle 1s var(--ease) .1s both;
+}
+
+.hero h1 .gradient {
+
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--text),
+            var(--accent-2),
+            var(--accent),
+            var(--accent-3)
+        );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientMove 6s linear infinite;
+}
+
+@keyframes gradientMove {
+
+    to {
+        background-position: 250% center;
+    }
+}
+
+.hero-description {
+
+    max-width: 620px;
+
+    margin-top: 30px;
+
+    color: var(--text-soft);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    animation:
+        fadeUp .9s var(--ease) .25s both;
+}
+
+
+/* ============================================================
+   HERO BUTTONS
+   ============================================================ */
+
+.hero-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 35px;
+
+    animation:
+        fadeUp .9s var(--ease) .4s both;
+}
+
+.btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 14px 20px;
+
+    border-radius: 100px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition:
+        transform .35s var(--ease),
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.btn:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.02);
+}
+
+.btn-primary {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent),
+            var(--accent-2)
+        );
+
+    box-shadow:
+        0 15px 35px
+        color-mix(
+            in srgb,
+            var(--accent) 25%,
+            transparent
+        );
+}
+
+.btn-secondary {
+
+    border:
+        1px solid var(--border);
+
+    color: var(--text);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--surface) 70%,
+            transparent
+        );
+}
+
+
+/* ============================================================
+   HERO VISUAL
+   ============================================================ */
+
+.hero-visual {
+
+    min-height: 500px;
+
+    position: relative;
+
+    display: grid;
+
+    place-items: center;
+}
+
+.orbit {
+
+    width: 390px;
+    height: 390px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 35%,
+            transparent
+        );
+
+    position: relative;
+
+    animation:
+        orbitRotate 18s linear infinite;
+}
+
+.orbit::before,
+.orbit::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 35px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        color-mix(
+            in srgb,
+            var(--accent-2) 30%,
+            transparent
+        );
+}
+
+.orbit::after {
+
+    inset: 85px;
+
+    border-style: solid;
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent-3) 25%,
+            transparent
+        );
+}
+
+@keyframes orbitRotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.orbit-node {
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--surface-2);
+
+    border:
+        1px solid var(--border);
+
+    color: var(--accent-2);
+
+    box-shadow:
+        0 0 35px
+        color-mix(
+            in srgb,
+            var(--accent-2) 20%,
+            transparent
+        );
+
+    animation:
+        counterOrbit 18s linear infinite;
+}
+
+@keyframes counterOrbit {
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.node-1 {
+    top: -25px;
+    left: 50%;
+}
+
+.node-2 {
+    right: -25px;
+    top: 50%;
+}
+
+.node-3 {
+    bottom: -25px;
+    left: 50%;
+}
+
+.node-4 {
+    left: -25px;
+    top: 50%;
+}
+
+.logo-core {
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    position: absolute;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            var(--surface-2),
+            var(--bg)
+        );
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 0 100px
+        color-mix(
+            in srgb,
+            var(--accent) 30%,
+            transparent
+        ),
+        inset 0 0 50px
+        color-mix(
+            in srgb,
+            var(--accent-2) 8%,
+            transparent
+        );
+
+    animation:
+        corePulse 4s ease-in-out infinite;
+}
+
+.logo-core span {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 76px;
+
+    font-weight: 500;
+
+    font-style: italic;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--accent-2),
+            var(--accent),
+            var(--accent-3)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.logo-core small {
+
+    position: absolute;
+
+    bottom: 28px;
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: .3em;
+
+    color: var(--text-muted);
+}
+
+@keyframes corePulse {
+
+    50% {
+        transform: scale(1.035);
+
+        box-shadow:
+            0 0 140px
+            color-mix(
+                in srgb,
+                var(--accent) 35%,
+                transparent
+            );
+    }
+}
+
+
+/* ============================================================
+   PROJECT SECTION
+   ============================================================ */
+
+.projects-section {
+
+    padding:
+        100px 5vw
+        150px;
+}
+
+.section-inner {
+
+    max-width: 1350px;
+
+    margin: auto;
+}
+
+.section-heading {
+
+    display: flex;
+
+    align-items: end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+}
+
+.section-kicker {
+
+    font-family: var(--font-mono);
+
+    font-size: 10px;
+
+    letter-spacing: .2em;
+
+    color: var(--accent);
+
+    text-transform: uppercase;
+
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+
+    font-family: var(--font-display);
+
+    font-size:
+        clamp(
+            2.7rem,
+            5vw,
+            5rem
+        );
+
+    line-height: .95;
+
+    letter-spacing: -.05em;
+}
+
+.section-heading p {
+
+    max-width: 380px;
+
+    color: var(--text-soft);
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   PROJECT CONTROLS
+   ============================================================ */
+
+.project-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 30px;
+}
+
+.filters {
+
+    display: flex;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+}
+
+.filter {
+
+    padding: 9px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 100px;
+
+    background: transparent;
+
+    color: var(--text-soft);
+
+    font-size: 11px;
+
+    transition: .3s ease;
+}
+
+.filter:hover,
+.filter.active {
+
+    color: white;
+
+    background: var(--accent);
+
+    border-color: var(--accent);
+}
+
+.search {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    min-width: 220px;
+
+    padding: 10px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 100px;
+
+    background: var(--surface);
+
+    color: var(--text-muted);
+}
+
+.search input {
+
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--text);
+}
+
+
+/* ============================================================
+   PROJECT GRID
+   ============================================================ */
+
+.project-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 18px;
+}
+
+
+/* ============================================================
+   PROJECT CARD
+   ============================================================ */
+
+.project-card {
+
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--surface) 90%,
+            transparent
+        );
+
+    overflow: hidden;
+
+    transition:
+        transform .55s var(--ease),
+        border-color .4s ease,
+        box-shadow .55s ease;
+
+    opacity: 0;
+
+    transform:
+        translateY(50px)
+        scale(.97);
+}
+
+.project-card.visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.project-card:hover {
+
+    transform:
+        translateY(-10px)
+        rotateX(2deg);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 45%,
+            var(--border)
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.25),
+        0 0 50px
+        color-mix(
+            in srgb,
+            var(--accent) 8%,
+            transparent
+        );
+}
+
+.project-image {
+
+    height: 220px;
+
+    border-radius: 15px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 18px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            var(--project-a),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            var(--project-b),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            var(--surface-2),
+            var(--bg)
+        );
+}
+
+.project-image::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 30%,
+            rgba(255,255,255,.08),
+            transparent 70%
+        );
+
+    transform:
+        translateX(-100%);
+
+    transition:
+        transform .8s var(--ease);
+}
+
+.project-card:hover
+.project-image::before {
+
+    transform:
+        translateX(100%);
+}
+
+.project-number {
+
+    position: absolute;
+
+    top: 14px;
+    right: 15px;
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    color: rgba(255,255,255,.65);
+
+    letter-spacing: .1em;
+}
+
+.project-icon {
+
+    width: 55px;
+    height: 55px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 16px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    backdrop-filter: blur(10px);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    color: white;
+}
+
+.project-content {
+
+    padding: 17px 10px 8px;
+}
+
+.project-type {
+
+    font-family: var(--font-mono);
+
+    text-transform: uppercase;
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+
+    color: var(--accent);
+
+    margin-bottom: 8px;
+}
+
+.project-title {
+
+    font-family: var(--font-display);
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+}
+
+.project-description {
+
+    color: var(--text-soft);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    min-height: 39px;
+}
+
+.project-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 15px;
+}
+
+.project-tags {
+
+    display: flex;
+
+    gap: 5px;
+}
+
+.project-tag {
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    font-family: var(--font-mono);
+
+    font-size: 8px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--text) 5%,
+            transparent
+        );
+
+    color: var(--text-muted);
+}
+
+.project-open {
+
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--text);
+
+    color: var(--bg);
+
+    transition: .35s var(--ease);
+}
+
+.project-open:hover {
+
+    transform:
+        rotate(-45deg)
+        scale(1.1);
+
+    background: var(--accent-2);
+
+    color: #000;
+}
+
+
+/* ============================================================
+   FEATURED CARD
+   ============================================================ */
+
+.project-card.featured {
+
+    grid-column: span 2;
+}
+
+.project-card.featured .project-image {
+
+    height: 280px;
+}
+
+.project-card.featured .project-title {
+
+    font-size: 27px;
+}
+
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+
+.about-section {
+
+    padding:
+        100px 5vw
+        130px;
+
+    border-top:
+        1px solid var(--border);
+}
+
+.about-grid {
+
+    max-width: 1350px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-title {
+
+    font-family: var(--font-display);
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            6rem
+        );
+
+    line-height: .9;
+
+    letter-spacing: -.06em;
+}
+
+.about-title span {
+
+    color: var(--accent);
+}
+
+.about-text {
+
+    color: var(--text-soft);
+
+    line-height: 1.9;
+
+    font-size: 15px;
+
+    margin-top: 25px;
+
+    max-width: 620px;
+}
+
+
+/* ============================================================
+   STATISTICS
+   ============================================================ */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 12px;
+}
+
+.stat {
+
+    padding: 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface);
+
+    transition: .4s var(--ease);
+}
+
+.stat:hover {
+
+    transform: translateY(-6px);
+
+    border-color: var(--accent);
+}
+
+.stat-number {
+
+    font-family: var(--font-display);
+
+    font-size: 40px;
+
+    font-weight: 600;
+}
+
+.stat-label {
+
+    margin-top: 5px;
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .15em;
+
+    color: var(--text-muted);
+}
+
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.contact-section {
+
+    padding:
+        130px 5vw;
+
+    text-align: center;
+}
+
+.contact-inner {
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.contact-inner h2 {
+
+    font-family: var(--font-display);
+
+    font-size:
+        clamp(
+            3.5rem,
+            8vw,
+            8rem
+        );
+
+    letter-spacing: -.07em;
+
+    line-height: .9;
+}
+
+.contact-inner p {
+
+    max-width: 550px;
+
+    margin: 25px auto 35px;
+
+    color: var(--text-soft);
+
+    line-height: 1.8;
+}
+
+.contact-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+
+    padding:
+        30px 5vw;
+
+    border-top:
+        1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    color: var(--text-muted);
+
+    font-family: var(--font-mono);
+
+    font-size: 9px;
+
+    letter-spacing: .08em;
+}
+
+.footer-brand {
+
+    color: var(--text);
+
+    font-weight: 600;
+}
+
+.footer-links {
+
+    display: flex;
+
+    gap: 15px;
+}
+
+.footer-links a:hover {
+
+    color: var(--accent);
+}
+
+
+/* ============================================================
+   THEME PANEL
+   ============================================================ */
+
+.theme-panel {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    z-index: 900;
+
+    padding: 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    background:
+        color-mix(
+            in srgb,
+            var(--surface) 88%,
+            transparent
+        );
+
+    backdrop-filter: blur(25px);
+
+    box-shadow: var(--shadow);
+
+    display: flex;
+
+    gap: 6px;
+
+    transform:
+        translateY(120px);
+
+    transition:
+        transform .6s var(--ease);
+}
+
+.theme-panel.show {
+
+    transform:
+        translateY(0);
+}
+
+.theme-choice {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 8px 10px;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+    transition: .3s ease;
+}
+
+.theme-choice:hover,
+.theme-choice.active {
+
+    background:
+        color-mix(
+            in srgb,
+            var(--accent) 15%,
+            transparent
+        );
+
+    color: var(--text);
+}
+
+.theme-choice-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+
+.toast {
+
+    position: fixed;
+
+    left: 50%;
+    bottom: 30px;
+
+    transform:
+        translate(-50%, 100px);
+
+    z-index: 2000;
+
+    padding: 12px 18px;
+
+    border-radius: 100px;
+
+    background: var(--text);
+
+    color: var(--bg);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    opacity: 0;
+
+    transition: .5s var(--ease);
+}
+
+.toast.show {
+
+    transform:
+        translate(-50%, 0);
+
+    opacity: 1;
+}
+
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+
+.menu-button {
+
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--surface);
+
+    color: var(--text);
+}
+
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes heroTitle {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(.97);
+
+        filter: blur(8px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter: blur(0);
+    }
+}
+
+
+/* ============================================================
+   EDITORIAL THEME SPECIAL EFFECT
+   ============================================================ */
+
+body.theme-editorial .hero h1 {
+
+    font-weight: 500;
+
+    letter-spacing: -.05em;
+}
+
+body.theme-editorial .project-card {
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 15px 50px rgba(50,40,25,.06);
+}
+
+body.theme-editorial .project-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 30px 70px rgba(50,40,25,.12);
+}
+
+body.theme-editorial .project-image {
+
+    border-radius: 2px;
+}
+
+
+/* ============================================================
+   AURORA SPECIAL EFFECT
+   ============================================================ */
+
+body.theme-aurora .project-card {
+
+    border-radius: 30px;
+}
+
+body.theme-aurora .project-card:hover {
+
+    transform:
+        translateY(-12px)
+        rotate(-.4deg);
+}
+
+body.theme-aurora .hero-visual {
+
+    animation:
+        auroraFloat 7s ease-in-out infinite;
+}
+
+@keyframes auroraFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+
+/* ============================================================
+   NEON SPECIAL EFFECT
+   ============================================================ */
+
+body.theme-neon .project-card:hover {
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        0 0 45px
+        color-mix(
+            in srgb,
+            var(--accent) 13%,
+            transparent
+        );
+}
+
+body.theme-neon .project-image {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--project-a),
+            transparent 50%
+        ),
+        linear-gradient(
+            315deg,
+            var(--project-b),
+            var(--bg)
+        );
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .hero-inner {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+    }
+
+    .hero-visual {
+
+        min-height: 430px;
+    }
+
+    .project-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .project-card.featured {
+
+        grid-column: span 2;
+    }
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+
+        height: 68px;
+
+        padding:
+            0 18px;
+    }
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 75px;
+        left: 18px;
+        right: 18px;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        background:
+            color-mix(
+                in srgb,
+                var(--surface) 96%,
+                transparent
+            );
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 18px;
+
+        transform:
+            translateY(-20px);
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition: .4s var(--ease);
+    }
+
+    .nav-links.open {
+
+        transform:
+            translateY(0);
+
+        opacity: 1;
+
+        pointer-events: auto;
+    }
+
+    .nav-links a {
+
+        padding: 13px;
+    }
+
+    .menu-button {
+
+        display: grid;
+
+        place-items: center;
+    }
+
+    .navbar > .theme-button {
+
+        display: none;
+    }
+
+    .hero {
+
+        padding:
+            120px 18px
+            60px;
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(
+                3.5rem,
+                17vw,
+                6rem
+            );
+    }
+
+    .hero-description {
+
+        font-size: 14px;
+    }
+
+    .hero-visual {
+
+        min-height: 350px;
+    }
+
+    .orbit {
+
+        width: 290px;
+        height: 290px;
+    }
+
+    .logo-core {
+
+        width: 140px;
+        height: 140px;
+    }
+
+    .logo-core span {
+
+        font-size: 55px;
+    }
+
+    .projects-section,
+    .about-section {
+
+        padding:
+            80px 18px
+            100px;
+    }
+
+    .section-heading {
+
+        display: block;
+    }
+
+    .section-heading p {
+
+        margin-top: 20px;
+    }
+
+    .project-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .project-card.featured {
+
+        grid-column: span 1;
+    }
+
+    .project-card.featured .project-image {
+
+        height: 220px;
+    }
+
+    .stats {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .theme-panel {
+
+        left: 15px;
+        right: 15px;
+
+        justify-content: center;
+
+        bottom: 15px;
+    }
+
+    footer {
+
+        padding:
+            25px 18px;
+    }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
+    }
+}
+
+</style>
 </head>
-<body>
 
-    <!-- Theme Switcher — only 🛎 emoji -->
-    <div class="theme-switcher" id="themeSwitcher" role="button" tabindex="0" aria-label="Switch theme">
-        <div class="theme-icon-wrap">🛎</div>
-        <span class="theme-label" id="themeLabel">Frosted Pearl</span>
+
+<body class="theme-neon">
+
+
+<!-- ============================================================
+     BACKGROUND
+     ============================================================ -->
+
+<div class="background">
+    <div class="background-grid"></div>
+</div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+
+<nav class="navbar">
+
+    <a href="#home" class="logo">
+
+        <div class="logo-mark">
+            <span>MC</span>
+        </div>
+
+        <div class="logo-name">
+            <strong>MC88</strong>
+            <small>DIGITAL UNIVERSE</small>
+        </div>
+
+    </a>
+
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="#home" class="active">
+            Home
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-badge">Premium Portfolio</div>
-        <h1>Repositories</h1>
-        <p>MC88 — Crafted with Precision</p>
-    </header>
 
-    <!-- Feed -->
-    <main class="feed-container" id="feedContainer"></main>
+    <button
+        class="theme-button"
+        id="themeToggle"
+        aria-label="Change theme">
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>© 2026 <a href="mailto:mohamed005cheikh@gmail.com">mohamed005cheikh@gmail.com</a> — All rights reserved</p>
-    </footer>
+        <span class="theme-dot"></span>
 
-    <script>
-        (function() {
-            // ============================================
-            // ALL REPOSITORIES
-            // ============================================
-            const REPOSITORIES = [
-                { name: 'pharmacie-MC88-', url: 'https://mohamed005cheikh-rgb.github.io/pharmacie-MC88-/' },
-                { name: 'Shop-MC88', url: 'https://mohamed005cheikh-rgb.github.io/Shop-MC88/' },
-                { name: 'ClockMC88-', url: 'https://mohamed005cheikh-rgb.github.io/ClockMC88-/' },
-                { name: 'ALL-IN', url: 'https://mohamed005cheikh-rgb.github.io/ALL-IN/' },
-                { name: 'moon.c', url: 'https://mohamed005cheikh-rgb.github.io/moon.c/' },
-                { name: 'RESTAURANT-MC88-', url: 'https://mohamed005cheikh-rgb.github.io/RESTAURANT-MC88-/' },
-                { name: 'cabinet-isi-2', url: 'https://mohamed005cheikh-rgb.github.io/cabinet-isi-2/' },
-                { name: 'ntlas', url: 'https://mohamed005cheikh-rgb.github.io/ntlas/' },
-                { name: 'mohamed005cheikh-rgb', url: 'https://github.com/mohamed005cheikh-rgb/mohamed005cheikh-rgb' },
-                { name: 'PIC_MC', url: 'https://mohamed005cheikh-rgb.github.io/PIC_MC/' },
-                { name: 'RMC88-', url: 'https://mohamed005cheikh-rgb.github.io/RMC88-/' },
-                { name: 'ATT', url: 'https://att-mc88.streamlit.app/' },
-                { name: 'MP88', url: 'https://mohamed005cheikh-rgb.github.io/MP88/' },
-                { name: 'DOCTOOLS', url: 'https://mohamed005cheikh-rgb.github.io/DOCTOOLS/' },
-                { name: '0-click', url: 'https://mohamed005cheikh-rgb.github.io/0-click/' },
-                { name: 'PC.MC', url: 'https://mohamed005cheikh-rgb.github.io/PC.MC/' },
-                { name: 'BM_88', url: 'https://mohamed005cheikh-rgb.github.io/BM_88/' },
-                { name: 'WSR88', url: 'https://mohamed005cheikh-rgb.github.io/WSR88/' },
-                { name: 'STYLE_88', url: 'https://mohamed005cheikh-rgb.github.io/STYLE_88/' },
-                { name: 'TFT-MC', url: 'https://mohamed005cheikh-rgb.github.io/TFT-MC/' },
-                { name: 'SM_88', url: 'https://mohamed005cheikh-rgb.github.io/SM_88/' },
-                { name: 'Data_MC', url: 'https://mohamed005cheikh-rgb.github.io/Data_MC/' }
-            ];
+        <span id="themeName">
+            NEON
+        </span>
 
-            const THEMES = [
-                { id: 'frosted', label: 'Frosted Pearl' },
-                { id: 'elegant', label: 'Royal Gold' },
-                { id: 'ocean', label: 'Ocean Deep' },
-                { id: 'sunset', label: 'Sunset Ember' }
-            ];
+        <i data-lucide="palette" size="14"></i>
 
-            const ANIMATIONS = ['anim-fade-up', 'anim-slide-left', 'anim-slide-right', 'anim-zoom'];
+    </button>
 
-            let currentThemeIndex = 0;
-            const body = document.body;
-            const feedContainer = document.getElementById('feedContainer');
-            const themeBtn = document.getElementById('themeSwitcher');
-            const themeLabel = document.getElementById('themeLabel');
 
-            // ============================================
-            // BUILD FEED — NO VIBRATION, SMOOTH RENDER
-            // ============================================
-            function buildFeed() {
-                feedContainer.innerHTML = '';
-                const fragment = document.createDocumentFragment();
+    <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Open menu">
 
-                REPOSITORIES.forEach((repo, index) => {
-                    const animClass = ANIMATIONS[index % ANIMATIONS.length];
+        <i data-lucide="menu"></i>
 
-                    const card = document.createElement('a');
-                    card.className = `repo-card ${animClass}`;
-                    card.href = repo.url;
-                    card.target = "_blank";
-                    card.rel = "noopener noreferrer";
-                    card.setAttribute('aria-label', `Open ${repo.name} repository`);
+    </button>
 
-                    card.innerHTML = `
-                        <div class="card-visual-banner"></div>
-                        <div class="card-content">
-                            <div class="repo-meta">
-                                <span class="repo-meta-dot"></span>
-                                <span>Project ${String(index + 1).padStart(2, '0')}</span>
-                                <span>·</span>
-                                <span>MC88</span>
-                            </div>
-                            <h2 class="repo-title">${repo.name}</h2>
-                            <div class="repo-action">
-                                <span>Explore</span>
-                                <span class="repo-action-arrow">→</span>
-                            </div>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+
+<header class="hero" id="home">
+
+    <div class="hero-inner">
+
+
+        <div class="hero-copy">
+
+            <div class="eyebrow">
+
+                <span class="status-dot"></span>
+
+                ONLINE — BUILDING SOMETHING
+
+            </div>
+
+
+            <h1>
+
+                My
+                <span class="gradient">
+                    Digital
+                </span>
+                Universe.
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                A personal gallery of projects, experiments,
+                ideas and things I've built along the way.
+
+                <br><br>
+
+                Welcome to the world of
+                <strong>MOHAMED / CHEIKH</strong> —
+                <strong>MC88</strong>.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#projects"
+                    class="btn btn-primary magnetic">
+
+                    Explore my work
+
+                    <i
+                        data-lucide="arrow-up-right"
+                        size="16">
+                    </i>
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn btn-secondary magnetic">
+
+                    Let's connect
+
+                    <i
+                        data-lucide="mail"
+                        size="15">
+                    </i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ====================================================
+             ANIMATED MC88 LOGO
+             ==================================================== -->
+
+        <div class="hero-visual">
+
+            <div class="orbit">
+
+                <div class="orbit-node node-1">
+                    <i data-lucide="code-2"></i>
+                </div>
+
+                <div class="orbit-node node-2">
+                    <i data-lucide="globe"></i>
+                </div>
+
+                <div class="orbit-node node-3">
+                    <i data-lucide="sparkles"></i>
+                </div>
+
+                <div class="orbit-node node-4">
+                    <i data-lucide="cpu"></i>
+                </div>
+
+            </div>
+
+
+            <div class="logo-core">
+
+                <span>MC</span>
+
+                <small>
+                    MC88
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ============================================================
+     PROJECTS
+     ============================================================ -->
+
+<section
+    class="projects-section"
+    id="projects">
+
+    <div class="section-inner">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-kicker">
+                    01 / SELECTED WORK
+                </div>
+
+                <h2>
+                    Things I've built.
+                </h2>
+
+            </div>
+
+
+            <p>
+
+                Websites, applications, experiments,
+                tools and strange ideas that became real.
+
+            </p>
+
+        </div>
+
+
+        <!-- ====================================================
+             SEARCH + FILTERS
+             ==================================================== -->
+
+        <div class="project-controls">
+
+
+            <div
+                class="filters"
+                id="filters">
+
+                <button
+                    class="filter active"
+                    data-filter="all">
+
+                    All
+
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="web">
+
+                    Web
+
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="tool">
+
+                    Tools
+
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="creative">
+
+                    Creative
+
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="github">
+
+                    GitHub
+
+                </button>
+
+            </div>
+
+
+            <label class="search">
+
+                <i
+                    data-lucide="search"
+                    size="15">
+                </i>
+
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search projects...">
+
+            </label>
+
+        </div>
+
+
+        <!-- ====================================================
+             PROJECT GRID
+             ==================================================== -->
+
+        <div
+            class="project-grid"
+            id="projectGrid">
+
+            <!--
+            PROJECTS ARE CREATED BY JAVASCRIPT.
+
+            You do NOT need to manually create cards here.
+            Edit the REPOSITORIES array in the JavaScript below.
+            -->
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+
+<section
+    class="about-section"
+    id="about">
+
+    <div class="about-grid">
+
+
+        <div>
+
+            <div class="section-kicker">
+                02 / THE PERSON BEHIND MC88
+            </div>
+
+            <h2 class="about-title">
+
+                Curious.
+                <br>
+
+                Creative.
+                <br>
+
+                <span>Always building.</span>
+
+            </h2>
+
+            <p class="about-text">
+
+                I'm Mohamed / Cheikh, known online as MC88.
+
+                This website is my personal digital gallery —
+                a place where I collect projects, experiments,
+                ideas and work that I want to keep close.
+
+                <br><br>
+
+                Some projects are serious.
+                Some are experimental.
+                Some simply exist because I wanted to know
+                whether I could build them.
+
+            </p>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div
+                    class="stat-number"
+                    id="statProjects">
+
+                    00
+
+                </div>
+
+                <div class="stat-label">
+                    Projects
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    03
+                </div>
+
+                <div class="stat-label">
+                    Visual Worlds
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    MC88
+                </div>
+
+                <div class="stat-label">
+                    Signature
+                </div>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">
+                    ∞
+                </div>
+
+                <div class="stat-label">
+                    Ideas
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+
+<section
+    class="contact-section"
+    id="contact">
+
+    <div class="contact-inner">
+
+        <div class="section-kicker">
+            03 / GET IN TOUCH
+        </div>
+
+        <h2>
+            Let's make
+            something
+            interesting.
+        </h2>
+
+        <p>
+
+            Whether you're a friend, university professor,
+            recruiter, collaborator or someone who simply
+            discovered this little corner of the internet —
+            you're welcome.
+
+        </p>
+
+
+        <div class="contact-buttons">
+
+            <a
+                href="mailto:mohamed005cheikh@gmail.com"
+                class="btn btn-primary magnetic">
+
+                <i data-lucide="mail"></i>
+
+                Email me
+
+            </a>
+
+
+            <a
+                href="https://wa.me/22230726475"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary magnetic">
+
+                <i data-lucide="message-circle"></i>
+
+                WhatsApp
+
+            </a>
+
+
+            <a
+                href="https://github.com/mohamed005cheikh-rgb"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-secondary magnetic">
+
+                <i data-lucide="github"></i>
+
+                GitHub
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
+<footer>
+
+    <div>
+
+        <span class="footer-brand">
+            MC88
+        </span>
+
+        &nbsp; — &nbsp;
+
+        DIGITAL UNIVERSE
+
+    </div>
+
+
+    <div>
+
+        © 2026
+        Mohamed / Cheikh
+
+        <br>
+
+        All rights reserved.
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <a href="mailto:mohamed005cheikh@gmail.com">
+            Email
+        </a>
+
+        <a
+            href="https://wa.me/22230726475"
+            target="_blank">
+
+            WhatsApp
+
+        </a>
+
+        <a
+            href="https://github.com/mohamed005cheikh-rgb"
+            target="_blank">
+
+            GitHub
+
+        </a>
+
+    </div>
+
+</footer>
+
+
+<!-- ============================================================
+     THEME PANEL
+     ============================================================ -->
+
+<div
+    class="theme-panel"
+    id="themePanel">
+
+    <button
+        class="theme-choice active"
+        data-theme-choice="neon">
+
+        <span
+            class="theme-choice-dot"
+            style="background:#705cff">
+        </span>
+
+        Neon
+
+    </button>
+
+
+    <button
+        class="theme-choice"
+        data-theme-choice="editorial">
+
+        <span
+            class="theme-choice-dot"
+            style="background:#9c6d32">
+        </span>
+
+        Editorial
+
+    </button>
+
+
+    <button
+        class="theme-choice"
+        data-theme-choice="aurora">
+
+        <span
+            class="theme-choice-dot"
+            style="background:#ff6b9d">
+        </span>
+
+        Aurora
+
+    </button>
+
+</div>
+
+
+<!-- ============================================================
+     TOAST
+     ============================================================ -->
+
+<div
+    class="toast"
+    id="toast">
+
+    Theme changed
+
+</div>
+
+
+<script>
+
+/* ============================================================
+   MC88 DIGITAL UNIVERSE
+   JAVASCRIPT
+   ============================================================ */
+
+
+/* ============================================================
+   IMPORTANT — HOW TO MANAGE YOUR PROJECTS
+   ============================================================
+
+   THIS IS THE ONLY SECTION YOU NEED TO EDIT TO MANAGE
+   YOUR PROJECT GALLERY.
+
+   ------------------------------------------------------------
+
+   ADD A PROJECT:
+
+   Copy this structure:
+
+   {
+       name: "My New Project",
+       url: "https://example.com",
+       category: "web",
+       type: "Web Application",
+       description: "Short description of the project.",
+       icon: "globe",
+       tags: ["HTML", "CSS"],
+       featured: false,
+       visible: true,
+       colors: ["#7c5cff", "#00e5ff"]
+   }
+
+   Then paste it inside REPOSITORIES.
+
+   ------------------------------------------------------------
+
+   HIDE A PROJECT:
+
+   Change:
+
+       visible: true
+
+   to:
+
+       visible: false
+
+   The project will remain in your code but will NOT appear
+   on the website.
+
+   ------------------------------------------------------------
+
+   DELETE A PROJECT:
+
+   Simply remove the complete { ... } block.
+
+   ------------------------------------------------------------
+
+   AVAILABLE CATEGORIES:
+
+       web
+       tool
+       creative
+       github
+
+   ------------------------------------------------------------
+
+   AVAILABLE ICONS:
+
+       globe
+       code
+       code-2
+       monitor
+       smartphone
+       database
+       heart
+       clock
+       shopping-cart
+       flask
+       image
+       github
+       terminal
+       music
+       camera
+       map
+       cpu
+       sparkles
+
+   You can also use any Lucide icon name.
+
+   ============================================================ */
+
+
+const REPOSITORIES = [
+
+    {
+        name: "pharmacie-MC88-",
+        url: "https://mohamed005cheikh-rgb.github.io/pharmacie-MC88-/",
+        category: "web",
+        type: "Web Application",
+        description: "Pharmacy management project designed as a practical digital solution.",
+        icon: "heart-pulse",
+        tags: ["HTML", "CSS", "JS"],
+        featured: true,
+        visible: true,
+        colors: ["#00e5ff", "#7c5cff"]
+    },
+
+
+    {
+        name: "Shop-MC88",
+        url: "https://mohamed005cheikh-rgb.github.io/Shop-MC88/",
+        category: "web",
+        type: "E-Commerce",
+        description: "A complete shopping experience exploring modern interface design.",
+        icon: "shopping-cart",
+        tags: ["WEB", "UI"],
+        featured: false,
+        visible: true,
+        colors: ["#ff39d7", "#7c5cff"]
+    },
+
+
+    {
+        name: "ClockMC88-",
+        url: "https://mohamed005cheikh-rgb.github.io/ClockMC88-/",
+        category: "creative",
+        type: "Interactive Experiment",
+        description: "A visual clock and time experience built for the web.",
+        icon: "clock-3",
+        tags: ["JS", "TIME"],
+        featured: false,
+        visible: true,
+        colors: ["#00d9ff", "#2563eb"]
+    },
+
+
+    {
+        name: "ALL-IN",
+        url: "https://mohamed005cheikh-rgb.github.io/ALL-IN/",
+        category: "web",
+        type: "Web Platform",
+        description: "An experimental all-in-one digital platform.",
+        icon: "layers-3",
+        tags: ["WEB", "APP"],
+        featured: false,
+        visible: true,
+        colors: ["#7c5cff", "#ff39d7"]
+    },
+
+
+    {
+        name: "moon.c",
+        url: "https://mohamed005cheikh-rgb.github.io/moon.c/",
+        category: "creative",
+        type: "Creative Project",
+        description: "An experimental visual project inspired by the moon and night.",
+        icon: "moon",
+        tags: ["ART", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#312e81", "#00d9ff"]
+    },
+
+
+    {
+        name: "RESTAURANT-MC88-",
+        url: "https://mohamed005cheikh-rgb.github.io/RESTAURANT-MC88-/",
+        category: "web",
+        type: "Restaurant App",
+        description: "A restaurant interface concept with a focus on presentation.",
+        icon: "utensils",
+        tags: ["UI", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#ff4d4d", "#ff9f43"]
+    },
+
+
+    {
+        name: "cabinet-isi-2",
+        url: "https://mohamed005cheikh-rgb.github.io/cabinet-isi-2/",
+        category: "web",
+        type: "Medical Cabinet",
+        description: "A digital interface created for a medical cabinet concept.",
+        icon: "stethoscope",
+        tags: ["WEB", "UI"],
+        featured: false,
+        visible: true,
+        colors: ["#00e5ff", "#22c55e"]
+    },
+
+
+    {
+        name: "ntlas",
+        url: "https://mohamed005cheikh-rgb.github.io/ntlas/",
+        category: "creative",
+        type: "Atlas Project",
+        description: "An interactive geographical and visual experiment.",
+        icon: "map",
+        tags: ["MAP", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#22c55e", "#00d9ff"]
+    },
+
+
+    {
+        name: "mohamed005cheikh-rgb",
+        url: "https://github.com/mohamed005cheikh-rgb/mohamed005cheikh-rgb",
+        category: "github",
+        type: "GitHub Profile",
+        description: "My main GitHub profile and development universe.",
+        icon: "github",
+        tags: ["GITHUB", "CODE"],
+        featured: false,
+        visible: true,
+        colors: ["#ffffff", "#7c5cff"]
+    },
+
+
+    {
+        name: "PIC_MC",
+        url: "https://mohamed005cheikh-rgb.github.io/PIC_MC/",
+        category: "creative",
+        type: "Photo Gallery",
+        description: "A visual gallery experiment for images and creative work.",
+        icon: "images",
+        tags: ["PHOTO", "UI"],
+        featured: false,
+        visible: true,
+        colors: ["#ff39d7", "#00d9ff"]
+    },
+
+
+    {
+        name: "RMC88-",
+        url: "https://mohamed005cheikh-rgb.github.io/RMC88-/",
+        category: "creative",
+        type: "Creative Project",
+        description: "Another experimental piece from the MC88 collection.",
+        icon: "sparkles",
+        tags: ["ART", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#7c5cff", "#ff39d7"]
+    },
+
+
+    {
+        name: "ATT",
+        url: "https://att-mc88.streamlit.app/",
+        category: "tool",
+        type: "Streamlit Application",
+        description: "An interactive Python-powered application.",
+        icon: "terminal",
+        tags: ["PYTHON", "APP"],
+        featured: false,
+        visible: true,
+        colors: ["#ff4ecd", "#00d9ff"]
+    },
+
+
+    {
+        name: "MP88",
+        url: "https://mohamed005cheikh-rgb.github.io/MP88/",
+        category: "web",
+        type: "Web Project",
+        description: "A modern experimental project from the MC88 collection.",
+        icon: "monitor",
+        tags: ["HTML", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#00d9ff", "#7c5cff"]
+    },
+
+
+    {
+        name: "DOCTOOLS",
+        url: "https://mohamed005cheikh-rgb.github.io/DOCTOOLS/",
+        category: "tool",
+        type: "Medical Tools",
+        description: "A collection of useful tools presented through a web interface.",
+        icon: "stethoscope",
+        tags: ["TOOLS", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#22c55e", "#00d9ff"]
+    },
+
+
+    {
+        name: "0-click",
+        url: "https://mohamed005cheikh-rgb.github.io/0-click/",
+        category: "tool",
+        type: "Quick Tool",
+        description: "A lightweight experiment focused on simple interactions.",
+        icon: "mouse-pointer-click",
+        tags: ["TOOL", "JS"],
+        featured: false,
+        visible: true,
+        colors: ["#ff39d7", "#ff9f43"]
+    },
+
+
+    {
+        name: "PC.MC",
+        url: "https://mohamed005cheikh-rgb.github.io/PC.MC/",
+        category: "web",
+        type: "Web Project",
+        description: "A personal project exploring interface and interaction.",
+        icon: "monitor",
+        tags: ["WEB", "UI"],
+        featured: false,
+        visible: true,
+        colors: ["#00e5ff", "#7c5cff"]
+    },
+
+
+    {
+        name: "BM_88",
+        url: "https://mohamed005cheikh-rgb.github.io/BM_88/",
+        category: "creative",
+        type: "Creative Project",
+        description: "A visual experiment from the MC88 archive.",
+        icon: "sparkles",
+        tags: ["ART", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#ff39d7", "#7c5cff"]
+    },
+
+
+    {
+        name: "WSR88",
+        url: "https://mohamed005cheikh-rgb.github.io/WSR88/",
+        category: "web",
+        type: "Web Project",
+        description: "An experimental web experience.",
+        icon: "globe",
+        tags: ["WEB", "UI"],
+        featured: false,
+        visible: true,
+        colors: ["#00d9ff", "#22c55e"]
+    },
+
+
+    {
+        name: "STYLE_88",
+        url: "https://mohamed005cheikh-rgb.github.io/STYLE_88/",
+        category: "creative",
+        type: "Design Experiment",
+        description: "A project dedicated to visual style and interface experimentation.",
+        icon: "palette",
+        tags: ["STYLE", "UI"],
+        featured: false,
+        visible: true,
+        colors: ["#ff39d7", "#ff9f43"]
+    },
+
+
+    {
+        name: "TFT-MC",
+        url: "https://mohamed005cheikh-rgb.github.io/TFT-MC/",
+        category: "web",
+        type: "Web Experience",
+        description: "An experimental interface created as part of the MC88 collection.",
+        icon: "layout-dashboard",
+        tags: ["WEB", "UI"],
+        featured: false,
+        visible: true,
+        colors: ["#7c5cff", "#00e5ff"]
+    },
+
+
+    {
+        name: "SM_88",
+        url: "https://mohamed005cheikh-rgb.github.io/SM_88/",
+        category: "creative",
+        type: "Creative Experience",
+        description: "A visual project exploring motion, style and interaction.",
+        icon: "wand-sparkles",
+        tags: ["MOTION", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#ff39d7", "#00d9ff"]
+    },
+
+
+    {
+        name: "Data_MC",
+        url: "https://mohamed005cheikh-rgb.github.io/Data_MC/",
+        category: "tool",
+        type: "Data Project",
+        description: "A project exploring data and digital information.",
+        icon: "database",
+        tags: ["DATA", "WEB"],
+        featured: false,
+        visible: true,
+        colors: ["#00d9ff", "#7c5cff"]
+    }
+
+];
+
+
+/* ============================================================
+   STATE
+   ============================================================ */
+
+let currentFilter = "all";
+
+let currentSearch = "";
+
+let currentTheme = "neon";
+
+
+/* ============================================================
+   DOM
+   ============================================================ */
+
+const projectGrid =
+    document.getElementById("projectGrid");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const statProjects =
+    document.getElementById("statProjects");
+
+const themePanel =
+    document.getElementById("themePanel");
+
+const themeName =
+    document.getElementById("themeName");
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+const toast =
+    document.getElementById("toast");
+
+const cursorGlow =
+    document.getElementById("cursorGlow");
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+/* ============================================================
+   ICON INITIALIZATION
+   ============================================================ */
+
+function refreshIcons() {
+
+    if (
+        typeof lucide !== "undefined"
+    ) {
+
+        lucide.createIcons();
+
+    }
+
+}
+
+
+/* ============================================================
+   BUILD PROJECTS
+   ============================================================ */
+
+function renderProjects() {
+
+    projectGrid.innerHTML = "";
+
+
+    const visibleProjects =
+        REPOSITORIES.filter(project => {
+
+            if (!project.visible) {
+
+                return false;
+
+            }
+
+
+            const matchesFilter =
+                currentFilter === "all" ||
+                project.category === currentFilter;
+
+
+            const searchText =
+                (
+                    project.name +
+                    " " +
+                    project.description +
+                    " " +
+                    project.tags.join(" ")
+                ).toLowerCase();
+
+
+            const matchesSearch =
+                searchText.includes(
+                    currentSearch.toLowerCase()
+                );
+
+
+            return (
+                matchesFilter &&
+                matchesSearch
+            );
+
+        });
+
+
+    statProjects.textContent =
+        String(
+            REPOSITORIES.filter(
+                project => project.visible
+            ).length
+        ).padStart(2, "0");
+
+
+    if (!visibleProjects.length) {
+
+        projectGrid.innerHTML = `
+
+            <div
+                style="
+                    grid-column:1/-1;
+                    padding:80px 20px;
+                    text-align:center;
+                    color:var(--text-muted);
+                "
+            >
+
+                <i
+                    data-lucide="search-x"
+                    size="35">
+                </i>
+
+                <p style="margin-top:15px;">
+                    No project found.
+                </p>
+
+            </div>
+
+        `;
+
+        refreshIcons();
+
+        return;
+    }
+
+
+    visibleProjects.forEach(
+        (project, index) => {
+
+            const card =
+                document.createElement("article");
+
+
+            card.className =
+                "project-card" +
+                (
+                    project.featured
+                        ? " featured"
+                        : ""
+                );
+
+
+            card.style
+                .setProperty(
+                    "--project-a",
+                    project.colors[0]
+                );
+
+
+            card.style
+                .setProperty(
+                    "--project-b",
+                    project.colors[1]
+                );
+
+
+            card.style.transitionDelay =
+                `${Math.min(index * .06, .45)}s`;
+
+
+            card.innerHTML = `
+
+                <div class="project-image">
+
+                    <span class="project-number">
+                        ${String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <div class="project-icon">
+
+                        <i
+                            data-lucide="${project.icon}"
+                            size="25">
+                        </i>
+
+                    </div>
+
+                </div>
+
+
+                <div class="project-content">
+
+                    <div class="project-type">
+                        ${project.type}
+                    </div>
+
+                    <h3 class="project-title">
+                        ${project.name}
+                    </h3>
+
+                    <p class="project-description">
+                        ${project.description}
+                    </p>
+
+
+                    <div class="project-footer">
+
+                        <div class="project-tags">
+
+                            ${project.tags
+                                .map(
+                                    tag =>
+                                    `
+                                    <span
+                                        class="project-tag">
+                                        ${tag}
+                                    </span>
+                                    `
+                                )
+                                .join("")
+                            }
+
                         </div>
-                    `;
 
-                    // Touch feedback class only (no vibration)
-                    card.addEventListener('touchstart', function() {
-                        this.classList.add('active-touch');
-                    }, { passive: true });
 
-                    card.addEventListener('touchend', function() {
-                        setTimeout(() => this.classList.remove('active-touch'), 250);
-                    });
+                        <a
+                            class="project-open"
+                            href="${project.url}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Open ${project.name}">
 
-                    fragment.appendChild(card);
-                });
+                            <i
+                                data-lucide="arrow-up-right"
+                                size="16">
+                            </i>
 
-                feedContainer.appendChild(fragment);
-                setupObserver();
-            }
+                        </a>
 
-            // ============================================
-            // SCROLL OBSERVER — EFFICIENT
-            // ============================================
-            function setupObserver() {
-                const cards = document.querySelectorAll('.repo-card');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                            observer.unobserve(entry.target);
+                    </div>
+
+                </div>
+
+            `;
+
+
+            projectGrid.appendChild(card);
+
+
+            /*
+             ----------------------------------------------------
+             VIBRATION
+
+             Mobile browsers that support navigator.vibrate()
+             will provide a small tactile feedback.
+
+             If the browser doesn't support vibration,
+             nothing happens.
+             ----------------------------------------------------
+             */
+
+            card.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target.closest(
+                            "a"
+                        )
+                    ) {
+
+                        vibrate(12);
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    refreshIcons();
+
+
+    requestAnimationFrame(
+        () => {
+
+            const cards =
+                document.querySelectorAll(
+                    ".project-card"
+                );
+
+
+            cards.forEach(
+                card => {
+
+                    requestAnimationFrame(
+                        () => {
+
+                            card.classList.add(
+                                "visible"
+                            );
+
                         }
-                    });
-                }, { threshold: 0.08, rootMargin: '40px 0px' });
+                    );
 
-                cards.forEach(card => observer.observe(card));
-            }
-
-            // ============================================
-            // THEME SWITCHER — NO VIBRATION
-            // ============================================
-            function updateThemeUI() {
-                themeLabel.textContent = THEMES[currentThemeIndex].label;
-            }
-
-            themeBtn.addEventListener('click', () => {
-                currentThemeIndex = (currentThemeIndex + 1) % THEMES.length;
-                const themeId = THEMES[currentThemeIndex].id;
-
-                if (themeId === 'frosted') {
-                    body.removeAttribute('data-theme');
-                } else {
-                    body.setAttribute('data-theme', themeId);
                 }
+            );
 
-                updateThemeUI();
-            });
+        }
+    );
 
-            themeBtn.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    themeBtn.click();
+}
+
+
+/* ============================================================
+   VIBRATION
+   ============================================================ */
+
+function vibrate(duration = 15) {
+
+    if (
+        "vibrate" in navigator
+    ) {
+
+        navigator.vibrate(duration);
+
+    }
+
+}
+
+
+/* ============================================================
+   FILTERS
+   ============================================================ */
+
+document
+    .querySelectorAll(".filter")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                vibrate(10);
+
+
+                document
+                    .querySelectorAll(".filter")
+                    .forEach(
+                        btn =>
+                        btn.classList.remove(
+                            "active"
+                        )
+                    );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                currentFilter =
+                    button.dataset.filter;
+
+
+                renderProjects();
+
+            }
+        );
+
+    });
+
+
+/* ============================================================
+   SEARCH
+   ============================================================ */
+
+searchInput.addEventListener(
+    "input",
+    event => {
+
+        currentSearch =
+            event.target.value;
+
+        renderProjects();
+
+    }
+);
+
+
+/* ============================================================
+   THEME SYSTEM
+   ============================================================ */
+
+const themes = [
+
+    {
+        id: "neon",
+        name: "NEON"
+    },
+
+    {
+        id: "editorial",
+        name: "EDITORIAL"
+    },
+
+    {
+        id: "aurora",
+        name: "AURORA"
+    }
+
+];
+
+
+function setTheme(theme) {
+
+    currentTheme =
+        theme;
+
+
+    document.body.classList.remove(
+        "theme-neon",
+        "theme-editorial",
+        "theme-aurora"
+    );
+
+
+    document.body.classList.add(
+        `theme-${theme}`
+    );
+
+
+    const selected =
+        themes.find(
+            item =>
+            item.id === theme
+        );
+
+
+    themeName.textContent =
+        selected.name;
+
+
+    document
+        .querySelectorAll(
+            ".theme-choice"
+        )
+        .forEach(
+            button => {
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.themeChoice === theme
+                );
+
+            }
+        );
+
+
+    localStorage.setItem(
+        "mc88-theme",
+        theme
+    );
+
+
+    showToast(
+        `${selected.name} theme`
+    );
+
+
+    vibrate(15);
+
+}
+
+
+/* ============================================================
+   THEME BUTTON
+   ============================================================ */
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        themePanel.classList.toggle(
+            "show"
+        );
+
+    }
+);
+
+
+/* ============================================================
+   THEME CHOICES
+   ============================================================ */
+
+document
+    .querySelectorAll(
+        ".theme-choice"
+    )
+    .forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    setTheme(
+                        button.dataset.themeChoice
+                    );
+
                 }
-            });
+            );
 
-            // ============================================
-            // INIT
-            // ============================================
-            updateThemeUI();
-            buildFeed();
-        })();
-    </script>
+        }
+    );
+
+
+/* ============================================================
+   REMEMBER THEME
+   ============================================================ */
+
+const savedTheme =
+    localStorage.getItem(
+        "mc88-theme"
+    );
+
+
+if (
+    savedTheme &&
+    themes.some(
+        theme =>
+        theme.id === savedTheme
+    )
+) {
+
+    setTheme(
+        savedTheme
+    );
+
+}
+
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+
+let toastTimeout;
+
+
+function showToast(message) {
+
+    toast.textContent =
+        message;
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimeout
+    );
+
+
+    toastTimeout =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            1800
+        );
+
+}
+
+
+/* ============================================================
+   CURSOR FOLLOW
+   ============================================================ */
+
+window.addEventListener(
+    "pointermove",
+    event => {
+
+        cursorGlow.style.left =
+            `${event.clientX}px`;
+
+        cursorGlow.style.top =
+            `${event.clientY}px`;
+
+    }
+);
+
+
+/* ============================================================
+   MAGNETIC BUTTONS
+   ============================================================ */
+
+document
+    .querySelectorAll(
+        ".magnetic"
+    )
+    .forEach(
+        element => {
+
+            element.addEventListener(
+                "pointermove",
+                event => {
+
+                    const rect =
+                        element.getBoundingClientRect();
+
+
+                    const x =
+                        event.clientX -
+                        rect.left -
+                        rect.width / 2;
+
+
+                    const y =
+                        event.clientY -
+                        rect.top -
+                        rect.height / 2;
+
+
+                    element.style.transform =
+                        `
+                        translate(
+                            ${x * .12}px,
+                            ${y * .12}px
+                        )
+                        `;
+
+                }
+            );
+
+
+            element.addEventListener(
+                "pointerleave",
+                () => {
+
+                    element.style.transform =
+                        "";
+
+                }
+            );
+
+        }
+    );
+
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+
+menuButton.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "open"
+        );
+
+        vibrate(10);
+
+    }
+);
+
+
+/* ============================================================
+   CLOSE MOBILE MENU WHEN LINK IS CLICKED
+   ============================================================ */
+
+document
+    .querySelectorAll(
+        ".nav-links a"
+    )
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* ============================================================
+   NAVIGATION ACTIVE STATE
+   ============================================================ */
+
+const sections =
+    document.querySelectorAll(
+        "header[id], section[id]"
+    );
+
+
+const navItems =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
+
+const navObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        navItems.forEach(
+                            link => {
+
+                                link.classList.toggle(
+                                    "active",
+                                    link.getAttribute(
+                                        "href"
+                                    ) ===
+                                    `#${entry.target.id}`
+                                );
+
+                            }
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            rootMargin:
+                "-30% 0px -60% 0px"
+        }
+    );
+
+
+sections.forEach(
+    section =>
+    navObserver.observe(
+        section
+    )
+);
+
+
+/* ============================================================
+   KEYBOARD SHORTCUTS
+   ============================================================ */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        /*
+         Press "/" to focus search
+        */
+
+        if (
+            event.key === "/" &&
+            document.activeElement.tagName !== "INPUT"
+        ) {
+
+            event.preventDefault();
+
+            searchInput.focus();
+
+        }
+
+
+        /*
+         Press "T" to change theme
+        */
+
+        if (
+            event.key.toLowerCase() === "t" &&
+            document.activeElement.tagName !== "INPUT"
+        ) {
+
+            const currentIndex =
+                themes.findIndex(
+                    theme =>
+                    theme.id === currentTheme
+                );
+
+
+            const next =
+                themes[
+                    (currentIndex + 1)
+                    %
+                    themes.length
+                ];
+
+
+            setTheme(
+                next.id
+            );
+
+        }
+
+    }
+);
+
+
+/* ============================================================
+   INITIALIZATION
+   ============================================================ */
+
+renderProjects();
+
+refreshIcons();
+
+</script>
+
 </body>
-</html>
+        </html>
