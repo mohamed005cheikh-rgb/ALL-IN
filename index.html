@@ -825,6 +825,7 @@ body.aurora .contact-title{font-family:"Syne",sans-serif;font-weight:800}
   position:absolute;border-radius:50%;
   filter:blur(90px);opacity:.35;
   animation:orbFloat ease-in-out infinite;
+  will-change:transform;
 }
 .orb1{
   width:700px;height:700px;
@@ -894,6 +895,31 @@ body.theme-neon .contact-title{
 }
 #scrollTop.show{opacity:1;transform:translateY(0)}
 #scrollTop:hover{color:var(--accent);border-color:var(--accent);box-shadow:var(--glow);transform:translateY(-3px)}
+
+/* ────────────────────────────────────────────────
+   MOBILE PERFORMANCE
+   (only kicks in on small/touch screens — desktop
+   look is completely untouched)
+──────────────────────────────────────────────── */
+@media(max-width:720px){
+  /* blur() is one of the most expensive CSS effects on mobile GPUs —
+     three animated 90px-blur orbs were the single biggest lag source */
+  .orb{filter:blur(45px);opacity:.28}
+  .orb1{animation-duration:26s}
+  .orb2{animation-duration:30s}
+  .orb3{animation-duration:24s}
+
+  /* backdrop-filter blur is also very costly on mobile Safari/Chrome,
+     and it was recalculating on every scroll frame via .navbar.scrolled */
+  .navbar.scrolled{backdrop-filter:blur(12px) saturate(1.4)}
+  .theme-panel{backdrop-filter:blur(14px)}
+  .nav-links{backdrop-filter:blur(14px)}
+  .search-box,.btn-s,.card-icon{backdrop-filter:none}
+
+  /* the animated fractal-noise overlay is cheap to paint once but
+     pointless on small screens — remove it entirely */
+  .noise-overlay{display:none}
+}
 
 /* ── REDUCE MOTION ── */
 @media(prefers-reduced-motion:reduce){
@@ -1036,7 +1062,7 @@ body.theme-neon .contact-title{
       </div>
       <label class="search-box">
         <i data-lucide="search" style="width:15px;height:15px;flex-shrink:0"></i>
-        <input type="search" id="searchInp" placeholder="Search projects…">
+        <input type="search" id="searchInp" placeholder="Search projects...">
       </label>
     </div>
 
@@ -1341,28 +1367,51 @@ function showToast(msg){
 /* ── VIBRATE ── */
 function vibe(ms=12){if("vibrate"in navigator)navigator.vibrate(ms)}
 
-/* ── CURSOR ── */
-const cur=document.getElementById("cursor");
-const trail=document.getElementById("cursor-trail");
-let cx=0,cy=0,tx=0,ty=0;
-window.addEventListener("pointermove",e=>{
-  cx=e.clientX;cy=e.clientY;
-  cur.style.left=cx+"px";cur.style.top=cy+"px";
-});
-function animTrail(){
-  tx+=(cx-tx)*.1;ty+=(cy-ty)*.1;
-  trail.style.left=tx+"px";trail.style.top=ty+"px";
-  requestAnimationFrame(animTrail);
+/* ── CURSOR ──
+   FIX: this used to run unconditionally on every device, attaching a
+   pointermove listener + an infinite requestAnimationFrame loop that
+   wrote to two elements' inline styles on every single frame — even
+   though the cursor is CSS-hidden on touch screens. That's the #1
+   cause of the phone-browser jank: constant style writes for a
+   feature mobile never even renders. Now it only initializes on
+   devices that actually have a fine, hover-capable pointer (i.e. a
+   real mouse/trackpad). Desktop behavior is 100% unchanged. */
+const hasFinePointer = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+if(hasFinePointer){
+  const cur=document.getElementById("cursor");
+  const trail=document.getElementById("cursor-trail");
+  let cx=0,cy=0,tx=0,ty=0;
+  window.addEventListener("pointermove",e=>{
+    cx=e.clientX;cy=e.clientY;
+    cur.style.left=cx+"px";cur.style.top=cy+"px";
+  });
+  function animTrail(){
+    tx+=(cx-tx)*.1;ty+=(cy-ty)*.1;
+    trail.style.left=tx+"px";trail.style.top=ty+"px";
+    requestAnimationFrame(animTrail);
+  }
+  animTrail();
 }
-animTrail();
 
-/* ── SCROLL PROGRESS ── */
+/* ── SCROLL PROGRESS ──
+   FIX: previously ran full style/class work on every native scroll
+   event with no throttling, which can queue up dozens of times per
+   second on mobile and fight the browser's compositor during a
+   swipe. Now batched to one update per animation frame. */
 const prog=document.getElementById("progress");
-window.addEventListener("scroll",()=>{
+let scrollTicking=false;
+function updateScrollUI(){
   const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
   prog.style.width=pct+"%";
   navbar.classList.toggle("scrolled",window.scrollY>20);
   scrollTopBtn.classList.toggle("show",window.scrollY>400);
+  scrollTicking=false;
+}
+window.addEventListener("scroll",()=>{
+  if(!scrollTicking){
+    requestAnimationFrame(updateScrollUI);
+    scrollTicking=true;
+  }
 },{passive:true});
 
 /* ── SCROLL TOP ── */
@@ -1377,13 +1426,6 @@ document.querySelectorAll(".nav-links a").forEach(a=>{
 /* ── NAV ACTIVE ── */
 const sections=document.querySelectorAll("header[id],section[id]");
 const navAs=document.querySelectorAll(".nav-links a");
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      navAs.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));
-    }
-  });
-},{rootMargin:"-30% 0px -60% 0px"}).observe||0;
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
@@ -1399,8 +1441,9 @@ const revealObs=new IntersectionObserver(entries=>{
 },{rootMargin:"0px 0px -60px 0px"});
 document.querySelectorAll(".reveal").forEach(el=>revealObs.observe(el));
 
-/* ── MAGNETIC BUTTONS ── */
+/* ── MAGNETIC BUTTONS ── (desktop-only, matches the fine-pointer gate above) */
 function initMagnetic(){
+  if(!hasFinePointer) return;
   document.querySelectorAll(".btn").forEach(el=>{
     el.addEventListener("pointermove",e=>{
       const r=el.getBoundingClientRect();
