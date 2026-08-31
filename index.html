@@ -1,132 +1,148 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="neon">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#090a0f">
-  <meta name="description" content="MC88 Digital Universe — a personal gallery of projects, experiments, ideas and things built along the way.">
+  <meta name="description" content="MC88 Digital Universe — Mohamed / Cheikh Portfolio">
   <title>MC88 — Digital Universe</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #090a0f;
-      --bg-2: #0f1119;
-      --panel: rgba(255,255,255,.055);
-      --panel-strong: rgba(255,255,255,.09);
+      --bg: #07080c;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-card-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(124, 92, 255, 0.4);
       --text: #f5f7fb;
-      --muted: #a5adbd;
-      --line: rgba(255,255,255,.11);
+      --muted: #9aa3b4;
       --accent: #7c5cff;
       --accent-2: #00e5ff;
-      --good: #65f6a5;
-      --shadow: 0 24px 70px rgba(0,0,0,.28);
-      --radius: 24px;
-      --max: 1180px;
+      --good: #00f098;
+      --radius: 20px;
+      --max-w: 1200px;
+      --font-main: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
     }
 
     html[data-theme="editorial"] {
-      --bg: #f3f0e8;
-      --bg-2: #e9e4d8;
-      --panel: rgba(20,20,18,.055);
-      --panel-strong: rgba(20,20,18,.09);
-      --text: #171717;
-      --muted: #68645c;
-      --line: rgba(20,20,18,.14);
-      --accent: #111;
-      --accent-2: #b26a35;
-      --good: #24734b;
-      --shadow: 0 24px 70px rgba(54,43,29,.12);
+      --bg: #f4f1ea;
+      --bg-card: rgba(0, 0, 0, 0.03);
+      --bg-card-hover: rgba(0, 0, 0, 0.06);
+      --border: rgba(0, 0, 0, 0.12);
+      --border-accent: rgba(18, 18, 18, 0.4);
+      --text: #121212;
+      --muted: #66625a;
+      --accent: #121212;
+      --accent-2: #d96b27;
+      --good: #1b7a4b;
     }
 
     html[data-theme="aurora"] {
-      --bg: #061017;
-      --bg-2: #0a1920;
-      --panel: rgba(116,255,214,.055);
-      --panel-strong: rgba(116,255,214,.09);
-      --text: #effffb;
-      --muted: #9eb9b4;
-      --line: rgba(116,255,214,.13);
-      --accent: #54f4c8;
-      --accent-2: #9f7cff;
-      --good: #54f4c8;
-      --shadow: 0 24px 70px rgba(0,0,0,.35);
+      --bg: #050d1a;
+      --bg-card: rgba(0, 240, 255, 0.04);
+      --bg-card-hover: rgba(0, 240, 255, 0.09);
+      --border: rgba(0, 240, 255, 0.15);
+      --border-accent: rgba(0, 240, 255, 0.5);
+      --text: #e6f9ff;
+      --muted: #88aab8;
+      --accent: #00f0ff;
+      --accent-2: #bd00ff;
+      --good: #00f0ff;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
-      min-width: 320px;
-      background:
-        radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 30rem),
-        radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 28rem),
-        var(--bg);
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg);
       color: var(--text);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
+      font-family: var(--font-main);
+      line-height: 1.5;
       overflow-x: hidden;
-      transition: background .35s ease, color .35s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      /* Lightweight GPU background glow */
+      background-image: 
+        radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--accent-2) 12%, transparent) 0%, transparent 40%);
+      background-attachment: fixed;
     }
 
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; }
-    ::selection { background: var(--accent); color: var(--bg); }
+    button { font: inherit; color: inherit; border: none; background: none; cursor: pointer; }
 
-    .progress {
+    /* Scroll Bar Progress */
+    .progress-bar {
       position: fixed;
-      z-index: 1000;
-      inset: 0 auto auto 0;
-      width: 0%;
+      top: 0;
+      left: 0;
       height: 3px;
+      width: 0%;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 60%, transparent);
+      z-index: 1000;
+      will-change: width;
     }
 
-    .shell { width: min(calc(100% - 32px), var(--max)); margin: auto; }
+    .shell {
+      width: min(calc(100% - 32px), var(--max-w));
+      margin: 0 auto;
+    }
 
+    /* Header & Navigation */
     .site-header {
       position: fixed;
-      z-index: 900;
-      top: 14px;
+      top: 12px;
       left: 0;
       right: 0;
-      pointer-events: none;
+      z-index: 900;
     }
 
     .nav {
-      pointer-events: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 10px 12px 10px 16px;
-      border: 1px solid var(--line);
+      padding: 8px 12px 8px 16px;
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
       border-radius: 999px;
-      background: color-mix(in srgb, var(--bg) 72%, transparent);
-      backdrop-filter: blur(18px) saturate(1.3);
-      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 10px;
-      min-width: 0;
-      font-weight: 850;
-      letter-spacing: -.04em;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
     }
 
-    .brand-mark {
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #000;
       display: grid;
       place-items: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #07080c;
-      font-size: 12px;
-      font-weight: 950;
-      box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 25%, transparent);
+      font-weight: 900;
+      font-size: 0.75rem;
     }
 
     .nav-links {
@@ -136,570 +152,511 @@
     }
 
     .nav-links a, .theme-btn {
-      border: 0;
-      background: transparent;
-      padding: 9px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
-      color: var(--muted);
-      font-size: 13px;
+      font-size: 0.85rem;
       font-weight: 700;
-      cursor: pointer;
-      transition: .2s ease;
-    }
-
-    .nav-links a:hover, .nav-links a:focus-visible, .theme-btn:hover {
-      color: var(--text);
-      background: var(--panel-strong);
-      outline: none;
-    }
-
-    .menu-btn {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      background: var(--panel);
-      cursor: pointer;
-    }
-
-    .mobile-menu {
-      display: none;
-      margin-top: 8px;
-      padding: 8px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
-    }
-
-    .mobile-menu.open { display: grid; }
-    .mobile-menu a, .mobile-menu button {
-      border: 0;
-      background: transparent;
-      text-align: left;
-      padding: 13px 14px;
-      border-radius: 14px;
       color: var(--muted);
-      font-weight: 750;
-    }
-    .mobile-menu a:hover, .mobile-menu button:hover { background: var(--panel); color: var(--text); }
-
-    .hero {
-      min-height: 100svh;
-      display: grid;
+      transition: all 0.2s ease;
+      min-height: 40px;
+      display: inline-flex;
       align-items: center;
-      padding: 132px 0 70px;
-      position: relative;
-      isolation: isolate;
+    }
+
+    .nav-links a:hover, .theme-btn:hover {
+      color: var(--text);
+      background: var(--bg-card-hover);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      place-items: center;
+      font-size: 1.2rem;
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+      padding: 12px;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-drawer.active {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .mobile-drawer a, .mobile-drawer button {
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      text-align: left;
+      width: 100%;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-drawer a:active, .mobile-drawer button:active {
+      background: var(--bg-card-hover);
+      color: var(--text);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      padding: 120px 0 60px;
+      display: flex;
+      align-items: center;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 48px;
-      align-items: end;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      width: 100%;
     }
 
-    .eyebrow, .section-kicker {
+    .badge {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .18em;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
     }
 
-    .pulse {
-      width: 7px;
-      height: 7px;
+    .status-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: var(--good);
-      box-shadow: 0 0 0 0 color-mix(in srgb, var(--good) 55%, transparent);
-      animation: pulse 2s infinite;
+      box-shadow: 0 0 10px var(--good);
+      animation: blink 2s infinite;
     }
 
-    @keyframes pulse {
-      70% { box-shadow: 0 0 0 9px transparent; }
-      100% { box-shadow: 0 0 0 0 transparent; }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
     }
 
     .hero h1 {
-      margin: 22px 0 20px;
-      max-width: 900px;
-      font-size: clamp(4rem, 12vw, 9.5rem);
-      line-height: .82;
-      letter-spacing: -.075em;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 0.95;
       font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 20px;
     }
 
-    .hero h1 span {
-      display: block;
+    .hero h1 .stroke {
       color: transparent;
-      -webkit-text-stroke: 1px color-mix(in srgb, var(--text) 72%, transparent);
+      -webkit-text-stroke: 1.5px color-mix(in srgb, var(--text) 70%, transparent);
     }
 
-    .hero h1 em {
-      display: block;
-      font-style: normal;
-      background: linear-gradient(100deg, var(--text), var(--accent), var(--accent-2));
-      background-size: 180% 100%;
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, var(--text), var(--accent), var(--accent-2));
       -webkit-background-clip: text;
-      background-clip: text;
-      animation: gradientMove 7s ease infinite;
+      -webkit-text-fill-color: transparent;
     }
 
-    @keyframes gradientMove {
-      0%,100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
-
-    .hero-copy {
-      max-width: 650px;
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--muted);
-      font-size: clamp(16px, 2vw, 20px);
+      max-width: 580px;
+      margin-bottom: 30px;
     }
 
-    .hero-copy strong { color: var(--text); }
+    .hero-desc strong { color: var(--text); }
 
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      min-height: 48px;
-      padding: 0 18px;
-      border: 1px solid var(--line);
+      gap: 8px;
+      padding: 14px 24px;
       border-radius: 999px;
-      background: var(--panel);
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
       color: var(--text);
-      font-size: 13px;
-      font-weight: 850;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+      transition: all 0.2s ease;
+      min-height: 50px;
     }
 
-    .btn:hover { transform: translateY(-2px); background: var(--panel-strong); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
-    .btn.primary {
-      border-color: transparent;
+    .btn:hover, .btn:active {
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+    }
+
+    .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #07080c;
-      box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 20%, transparent);
+      color: #000;
+      border: none;
+      box-shadow: 0 8px 25px color-mix(in srgb, var(--accent) 30%, transparent);
     }
 
+    .btn-primary:hover, .btn-primary:active {
+      box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+
+    /* Hero Card Display */
     .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 30px;
       position: relative;
-      min-height: 310px;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background: linear-gradient(145deg, var(--panel-strong), var(--panel));
-      box-shadow: var(--shadow);
       overflow: hidden;
-      transform: rotate(2deg);
-      transition: transform .4s ease;
-    }
-    .hero-card:hover { transform: rotate(0deg) translateY(-5px); }
-
-    .hero-card::before, .hero-card::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(2px);
-      opacity: .8;
-    }
-    .hero-card::before {
-      width: 190px; height: 190px; right: -35px; top: -35px;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 50%, transparent), transparent 68%);
-    }
-    .hero-card::after {
-      width: 230px; height: 230px; left: -70px; bottom: -100px;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 45%, transparent), transparent 68%);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     }
 
-    .orbital {
-      position: absolute;
-      inset: 14%;
-      border: 1px dashed color-mix(in srgb, var(--text) 22%, transparent);
-      border-radius: 50%;
-      animation: spin 20s linear infinite;
-    }
-    .orbital.two { inset: 27%; animation-duration: 13s; animation-direction: reverse; }
-    .orbital i {
-      position: absolute;
-      width: 9px; height: 9px;
-      top: 2px; left: 50%;
-      border-radius: 50%;
-      background: var(--accent-2);
-      box-shadow: 0 0 22px var(--accent-2);
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .hero-card-content {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 24px;
-      z-index: 2;
-    }
-
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 11px;
+    .hero-card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       color: var(--muted);
-      letter-spacing: .08em;
+      letter-spacing: 0.1em;
+      margin-bottom: 40px;
+      display: block;
     }
 
     .hero-card-title {
-      font-size: clamp(28px, 4vw, 46px);
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
       font-weight: 900;
-      letter-spacing: -.06em;
-      line-height: .95;
-      max-width: 250px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
     }
 
-    .scroll-note {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
+    /* Sections General */
+    section {
+      padding: 80px 0;
     }
-
-    .scroll-line { width: 42px; height: 1px; background: var(--line); }
-
-    section { padding: 92px 0; scroll-margin-top: 90px; }
 
     .section-head {
-      display: grid;
-      grid-template-columns: .55fr 1fr;
-      gap: 28px;
-      align-items: end;
-      margin-bottom: 34px;
+      margin-bottom: 30px;
     }
 
-    .section-number {
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
+    .section-num {
+      font-family: var(--font-mono);
       color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 900;
-      letter-spacing: .12em;
+      line-height: 1;
+      letter-spacing: -0.04em;
     }
 
-    h2 {
-      margin: 8px 0 0;
-      font-size: clamp(2.5rem, 6vw, 5.5rem);
-      line-height: .9;
-      letter-spacing: -.065em;
-    }
-
-    .section-intro {
-      margin: 0;
-      max-width: 650px;
+    .section-sub {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 1rem;
+      max-width: 600px;
+      margin-top: 12px;
     }
 
+    /* Category Filters */
     .filters {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+      scrollbar-width: none;
     }
+    .filters::-webkit-scrollbar { display: none; }
 
-    .filter {
-      border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--muted);
+    .filter-btn {
+      padding: 8px 16px;
       border-radius: 999px;
-      padding: 9px 13px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 850;
-      transition: .2s ease;
-    }
-    .filter.active, .filter:hover {
-      color: var(--text);
-      border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
-      background: color-mix(in srgb, var(--accent) 12%, var(--panel));
-    }
-
-    .repo-status {
-      min-height: 24px;
-      margin-bottom: 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
       color: var(--muted);
-      font-size: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
+    .filter-btn.active, .filter-btn:hover {
+      background: color-mix(in srgb, var(--accent) 15%, var(--bg-card));
+      border-color: var(--border-accent);
+      color: var(--text);
+    }
+
+    /* Project Cards Grid */
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
     }
 
-    .project {
-      position: relative;
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      min-height: 310px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(160deg, color-mix(in srgb, var(--accent) 5%, var(--panel)), var(--panel));
-      overflow: hidden;
-      transition: transform .28s ease, border-color .28s ease, background .28s ease;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      min-height: 240px;
     }
 
-    .project::after {
-      content: "";
-      position: absolute;
-      width: 160px; height: 160px;
-      right: -80px; top: -80px;
-      border-radius: 50%;
-      background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 24%, transparent), transparent 68%);
-      pointer-events: none;
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
     }
 
-    .project:hover {
-      transform: translateY(-6px);
-      border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
-      background: var(--panel-strong);
-    }
-
-    .project-top {
+    .project-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      margin-bottom: 16px;
     }
 
     .project-index {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       color: var(--muted);
-      font-family: ui-monospace, monospace;
-      font-size: 11px;
     }
 
-    .repo-type {
-      padding: 5px 8px;
-      border: 1px solid var(--line);
+    .project-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
       border-radius: 999px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 850;
+      border: 1px solid var(--border);
       text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .project h3 {
-      margin: 48px 0 10px;
-      font-size: 26px;
-      line-height: 1;
-      letter-spacing: -.045em;
-    }
-
-    .project p {
-      margin: 0;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.65;
     }
 
-    .project-bottom {
-      margin-top: auto;
-      padding-top: 25px;
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      text-transform: capitalize;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .project-footer {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      background: var(--accent);
+    }
+
+    .project-links {
+      display: flex;
       gap: 10px;
     }
 
-    .meta { display: flex; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 11px; }
-    .meta span { display: inline-flex; align-items: center; gap: 5px; }
-    .language-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-
     .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 900;
+      font-weight: 800;
+      color: var(--text);
+      font-size: 0.8rem;
     }
+
     .project-link:hover { color: var(--accent); }
 
-    .about {
+    /* About Section Grid */
+    .about-grid {
       display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 24px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
     .about-card {
-      padding: clamp(24px, 5vw, 48px);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      background: var(--panel);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
     }
 
-    .about-card h3 {
-      margin: 0 0 16px;
-      font-size: clamp(32px, 5vw, 60px);
-      line-height: .95;
-      letter-spacing: -.065em;
-    }
-
-    .about-card p { color: var(--muted); margin: 0 0 14px; }
-
-    .stack {
+    .tech-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 25px;
+      margin-top: 20px;
     }
+
     .tag {
-      padding: 8px 10px;
-      border: 1px solid var(--line);
+      padding: 6px 12px;
       border-radius: 999px;
+      background: var(--bg-card-hover);
+      border: 1px solid var(--border);
+      font-size: 0.75rem;
+      font-weight: 700;
       color: var(--muted);
-      background: var(--panel);
-      font-size: 11px;
-      font-weight: 800;
     }
 
-    .stats {
+    .stats-grid {
       display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 10px;
-      height: 100%;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
-    .stat {
+    .stat-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 170px;
-      padding: 22px;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      background: var(--panel);
-    }
-    .stat strong { font-size: clamp(34px, 5vw, 56px); line-height: .9; letter-spacing: -.06em; }
-    .stat span { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
-
-    .contact-box {
-      position: relative;
-      overflow: hidden;
-      padding: clamp(30px, 7vw, 72px);
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      background:
-        radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--accent-2) 22%, transparent), transparent 25%),
-        radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 30%),
-        var(--panel);
     }
 
-    .contact-box h2 { max-width: 800px; }
-    .contact-box p { max-width: 660px; color: var(--muted); font-size: 16px; }
+    .stat-val {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
 
-    .contact-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
-
-    footer {
-      padding: 25px 0 34px;
-      border-top: 1px solid var(--line);
+    .stat-lbl {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: var(--muted);
-      font-size: 11px;
+      margin-top: 10px;
     }
 
-    .footer-row {
+    /* Contact Banner */
+    .contact-card {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--bg-card)), var(--bg-card));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: clamp(30px, 5vw, 60px);
+      text-align: left;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .footer-flex {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 15px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .footer-row a:hover { color: var(--text); }
+    /* Responsive Mobile Breakpoints */
+    @media (max-width: 868px) {
+      .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+      }
 
+      .nav-links { display: none; }
+      .menu-toggle { display: grid; }
+      
+      .hero {
+        padding-top: 100px;
+        min-height: auto;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Subtle Reveal Animation */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    .skeleton {
-      min-height: 310px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(100deg, transparent 20%, color-mix(in srgb, var(--text) 8%, transparent) 40%, transparent 60%),
-        var(--panel);
-      background-size: 220% 100%;
-      animation: shimmer 1.3s infinite;
-    }
-    @keyframes shimmer { to { background-position: -220% 0; } }
-
-    .empty {
-      grid-column: 1/-1;
-      padding: 42px;
-      border: 1px dashed var(--line);
-      border-radius: var(--radius);
-      color: var(--muted);
-      text-align: center;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid, .about { grid-template-columns: 1fr; }
-      .hero-card { min-height: 260px; max-width: 620px; }
-      .section-head { grid-template-columns: 1fr; gap: 12px; }
-      .project-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    }
-
-    @media (max-width: 680px) {
-      .shell { width: min(calc(100% - 22px), var(--max)); }
-      .site-header { top: 8px; }
-      .nav { padding: 8px 8px 8px 12px; }
-      .nav-links, .nav > .theme-btn { display: none; }
-      .menu-btn { display: grid; place-items: center; }
-      .hero { padding-top: 110px; }
-      .hero h1 { font-size: clamp(3.8rem, 19vw, 6rem); }
-      .hero-copy { font-size: 15px; }
-      .hero-card { min-height: 230px; transform: none; }
-      section { padding: 70px 0; }
-      .project-grid { grid-template-columns: 1fr; }
-      .project { min-height: 285px; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .stat { min-height: 140px; }
-      .footer-row { align-items: flex-start; flex-direction: column; }
-      .actions .btn { width: 100%; }
-      .contact-links .btn { flex: 1 1 140px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: .001ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .001ms !important;
-      }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 
 <body>
-  <div class="progress" id="progress"></div>
+  <div class="progress-bar" id="progressBar"></div>
 
+  <!-- Header -->
   <header class="site-header">
     <div class="shell">
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="#home" aria-label="MC88 home">
-          <span class="brand-mark">MC88</span>
-          <span>Digital Universe</span>
+      <nav class="nav" aria-label="Main Navigation">
+        <a class="brand" href="#home">
+          <span class="brand-logo">MC</span>
+          <span>MC88 Digital</span>
         </a>
 
         <div class="nav-links">
@@ -709,129 +666,129 @@
           <a href="#contact">Contact</a>
         </div>
 
-        <button class="theme-btn" id="themeBtn" type="button" aria-label="Change visual theme">NEON</button>
-        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+        <button class="theme-btn" id="themeBtn" type="button">THEME</button>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open Menu">☰</button>
       </nav>
 
-      <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-drawer" id="mobileDrawer">
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <button id="mobileTheme" type="button">Change theme · NEON</button>
+        <button id="mobileThemeBtn" type="button">Switch Theme</button>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="shell hero-grid">
         <div class="reveal">
-          <div class="eyebrow"><i class="pulse"></i> ONLINE — BUILDING SOMETHING NEW</div>
+          <div class="badge">
+            <span class="status-dot"></span>
+            <span>Online — Building projects</span>
+          </div>
           <h1>
-            <span>My</span>
-            <em>Digital</em>
+            <span class="stroke">My</span><br>
+            <span class="gradient">Digital</span><br>
             <span>Universe.</span>
           </h1>
-          <p class="hero-copy">
-            A personal gallery of <strong>projects, experiments, ideas</strong> and things I've built along the way.
-            Welcome to the world of <strong>MOHAMED / CHEIKH — MC88.</strong>
+          <p class="hero-desc">
+            A personal gallery of <strong>projects, experiments & tools</strong> built by <strong>Mohamed / Cheikh (MC88)</strong>.
           </p>
-          <div class="actions">
-            <a class="btn primary" href="#projects">Explore my work ↘</a>
-            <a class="btn" href="#contact">Let's connect →</a>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="#projects">Explore Work ↘</a>
+            <a class="btn" href="#contact">Contact Me →</a>
           </div>
         </div>
 
-        <div class="hero-card reveal" aria-label="MC88 visual signature">
-          <div class="orbital"><i></i></div>
-          <div class="orbital two"><i></i></div>
-          <div class="hero-card-content">
-            <span class="mono">MCMC88DIGITAL / 01</span>
-            <div class="hero-card-title">Curious.<br>Creative.<br>Always building.</div>
-            <span class="scroll-note"><span class="scroll-line"></span> scroll to explore</span>
-          </div>
+        <div class="hero-card reveal">
+          <span class="hero-card-tag">STATUS // ACTIVE</span>
+          <div class="hero-card-title">Curious.<br>Creative.<br>Always building.</div>
         </div>
       </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
       <div class="shell">
         <div class="section-head reveal">
-          <div>
-            <div class="section-kicker"><span class="section-number">01 /</span> Selected Work</div>
-            <h2>Things I've built.</h2>
-          </div>
-          <p class="section-intro">
-            Websites, applications, experiments, tools and strange ideas that became real.
-            Public GitHub repositories are loaded automatically so this section stays current without editing the HTML.
-          </p>
+          <span class="section-num">01 / Portfolio</span>
+          <h2 class="section-title">Things I've built.</h2>
+          <p class="section-sub">Public repositories automatically synced live from GitHub.</p>
         </div>
 
-        <div class="filters reveal" id="filters" aria-label="Project filters">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="Web">Web</button>
-          <button class="filter" data-filter="Tools">Tools</button>
-          <button class="filter" data-filter="Creative">Creative</button>
-          <a class="filter" href="https://github.com/MCMC88" target="_blank" rel="noopener">GitHub ↗</a>
+        <div class="filters reveal" id="filters">
+          <button class="filter-btn active" data-filter="all">All Repos</button>
+          <button class="filter-btn" data-filter="web">Web & Apps</button>
+          <button class="filter-btn" data-filter="tools">Tools & Utilities</button>
+          <a class="filter-btn" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">GitHub Profile ↗</a>
         </div>
 
-        <div class="repo-status" id="repoStatus" aria-live="polite">Connecting to GitHub…</div>
         <div class="project-grid" id="projectGrid">
-          <div class="skeleton"></div>
-          <div class="skeleton"></div>
-          <div class="skeleton"></div>
+          <!-- Live projects populated dynamically via GitHub API -->
         </div>
       </div>
     </section>
 
+    <!-- About Section -->
     <section id="about">
       <div class="shell">
         <div class="section-head reveal">
-          <div>
-            <div class="section-kicker"><span class="section-number">02 /</span> The Person Behind MC88</div>
-            <h2>Always building.</h2>
-          </div>
-          <p class="section-intro">Some projects are serious. Some are experimental. Some simply exist because I wanted to know whether I could build them.</p>
+          <span class="section-num">02 / Profile</span>
+          <h2 class="section-title">About MC88.</h2>
         </div>
 
-        <div class="about">
-          <article class="about-card reveal">
-            <h3>Curious.<br>Creative.<br>Always building.</h3>
-            <p>
-              I'm Mohamed / Cheikh, known online as MC88. This website is my personal digital gallery —
-              a place where I collect projects, experiments, ideas and work that I want to keep close.
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;">Mohamed / Cheikh</h3>
+            <p style="color: var(--muted); font-size: 0.95rem;">
+              Developer focused on crafting fast, modular web applications, networking implementations, and responsive interactive digital tools.
             </p>
-            <div class="stack" aria-label="Skills">
-              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-              <span class="tag">Python</span><span class="tag">UI Design</span><span class="tag">Streamlit</span>
-              <span class="tag">GitHub</span><span class="tag">Web Apps</span><span class="tag">Creative Code</span>
+            <div class="tech-tags">
+              <span class="tag">HTML5 / CSS3</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">Cisco Networking</span>
+              <span class="tag">GitHub Actions</span>
             </div>
-          </article>
+          </div>
 
-          <div class="stats reveal">
-            <div class="stat"><strong id="statProjects">00</strong><span>Projects live</span></div>
-            <div class="stat"><strong id="statStars">00</strong><span>GitHub stars</span></div>
-            <div class="stat"><strong id="statLanguages">00</strong><span>Languages</span></div>
-            <div class="stat"><strong>∞</strong><span>Ideas</span></div>
+          <div class="stats-grid reveal">
+            <div class="stat-box">
+              <span class="stat-val" id="statCount">00</span>
+              <span class="stat-lbl">Live Repositories</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val" id="statStars">00</span>
+              <span class="stat-lbl">Total Stars</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val">100%</span>
+              <span class="stat-lbl">Responsive</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-val">∞</span>
+              <span class="stat-lbl">Ideas</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
       <div class="shell">
-        <div class="contact-box reveal">
-          <div class="section-kicker"><span class="section-number">03 /</span> Get In Touch</div>
-          <h2>Let's make something interesting.</h2>
-          <p>
-            Whether you're a friend, university professor, recruiter, collaborator or someone who simply
-            discovered this little corner of the internet — you're welcome.
-          </p>
-          <div class="contact-links">
-            <a class="btn primary" href="mailto:mohamed005cheikh@gmail.com">Email me ↗</a>
+        <div class="contact-card reveal">
+          <span class="section-num">03 / Connect</span>
+          <h2 class="section-title" style="margin-bottom: 12px;">Let's build something.</h2>
+          <p class="section-sub" style="margin-bottom: 24px;">Reach out directly for collaborations, inquiries, or networking.</p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="mailto:mohamed005cheikh@gmail.com">Email Me ↗</a>
             <a class="btn" href="https://wa.me/?text=Hello%20Mohamed%20%2F%20MC88" target="_blank" rel="noopener">WhatsApp ↗</a>
-            <a class="btn" href="https://github.com/MCMC88" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">GitHub ↗</a>
           </div>
         </div>
       </div>
@@ -839,247 +796,150 @@
   </main>
 
   <footer>
-    <div class="shell footer-row">
+    <div class="shell footer-flex">
       <span>MC88 — DIGITAL UNIVERSE</span>
-      <span>© 2026 Mohamed / Cheikh · All rights reserved · <a href="mailto:mohamed005cheikh@gmail.com">mohamed005cheikh@gmail.com</a> · by MC88</span>
+      <span>© 2026 Mohamed / Cheikh · All rights reserved</span>
     </div>
   </footer>
 
   <script>
-    /* ==========================================================
-       MC88 DIGITAL UNIVERSE
-       One-file site. No build step. No backend. No configuration
-       is required for the GitHub project feed.
+    /*
+     * Automatic GitHub Fetcher & UI Controller
+     * Target Account: mohamed005cheikh-rgb
+     */
+    const GITHUB_USER = "mohamed005cheikh-rgb";
+    const API_URL = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
 
-       The PDF identifies the brand as MC88 / MCMC88, so the public
-       GitHub feed below uses that username.
-       ========================================================== */
+    // Local Fallback Data matching user's repositories
+    const FALLBACK_REPOS = [
+      { name: "quran-warsh-MC88", description: "Quran Warsh digital reader web interface.", language: "HTML", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/quran-warsh-MC88` },
+      { name: "ZKR-MC88", description: "Adhkar digital web companion application.", language: "HTML", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/ZKR-MC88` },
+      { name: "RMC88", description: "Remote PC control web client over Wi-Fi network.", language: "Python", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/RMC88` },
+      { name: "SCANNER-MC88", description: "QR code scanner web application with camera integration.", language: "JavaScript", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/SCANNER-MC88` },
+      { name: "PHARMA-MC88", description: "Pharmacy catalog web template with direct WhatsApp checkout.", language: "HTML", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/PHARMA-MC88` },
+      { name: "SM-MC88", description: "Subnetting master calculator for computer networking.", language: "HTML", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/SM-MC88` }
+    ];
 
-    const GITHUB_USERNAME = "MCMC88";
-    const API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&direction=desc`;
-
-    const $ = (selector, root = document) => root.querySelector(selector);
-    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-
-    const projectGrid = $("#projectGrid");
-    const repoStatus = $("#repoStatus");
-    const statProjects = $("#statProjects");
-    const statStars = $("#statStars");
-    const statLanguages = $("#statLanguages");
-
-    let repositories = [];
+    let reposData = [];
     let activeFilter = "all";
 
-    const escapeHTML = value => String(value ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
+    // Navigation & Drawer setup
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
 
-    function categoryFor(repo) {
-      const text = [
-        repo.name, repo.description, repo.language,
-        ...(repo.topics || [])
-      ].join(" ").toLowerCase();
+    menuToggle.addEventListener('click', () => {
+      const active = mobileDrawer.classList.toggle('active');
+      menuToggle.textContent = active ? '✕' : '☰';
+    });
 
-      if (/(design|art|creative|animation|visual|portfolio|game|canvas)/.test(text)) return "Creative";
-      if (/(tool|utility|cli|converter|generator|script|automation|bot)/.test(text)) return "Tools";
-      return "Web";
+    document.querySelectorAll('#mobileDrawer a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('active');
+        menuToggle.textContent = '☰';
+      });
+    });
+
+    // Themes Controller
+    const themes = ['neon', 'editorial', 'aurora'];
+    let currentThemeIdx = 0;
+
+    function setTheme(idx) {
+      currentThemeIdx = idx % themes.length;
+      document.documentElement.setAttribute('data-theme', themes[currentThemeIdx]);
+      document.getElementById('themeBtn').textContent = themes[currentThemeIdx].toUpperCase();
     }
 
-    function languageClass(language) {
-      const map = {
-        JavaScript: "#f7df1e", TypeScript: "#3178c6", Python: "#3776ab",
-        HTML: "#e34f26", CSS: "#1572b6", Java: "#b07219", C: "#555555",
-        "C++": "#f34b7d", PHP: "#777bb4", Ruby: "#701516", Go: "#00add8",
-        Rust: "#dea584", Dart: "#00b4ab", Kotlin: "#7f52ff"
-      };
-      return map[language] || "var(--accent)";
+    document.getElementById('themeBtn').addEventListener('click', () => setTheme(currentThemeIdx + 1));
+    document.getElementById('mobileThemeBtn').addEventListener('click', () => setTheme(currentThemeIdx + 1));
+
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+    }, { passive: true });
+
+    // Categorization logic
+    function getCategory(repo) {
+      const name = repo.name.toLowerCase();
+      if (name.includes('tool') || name.includes('sm') || name.includes('scanner') || name.includes('rmc')) return 'tools';
+      return 'web';
     }
 
-    function formatDate(date) {
-      const d = new Date(date);
-      return new Intl.DateTimeFormat(undefined, { month: "short", year: "numeric" }).format(d);
-    }
+    // Render Repositories
+    function renderProjects() {
+      const grid = document.getElementById('projectGrid');
+      const filtered = reposData.filter(repo => {
+        if (activeFilter === 'all') return true;
+        return getCategory(repo) === activeFilter;
+      });
 
-    function repoCard(repo, index) {
-      const category = categoryFor(repo);
-      const description = repo.description || "An experiment from the MC88 digital universe.";
-      const language = repo.language || "Code";
-      const homepage = repo.homepage && /^https?:\/\//i.test(repo.homepage) ? repo.homepage : "";
-
-      return `
-        <article class="project reveal" data-category="${category}">
-          <div class="project-top">
-            <span class="project-index">${String(index + 1).padStart(2, "0")} / ${category}</span>
-            <span class="repo-type">${repo.fork ? "Fork" : "Public"}</span>
-          </div>
-
-          <h3>${escapeHTML(repo.name.replaceAll("-", " "))}</h3>
-          <p>${escapeHTML(description)}</p>
-
-          <div class="project-bottom">
-            <div class="meta">
-              <span><i class="language-dot" style="background:${languageClass(language)}"></i>${escapeHTML(language)}</span>
-              <span>★ ${repo.stargazers_count}</span>
-              <span>↗ ${repo.forks_count}</span>
-              <span>${formatDate(repo.updated_at)}</span>
+      grid.innerHTML = filtered.map((repo, idx) => `
+        <article class="project-card reveal visible">
+          <div>
+            <div class="project-header">
+              <span class="project-index">/0${idx + 1}</span>
+              <span class="project-badge">${getCategory(repo)}</span>
             </div>
-            <div style="display:flex;gap:12px">
+            <h3 class="project-title">${repo.name.replaceAll('-', ' ')}</h3>
+            <p class="project-desc">${repo.description || 'Public repository project created by MC88.'}</p>
+          </div>
+          <div class="project-footer">
+            <div class="project-meta">
+              <span><span class="lang-dot"></span> ${repo.language || 'Code'}</span>
+              <span>★ ${repo.stargazers_count || 0}</span>
+            </div>
+            <div class="project-links">
               <a class="project-link" href="${repo.html_url}" target="_blank" rel="noopener">Code ↗</a>
-              ${homepage ? `<a class="project-link" href="${homepage}" target="_blank" rel="noopener">Live ↗</a>` : ""}
             </div>
           </div>
         </article>
-      `;
+      `).join('');
     }
 
-    function renderProjects() {
-      const filtered = activeFilter === "all"
-        ? repositories
-        : repositories.filter(repo => categoryFor(repo) === activeFilter);
-
-      if (!filtered.length) {
-        projectGrid.innerHTML = `<div class="empty">No projects match this filter yet.</div>`;
-        return;
-      }
-
-      projectGrid.innerHTML = filtered.map(repoCard).join("");
-      observeReveals();
-    }
-
-    function updateStats() {
-      const stars = repositories.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
-      const languages = new Set(repositories.map(r => r.language).filter(Boolean)).size;
-
-      statProjects.textContent = String(repositories.length).padStart(2, "0");
-      statStars.textContent = String(stars).padStart(2, "0");
-      statLanguages.textContent = String(languages).padStart(2, "0");
-    }
-
-    async function loadGitHub() {
-      const cached = localStorage.getItem("mc88-github-cache");
-      const cacheTime = Number(localStorage.getItem("mc88-github-cache-time") || 0);
-
-      if (cached && Date.now() - cacheTime < 10 * 60 * 1000) {
-        try {
-          repositories = JSON.parse(cached);
-          repoStatus.textContent = `${repositories.length} public projects · synced recently`;
-          updateStats();
-          renderProjects();
-          return;
-        } catch (_) {}
-      }
-
-      try {
-        const response = await fetch(API_URL, {
-          headers: { Accept: "application/vnd.github+json" }
-        });
-        if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
-        const data = await response.json();
-
-        repositories = data
-          .filter(repo => !repo.archived && !repo.fork)
-          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-
-        localStorage.setItem("mc88-github-cache", JSON.stringify(repositories));
-        localStorage.setItem("mc88-github-cache-time", String(Date.now()));
-
-        repoStatus.textContent = `${repositories.length} public projects · live from GitHub`;
-        updateStats();
-        renderProjects();
-      } catch (error) {
-        console.warn("GitHub feed unavailable:", error);
-        repoStatus.textContent = "GitHub feed unavailable right now · showing a fallback project list";
-
-        repositories = [
-          {
-            name: "Digital Universe",
-            description: "The personal portfolio and creative home of MC88.",
-            language: "HTML",
-            stargazers_count: 0,
-            forks_count: 0,
-            updated_at: new Date().toISOString(),
-            html_url: `https://github.com/${GITHUB_USERNAME}`,
-            homepage: "",
-            fork: false
-          }
-        ];
-
-        updateStats();
-        renderProjects();
-      }
-    }
-
-    $$("#filters .filter[data-filter]").forEach(button => {
-      button.addEventListener("click", () => {
-        $$("#filters .filter[data-filter]").forEach(b => b.classList.remove("active"));
-        button.classList.add("active");
-        activeFilter = button.dataset.filter;
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        activeFilter = e.target.getAttribute('data-filter');
         renderProjects();
       });
     });
 
-    const themeNames = ["neon", "editorial", "aurora"];
-    let themeIndex = Number(localStorage.getItem("mc88-theme-index") || 0);
-
-    function applyTheme() {
-      const theme = themeNames[themeIndex % themeNames.length];
-      document.documentElement.dataset.theme = theme === "neon" ? "" : theme;
-      $("#themeBtn").textContent = theme.toUpperCase();
-      $("#mobileTheme").textContent = `Change theme · ${theme.toUpperCase()}`;
-      localStorage.setItem("mc88-theme-index", String(themeIndex % themeNames.length));
+    // Live GitHub Sync
+    async function fetchGitHubRepos() {
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error('API Rate limit or network error');
+        const data = await response.json();
+        reposData = data.filter(r => !r.fork);
+      } catch (err) {
+        console.log('Using local repository fallback:', err);
+        reposData = FALLBACK_REPOS;
+      } finally {
+        document.getElementById('statCount').textContent = String(reposData.length).padStart(2, '0');
+        const totalStars = reposData.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
+        document.getElementById('statStars').textContent = String(totalStars).padStart(2, '0');
+        renderProjects();
+      }
     }
 
-    function nextTheme() {
-      themeIndex = (themeIndex + 1) % themeNames.length;
-      applyTheme();
-    }
+    // Intersection Observer for Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
 
-    $("#themeBtn").addEventListener("click", nextTheme);
-    $("#mobileTheme").addEventListener("click", nextTheme);
-    applyTheme();
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    const menuBtn = $("#menuBtn");
-    const mobileMenu = $("#mobileMenu");
-
-    menuBtn.addEventListener("click", () => {
-      const open = mobileMenu.classList.toggle("open");
-      menuBtn.setAttribute("aria-expanded", String(open));
-      menuBtn.textContent = open ? "×" : "☰";
-    });
-
-    $$("#mobileMenu a").forEach(link => link.addEventListener("click", () => {
-      mobileMenu.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.textContent = "☰";
-    }));
-
-    function updateProgress() {
-      const scrollTop = window.scrollY;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      $("#progress").style.width = height > 0 ? `${(scrollTop / height) * 100}%` : "0%";
-    }
-    window.addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
-
-    let observer;
-    function observeReveals() {
-      if (observer) observer.disconnect();
-      observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: .08 });
-      $$(".reveal").forEach(el => observer.observe(el));
-    }
-
-    observeReveals();
-    loadGitHub();
+    // Initialize
+    fetchGitHubRepos();
   </script>
 </body>
 </html>
+
