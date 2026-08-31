@@ -75,7 +75,6 @@
       line-height: 1.5;
       overflow-x: hidden;
       transition: background-color 0.3s ease, color 0.3s ease;
-      /* Lightweight GPU background glow */
       background-image: 
         radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--accent) 15%, transparent) 0%, transparent 40%),
         radial-gradient(circle at 90% 80%, color-mix(in srgb, var(--accent-2) 12%, transparent) 0%, transparent 40%);
@@ -85,7 +84,6 @@
     a { color: inherit; text-decoration: none; }
     button { font: inherit; color: inherit; border: none; background: none; cursor: pointer; }
 
-    /* Scroll Bar Progress */
     .progress-bar {
       position: fixed;
       top: 0;
@@ -102,7 +100,6 @@
       margin: 0 auto;
     }
 
-    /* Header & Navigation */
     .site-header {
       position: fixed;
       top: 12px;
@@ -179,7 +176,6 @@
       font-size: 1.2rem;
     }
 
-    /* Mobile Drawer */
     .mobile-drawer {
       display: none;
       flex-direction: column;
@@ -219,7 +215,6 @@
       color: var(--text);
     }
 
-    /* Hero Section */
     .hero {
       min-height: 100vh;
       padding: 120px 0 60px;
@@ -332,7 +327,6 @@
       box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 45%, transparent);
     }
 
-    /* Hero Card Display */
     .hero-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -359,14 +353,8 @@
       letter-spacing: -0.03em;
     }
 
-    /* Sections General */
-    section {
-      padding: 80px 0;
-    }
-
-    .section-head {
-      margin-bottom: 30px;
-    }
+    section { padding: 80px 0; }
+    .section-head { margin-bottom: 30px; }
 
     .section-num {
       font-family: var(--font-mono);
@@ -393,7 +381,6 @@
       margin-top: 12px;
     }
 
-    /* Category Filters */
     .filters {
       display: flex;
       gap: 8px;
@@ -422,7 +409,6 @@
       color: var(--text);
     }
 
-    /* Project Cards Grid */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -476,6 +462,11 @@
       letter-spacing: -0.02em;
       margin-bottom: 8px;
       text-transform: capitalize;
+      transition: color 0.2s;
+    }
+    
+    .project-title:hover {
+      color: var(--accent);
     }
 
     .project-desc {
@@ -522,7 +513,6 @@
 
     .project-link:hover { color: var(--accent); }
 
-    /* About Section Grid */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -585,7 +575,6 @@
       margin-top: 10px;
     }
 
-    /* Contact Banner */
     .contact-card {
       background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, var(--bg-card)), var(--bg-card));
       border: 1px solid var(--border);
@@ -594,7 +583,6 @@
       text-align: left;
     }
 
-    /* Footer */
     footer {
       padding: 30px 0;
       border-top: 1px solid var(--border);
@@ -610,47 +598,27 @@
       gap: 12px;
     }
 
-    /* Responsive Mobile Breakpoints */
     @media (max-width: 868px) {
-      .hero-grid, .about-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .menu-toggle { display: grid; }
-      
-      .hero {
-        padding-top: 100px;
-        min-height: auto;
-      }
-
-      .hero h1 {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
+      .hero { padding-top: 100px; min-height: auto; }
+      .hero h1 { font-size: clamp(2.5rem, 12vw, 4rem); }
+      .project-grid { grid-template-columns: 1fr; }
     }
 
-    /* Subtle Reveal Animation */
     .reveal {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 
 <body>
   <div class="progress-bar" id="progressBar"></div>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="shell">
       <nav class="nav" aria-label="Main Navigation">
@@ -658,14 +626,12 @@
           <span class="brand-logo">MC</span>
           <span>MC88 Digital</span>
         </a>
-
         <div class="nav-links">
           <a href="#home">Home</a>
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
-
         <button class="theme-btn" id="themeBtn" type="button">THEME</button>
         <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open Menu">☰</button>
       </nav>
@@ -681,7 +647,6 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="shell hero-grid">
         <div class="reveal">
@@ -710,13 +675,12 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects">
       <div class="shell">
         <div class="section-head reveal">
           <span class="section-num">01 / Portfolio</span>
           <h2 class="section-title">Things I've built.</h2>
-          <p class="section-sub">Public repositories automatically synced live from GitHub.</p>
+          <p class="section-sub">Direct links automatically synced to active GitHub Pages.</p>
         </div>
 
         <div class="filters reveal" id="filters">
@@ -732,14 +696,12 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
       <div class="shell">
         <div class="section-head reveal">
           <span class="section-num">02 / Profile</span>
           <h2 class="section-title">About MC88.</h2>
         </div>
-
         <div class="about-grid">
           <div class="about-card reveal">
             <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;">Mohamed / Cheikh</h3>
@@ -755,7 +717,6 @@
               <span class="tag">GitHub Actions</span>
             </div>
           </div>
-
           <div class="stats-grid reveal">
             <div class="stat-box">
               <span class="stat-val" id="statCount">00</span>
@@ -778,7 +739,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact">
       <div class="shell">
         <div class="contact-card reveal">
@@ -804,13 +764,34 @@
 
   <script>
     /*
-     * Automatic GitHub Fetcher & UI Controller
-     * Target Account: mohamed005cheikh-rgb
-     */
+     ======================================================================
+     [GUIDE]: HOW TO HIDE, DELETE, OR ADD REPOSITORIES IN YOUR PORTFOLIO
+     ======================================================================
+     
+     1. HOW TO HIDE/DELETE A REPOSITORY:
+     Simply add the exact repository name to the 'HIDDEN_REPOS' array below. 
+     Any name listed here will automatically be excluded from your web portfolio.
+     Currently, we are hiding your profile README and the "all in" repos.
+     
+     2. HOW TO ADD NEW REPOSITORIES:
+     Because this uses the GitHub API, any new public repository you create 
+     will AUTOMATICALLY appear here. You do not need to do anything! 
+     
+     3. IF GITHUB API FAILS (Fallback):
+     If the API is down, it reads from the 'FALLBACK_REPOS' array below. 
+     You can manually add new objects to that array as backups.
+     ======================================================================
+    */
+    const HIDDEN_REPOS = [
+      "mohamed005cheikh-rgb", // Profile readme repository
+      "all-in",               // The all in repository (add any variations if the exact name differs)
+      "all-in-MC88",
+      "all"
+    ];
+
     const GITHUB_USER = "mohamed005cheikh-rgb";
     const API_URL = `https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`;
 
-    // Local Fallback Data matching user's repositories
     const FALLBACK_REPOS = [
       { name: "quran-warsh-MC88", description: "Quran Warsh digital reader web interface.", language: "HTML", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/quran-warsh-MC88` },
       { name: "ZKR-MC88", description: "Adhkar digital web companion application.", language: "HTML", stargazers_count: 1, html_url: `https://github.com/${GITHUB_USER}/ZKR-MC88` },
@@ -823,7 +804,6 @@
     let reposData = [];
     let activeFilter = "all";
 
-    // Navigation & Drawer setup
     const menuToggle = document.getElementById('menuToggle');
     const mobileDrawer = document.getElementById('mobileDrawer');
 
@@ -839,7 +819,6 @@
       });
     });
 
-    // Themes Controller
     const themes = ['neon', 'editorial', 'aurora'];
     let currentThemeIdx = 0;
 
@@ -852,7 +831,6 @@
     document.getElementById('themeBtn').addEventListener('click', () => setTheme(currentThemeIdx + 1));
     document.getElementById('mobileThemeBtn').addEventListener('click', () => setTheme(currentThemeIdx + 1));
 
-    // Scroll Progress Bar
     window.addEventListener('scroll', () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -860,14 +838,12 @@
       document.getElementById('progressBar').style.width = scrolled + '%';
     }, { passive: true });
 
-    // Categorization logic
     function getCategory(repo) {
       const name = repo.name.toLowerCase();
       if (name.includes('tool') || name.includes('sm') || name.includes('scanner') || name.includes('rmc')) return 'tools';
       return 'web';
     }
 
-    // Render Repositories
     function renderProjects() {
       const grid = document.getElementById('projectGrid');
       const filtered = reposData.filter(repo => {
@@ -875,14 +851,23 @@
         return getCategory(repo) === activeFilter;
       });
 
-      grid.innerHTML = filtered.map((repo, idx) => `
+      grid.innerHTML = filtered.map((repo, idx) => {
+        // Automatically generate the GitHub pages URL structure based on the repo name
+        const pagesWebLink = `https://${GITHUB_USER}.github.io/${repo.name}/`;
+        
+        return `
         <article class="project-card reveal visible">
           <div>
             <div class="project-header">
               <span class="project-index">/0${idx + 1}</span>
               <span class="project-badge">${getCategory(repo)}</span>
             </div>
-            <h3 class="project-title">${repo.name.replaceAll('-', ' ')}</h3>
+            
+            <!-- Link the repository title directly to the GitHub Pages site -->
+            <a href="${pagesWebLink}" target="_blank" rel="noopener">
+              <h3 class="project-title">${repo.name.replaceAll('-', ' ')} ↗</h3>
+            </a>
+            
             <p class="project-desc">${repo.description || 'Public repository project created by MC88.'}</p>
           </div>
           <div class="project-footer">
@@ -891,14 +876,15 @@
               <span>★ ${repo.stargazers_count || 0}</span>
             </div>
             <div class="project-links">
-              <a class="project-link" href="${repo.html_url}" target="_blank" rel="noopener">Code ↗</a>
+              <!-- Replaced original static button with a direct link to GitHub Pages -->
+              <a class="project-link" href="${pagesWebLink}" target="_blank" rel="noopener">Live Web ↗</a>
+              <a class="project-link" href="${repo.html_url}" target="_blank" rel="noopener" style="color: var(--muted); font-weight: 500;">Source Code</a>
             </div>
           </div>
         </article>
-      `).join('');
+      `}).join('');
     }
 
-    // Filter Buttons
     document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
@@ -908,16 +894,17 @@
       });
     });
 
-    // Live GitHub Sync
     async function fetchGitHubRepos() {
       try {
         const response = await fetch(API_URL);
         if (!response.ok) throw new Error('API Rate limit or network error');
         const data = await response.json();
-        reposData = data.filter(r => !r.fork);
+        
+        // Filter out forks AND exclude the hidden repositories specified in the GUIDE
+        reposData = data.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name) && !HIDDEN_REPOS.includes(r.name.toLowerCase()));
       } catch (err) {
         console.log('Using local repository fallback:', err);
-        reposData = FALLBACK_REPOS;
+        reposData = FALLBACK_REPOS.filter(r => !HIDDEN_REPOS.includes(r.name));
       } finally {
         document.getElementById('statCount').textContent = String(reposData.length).padStart(2, '0');
         const totalStars = reposData.reduce((acc, r) => acc + (r.stargazers_count || 0), 0);
@@ -926,7 +913,6 @@
       }
     }
 
-    // Intersection Observer for Animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -937,7 +923,6 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Initialize
     fetchGitHubRepos();
   </script>
 </body>
