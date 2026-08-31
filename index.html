@@ -1,677 +1,1085 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#08090d">
-<meta name="description" content="MC88 Digital Universe — projects, experiments, tools, ideas and creative work by Mohamed / Cheikh.">
-<title>MC88 — Digital Universe</title>
-<style>
-:root {
-  --bg:#08090d; --bg2:#0e1017; --card:rgba(255,255,255,.055); --card2:rgba(255,255,255,.09);
-  --text:#f7f8fb; --muted:#9da5b5; --line:rgba(255,255,255,.11);
-  --a:#7c5cff; --b:#00e5ff; --good:#62f3a4; --max:1180px;
-}
-html[data-theme="editorial"] {
-  --bg:#f2eee5; --bg2:#e7e1d5; --card:rgba(20,20,18,.055); --card2:rgba(20,20,18,.09);
-  --text:#171717; --muted:#69655e; --line:rgba(20,20,18,.14); --a:#111; --b:#b56b35; --good:#27764d;
-}
-html[data-theme="aurora"] {
-  --bg:#041116; --bg2:#091b21; --card:rgba(87,247,203,.055); --card2:rgba(87,247,203,.095);
-  --text:#effffb; --muted:#9bb8b3; --line:rgba(87,247,203,.13); --a:#57f7cb; --b:#a47cff; --good:#57f7cb;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-width:320px;overflow-x:hidden;background:
-radial-gradient(circle at 10% 8%,color-mix(in srgb,var(--a) 16%,transparent),transparent 31rem),
-radial-gradient(circle at 92% 24%,color-mix(in srgb,var(--b) 12%,transparent),transparent 28rem),var(--bg);
-color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;transition:background .3s,color .3s}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit}
-::selection{background:var(--a);color:var(--bg)}
-.shell{width:min(calc(100% - 28px),var(--max));margin:auto}
-.progress{position:fixed;z-index:1000;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b));box-shadow:0 0 18px color-mix(in srgb,var(--a) 55%,transparent)}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0f">
+  <meta name="description" content="MC88 Digital Universe — a personal gallery of projects, experiments, ideas and things built along the way.">
+  <title>MC88 — Digital Universe</title>
 
-header{position:fixed;z-index:900;left:0;right:0;top:10px;pointer-events:none}
-.nav{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px 9px 13px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 14px 42px rgba(0,0,0,.12)}
-.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.045em;min-width:0}
-.mark{width:37px;height:37px;flex:0 0 37px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--b));color:#06070a;font-size:11px;font-weight:950}
-.brand-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.navlinks{display:flex;align-items:center;gap:3px}
-.navlinks a{padding:9px 11px;border-radius:999px;color:var(--muted);font-size:12px;font-weight:800}
-.navlinks a:hover{background:var(--card2);color:var(--text)}
-.theme-icon{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--card);cursor:pointer;font-size:17px;transition:.2s}
-.theme-icon:hover{transform:rotate(15deg);background:var(--card2);border-color:color-mix(in srgb,var(--a) 55%,var(--line))}
-.menu{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:var(--card);cursor:pointer}
-.mobile{display:none;margin-top:8px;padding:7px;border:1px solid var(--line);border-radius:20px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(18px);box-shadow:0 22px 55px rgba(0,0,0,.2)}
-.mobile.open{display:grid}
-.mobile a,.mobile button{border:0;background:transparent;text-align:left;padding:13px;border-radius:13px;color:var(--muted);font-weight:800}
-.mobile a:hover,.mobile button:hover{background:var(--card);color:var(--text)}
+  <style>
+    :root {
+      --bg: #090a0f;
+      --bg-2: #0f1119;
+      --panel: rgba(255,255,255,.055);
+      --panel-strong: rgba(255,255,255,.09);
+      --text: #f5f7fb;
+      --muted: #a5adbd;
+      --line: rgba(255,255,255,.11);
+      --accent: #7c5cff;
+      --accent-2: #00e5ff;
+      --good: #65f6a5;
+      --shadow: 0 24px 70px rgba(0,0,0,.28);
+      --radius: 24px;
+      --max: 1180px;
+    }
 
-.hero{min-height:100svh;display:grid;align-items:center;padding:125px 0 70px}
-.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:45px;align-items:end}
-.eyebrow,.kicker{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 55%,transparent);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
-h1{margin:21px 0 20px;font-size:clamp(4rem,12vw,9.2rem);line-height:.8;letter-spacing:-.08em;font-weight:950}
-h1 .outline{display:block;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--text) 70%,transparent)}
-h1 .gradient{display:block;background:linear-gradient(100deg,var(--text),var(--a),var(--b));background-size:180% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 7s ease infinite}
-@keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
-.hero-copy{max-width:660px;color:var(--muted);font-size:clamp(15px,2vw,19px)}
-.hero-copy strong{color:var(--text)}
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:47px;padding:0 17px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:12px;font-weight:900;transition:.2s}
-.btn:hover{transform:translateY(-2px);background:var(--card2);border-color:color-mix(in srgb,var(--a) 55%,var(--line))}
-.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--a),var(--b));color:#06070a;box-shadow:0 14px 35px color-mix(in srgb,var(--a) 22%,transparent)}
-.visual{position:relative;min-height:315px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,var(--card2),var(--card));box-shadow:0 28px 75px rgba(0,0,0,.25);overflow:hidden;transform:rotate(2deg);transition:.35s}
-.visual:hover{transform:rotate(0) translateY(-5px)}
-.orbit{position:absolute;inset:15%;border:1px dashed color-mix(in srgb,var(--text) 23%,transparent);border-radius:50%;animation:spin 20s linear infinite}
-.orbit.two{inset:29%;animation-duration:13s;animation-direction:reverse}
-.orbit i{position:absolute;top:2px;left:50%;width:9px;height:9px;border-radius:50%;background:var(--b);box-shadow:0 0 22px var(--b)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.visual-content{position:absolute;inset:0;padding:23px;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
-.mono{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;color:var(--muted)}
-.visual-title{font-size:clamp(29px,4vw,46px);font-weight:950;line-height:.92;letter-spacing:-.06em}
-.scroll{color:var(--muted);font-size:11px;font-weight:800;display:flex;align-items:center;gap:9px}
-.scroll i{width:40px;height:1px;background:var(--line)}
+    html[data-theme="editorial"] {
+      --bg: #f3f0e8;
+      --bg-2: #e9e4d8;
+      --panel: rgba(20,20,18,.055);
+      --panel-strong: rgba(20,20,18,.09);
+      --text: #171717;
+      --muted: #68645c;
+      --line: rgba(20,20,18,.14);
+      --accent: #111;
+      --accent-2: #b26a35;
+      --good: #24734b;
+      --shadow: 0 24px 70px rgba(54,43,29,.12);
+    }
 
-section{padding:90px 0;scroll-margin-top:88px}
-.section-head{display:grid;grid-template-columns:.6fr 1fr;gap:30px;align-items:end;margin-bottom:32px}
-.number{color:var(--a);font:900 11px ui-monospace,monospace;letter-spacing:.1em}
-h2{margin:8px 0 0;font-size:clamp(2.6rem,6vw,5.4rem);line-height:.88;letter-spacing:-.07em}
-.intro{margin:0;color:var(--muted);font-size:15px;max-width:670px}
-.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
-.filter{border:1px solid var(--line);border-radius:999px;padding:9px 13px;background:var(--card);color:var(--muted);font-size:11px;font-weight:900;cursor:pointer}
-.filter:hover,.filter.active{color:var(--text);background:color-mix(in srgb,var(--a) 12%,var(--card));border-color:color-mix(in srgb,var(--a) 55%,var(--line))}
-.repo-count{color:var(--muted);font-size:11px;margin-bottom:15px}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
-.project{position:relative;display:flex;flex-direction:column;min-height:300px;padding:21px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(155deg,color-mix(in srgb,var(--a) 5%,var(--card)),var(--card));overflow:hidden;transition:transform .25s,border-color .25s,background .25s}
-.project::after{content:"";position:absolute;width:190px;height:190px;right:-105px;top:-105px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--b) 22%,transparent),transparent 68%);pointer-events:none}
-.project:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--a) 52%,var(--line));background:var(--card2)}
-.project-top,.project-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.project-index,.project-type,.repo-url{font-size:10px;color:var(--muted);font-weight:850}
-.project-index{font-family:ui-monospace,monospace}
-.project-type{border:1px solid var(--line);padding:5px 8px;border-radius:999px;letter-spacing:.07em}
-.project-body{margin-top:48px}
-.project h3{margin:0 0 10px;font-size:25px;line-height:.95;letter-spacing:-.045em;text-transform:none}
-.project p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
-.project-bottom{margin-top:auto;padding-top:24px;border-top:1px solid var(--line)}
-.repo-url{max-width:85%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.open-arrow{font-size:18px;font-weight:900;transition:transform .2s}
-.project:hover .open-arrow{transform:translate(3px,-3px)}
+    html[data-theme="aurora"] {
+      --bg: #061017;
+      --bg-2: #0a1920;
+      --panel: rgba(116,255,214,.055);
+      --panel-strong: rgba(116,255,214,.09);
+      --text: #effffb;
+      --muted: #9eb9b4;
+      --line: rgba(116,255,214,.13);
+      --accent: #54f4c8;
+      --accent-2: #9f7cff;
+      --good: #54f4c8;
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+    }
 
-.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}
-.panel{padding:clamp(24px,5vw,47px);border:1px solid var(--line);border-radius:29px;background:var(--card)}
-.panel h3{margin:0 0 17px;font-size:clamp(32px,5vw,59px);line-height:.9;letter-spacing:-.07em}
-.panel p{margin:0 0 13px;color:var(--muted);font-size:14px}
-.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
-.tag{padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--muted);font-size:10px;font-weight:850}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{min-height:165px;padding:21px;border:1px solid var(--line);border-radius:22px;background:var(--card);display:flex;flex-direction:column;justify-content:space-between}
-.stat strong{font-size:clamp(34px,5vw,55px);line-height:.9;letter-spacing:-.06em}
-.stat span{color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 15%, transparent), transparent 30rem),
+        radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
 
-.contact{position:relative;overflow:hidden;padding:clamp(29px,7vw,70px);border:1px solid var(--line);border-radius:33px;background:
-radial-gradient(circle at 87% 18%,color-mix(in srgb,var(--b) 21%,transparent),transparent 26%),
-radial-gradient(circle at 8% 90%,color-mix(in srgb,var(--a) 21%,transparent),transparent 30%),var(--card)}
-.contact p{max-width:650px;color:var(--muted);font-size:15px}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
-footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);font-size:10px}
-.footer-row{display:flex;justify-content:space-between;gap:15px}
-footer a:hover{color:var(--text)}
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    ::selection { background: var(--accent); color: var(--bg); }
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
-.reveal.visible{opacity:1;transform:none}
-.hidden{display:none!important}
+    .progress {
+      position: fixed;
+      z-index: 1000;
+      inset: 0 auto auto 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 60%, transparent);
+    }
 
-@media(max-width:900px){
-  .hero-grid,.about{grid-template-columns:1fr}
-  .visual{max-width:620px;min-height:260px}
-  .section-head{grid-template-columns:1fr;gap:12px}
-  .grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:680px){
-  .shell{width:min(calc(100% - 20px),var(--max))}
-  header{top:7px}
-  .nav{padding:8px 8px 8px 11px}
-  .navlinks{display:none}
-  .menu{display:grid;place-items:center}
-  .theme-icon{width:38px;height:38px}
-  .brand-name{font-size:12px}
-  .hero{padding-top:106px}
-  h1{font-size:clamp(3.8rem,19vw,6rem)}
-  .hero-copy{font-size:14px}
-  .actions .btn{width:100%}
-  .visual{min-height:225px;transform:none}
-  section{padding:70px 0}
-  .grid{grid-template-columns:1fr}
-  .project{min-height:270px}
-  .stats{gap:8px}
-  .stat{min-height:135px}
-  .footer-row{flex-direction:column;align-items:flex-start}
-  .links .btn{flex:1 1 140px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
-}
-</style>
+    .shell { width: min(calc(100% - 32px), var(--max)); margin: auto; }
+
+    .site-header {
+      position: fixed;
+      z-index: 900;
+      top: 14px;
+      left: 0;
+      right: 0;
+      pointer-events: none;
+    }
+
+    .nav {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 12px 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--bg) 72%, transparent);
+      backdrop-filter: blur(18px) saturate(1.3);
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07080c;
+      font-size: 12px;
+      font-weight: 950;
+      box-shadow: 0 0 26px color-mix(in srgb, var(--accent) 25%, transparent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a, .theme-btn {
+      border: 0;
+      background: transparent;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover, .nav-links a:focus-visible, .theme-btn:hover {
+      color: var(--text);
+      background: var(--panel-strong);
+      outline: none;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--panel);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      margin-top: 8px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-menu.open { display: grid; }
+    .mobile-menu a, .mobile-menu button {
+      border: 0;
+      background: transparent;
+      text-align: left;
+      padding: 13px 14px;
+      border-radius: 14px;
+      color: var(--muted);
+      font-weight: 750;
+    }
+    .mobile-menu a:hover, .mobile-menu button:hover { background: var(--panel); color: var(--text); }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      padding: 132px 0 70px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 48px;
+      align-items: end;
+    }
+
+    .eyebrow, .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--good);
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--good) 55%, transparent);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 9px transparent; }
+      100% { box-shadow: 0 0 0 0 transparent; }
+    }
+
+    .hero h1 {
+      margin: 22px 0 20px;
+      max-width: 900px;
+      font-size: clamp(4rem, 12vw, 9.5rem);
+      line-height: .82;
+      letter-spacing: -.075em;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px color-mix(in srgb, var(--text) 72%, transparent);
+    }
+
+    .hero h1 em {
+      display: block;
+      font-style: normal;
+      background: linear-gradient(100deg, var(--text), var(--accent), var(--accent-2));
+      background-size: 180% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: gradientMove 7s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0%,100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 20px);
+    }
+
+    .hero-copy strong { color: var(--text); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 850;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); background: var(--panel-strong); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+    .btn.primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #07080c;
+      box-shadow: 0 14px 34px color-mix(in srgb, var(--accent) 20%, transparent);
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 310px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: linear-gradient(145deg, var(--panel-strong), var(--panel));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: rotate(2deg);
+      transition: transform .4s ease;
+    }
+    .hero-card:hover { transform: rotate(0deg) translateY(-5px); }
+
+    .hero-card::before, .hero-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: .8;
+    }
+    .hero-card::before {
+      width: 190px; height: 190px; right: -35px; top: -35px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 50%, transparent), transparent 68%);
+    }
+    .hero-card::after {
+      width: 230px; height: 230px; left: -70px; bottom: -100px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 45%, transparent), transparent 68%);
+    }
+
+    .orbital {
+      position: absolute;
+      inset: 14%;
+      border: 1px dashed color-mix(in srgb, var(--text) 22%, transparent);
+      border-radius: 50%;
+      animation: spin 20s linear infinite;
+    }
+    .orbital.two { inset: 27%; animation-duration: 13s; animation-direction: reverse; }
+    .orbital i {
+      position: absolute;
+      width: 9px; height: 9px;
+      top: 2px; left: 50%;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 22px var(--accent-2);
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-card-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      z-index: 2;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .08em;
+    }
+
+    .hero-card-title {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: .95;
+      max-width: 250px;
+    }
+
+    .scroll-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .scroll-line { width: 42px; height: 1px; background: var(--line); }
+
+    section { padding: 92px 0; scroll-margin-top: 90px; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .55fr 1fr;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-number {
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+
+    h2 {
+      margin: 8px 0 0;
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      line-height: .9;
+      letter-spacing: -.065em;
+    }
+
+    .section-intro {
+      margin: 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .filter {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 9px 13px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 850;
+      transition: .2s ease;
+    }
+    .filter.active, .filter:hover {
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+      background: color-mix(in srgb, var(--accent) 12%, var(--panel));
+    }
+
+    .repo-status {
+      min-height: 24px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+
+    .project {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 310px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(160deg, color-mix(in srgb, var(--accent) 5%, var(--panel)), var(--panel));
+      overflow: hidden;
+      transition: transform .28s ease, border-color .28s ease, background .28s ease;
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      width: 160px; height: 160px;
+      right: -80px; top: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent-2) 24%, transparent), transparent 68%);
+      pointer-events: none;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+      background: var(--panel-strong);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .project-index {
+      color: var(--muted);
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+    }
+
+    .repo-type {
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .project h3 {
+      margin: 48px 0 10px;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .project-bottom {
+      margin-top: auto;
+      padding-top: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .meta { display: flex; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 11px; }
+    .meta span { display: inline-flex; align-items: center; gap: 5px; }
+    .language-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .project-link:hover { color: var(--accent); }
+
+    .about {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+    }
+
+    .about-card {
+      padding: clamp(24px, 5vw, 48px);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--panel);
+    }
+
+    .about-card h3 {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 5vw, 60px);
+      line-height: .95;
+      letter-spacing: -.065em;
+    }
+
+    .about-card p { color: var(--muted); margin: 0 0 14px; }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 25px;
+    }
+    .tag {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--panel);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 10px;
+      height: 100%;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 170px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--panel);
+    }
+    .stat strong { font-size: clamp(34px, 5vw, 56px); line-height: .9; letter-spacing: -.06em; }
+    .stat span { color: var(--muted); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+
+    .contact-box {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 7vw, 72px);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--accent-2) 22%, transparent), transparent 25%),
+        radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 30%),
+        var(--panel);
+    }
+
+    .contact-box h2 { max-width: 800px; }
+    .contact-box p { max-width: 660px; color: var(--muted); font-size: 16px; }
+
+    .contact-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+
+    footer {
+      padding: 25px 0 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .footer-row a:hover { color: var(--text); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .skeleton {
+      min-height: 310px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(100deg, transparent 20%, color-mix(in srgb, var(--text) 8%, transparent) 40%, transparent 60%),
+        var(--panel);
+      background-size: 220% 100%;
+      animation: shimmer 1.3s infinite;
+    }
+    @keyframes shimmer { to { background-position: -220% 0; } }
+
+    .empty {
+      grid-column: 1/-1;
+      padding: 42px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .about { grid-template-columns: 1fr; }
+      .hero-card { min-height: 260px; max-width: 620px; }
+      .section-head { grid-template-columns: 1fr; gap: 12px; }
+      .project-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    }
+
+    @media (max-width: 680px) {
+      .shell { width: min(calc(100% - 22px), var(--max)); }
+      .site-header { top: 8px; }
+      .nav { padding: 8px 8px 8px 12px; }
+      .nav-links, .nav > .theme-btn { display: none; }
+      .menu-btn { display: grid; place-items: center; }
+      .hero { padding-top: 110px; }
+      .hero h1 { font-size: clamp(3.8rem, 19vw, 6rem); }
+      .hero-copy { font-size: 15px; }
+      .hero-card { min-height: 230px; transform: none; }
+      section { padding: 70px 0; }
+      .project-grid { grid-template-columns: 1fr; }
+      .project { min-height: 285px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { min-height: 140px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+      .actions .btn { width: 100%; }
+      .contact-links .btn { flex: 1 1 140px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .001ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="progress" id="progress"></div>
+  <div class="progress" id="progress"></div>
 
-<header>
-  <div class="shell">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#home" aria-label="MC88 home">
-        <span class="mark">MC88</span><span class="brand-name">Digital Universe</span>
-      </a>
-      <div class="navlinks">
-        <a href="#home">Home</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a>
-      </div>
-      <button class="theme-icon" id="theme" type="button" title="Switch theme" aria-label="Switch theme">◐</button>
-      <button class="menu" id="menu" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
-    </nav>
-    <div class="mobile" id="mobile">
-      <a href="#home">Home</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a>
-      <button id="mobileTheme" type="button">◐ &nbsp; Switch theme</button>
-    </div>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="shell">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="MC88 home">
+          <span class="brand-mark">MC88</span>
+          <span>Digital Universe</span>
+        </a>
 
-<main>
-<section class="hero" id="home">
-  <div class="shell hero-grid">
-    <div class="reveal">
-      <div class="eyebrow"><i class="dot"></i> ONLINE — BUILDING SOMETHING NEW</div>
-      <h1><span class="outline">My</span><span class="gradient">Digital</span><span class="outline">Universe.</span></h1>
-      <p class="hero-copy">A personal gallery of <strong>projects, experiments, ideas</strong> and things I've built along the way. Welcome to the world of <strong>MOHAMED / CHEIKH — MC88.</strong></p>
-      <div class="actions">
-        <a class="btn primary" href="#projects">Explore my work ↘</a>
-        <a class="btn" href="#contact">Let's connect →</a>
-      </div>
-    </div>
-    <div class="visual reveal">
-      <div class="orbit"><i></i></div><div class="orbit two"><i></i></div>
-      <div class="visual-content">
-        <span class="mono">MCMC88DIGITAL / 01</span>
-        <div class="visual-title">Curious.<br>Creative.<br>Always building.</div>
-        <span class="scroll"><i></i> scroll to explore</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="shell">
-    <div class="section-head reveal">
-      <div><div class="kicker"><span class="number">01 /</span> Selected Work</div><h2>Things I've built.</h2></div>
-      <p class="intro">All <strong>24 repositories</strong> from the MC88 GitHub profile are included directly in this page. Tap any project card and it opens that project on GitHub immediately.</p>
-    </div>
-
-    <div class="filters reveal">
-      <button class="filter active" data-filter="all">All · 24</button>
-      <button class="filter" data-filter="Web">Web</button>
-      <button class="filter" data-filter="Tools">Tools</button>
-      <button class="filter" data-filter="Creative">Creative</button>
-      <a class="filter" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">GitHub ↗</a>
-    </div>
-
-    <div class="repo-count" id="repoCount">24 repositories · all links are embedded in this HTML</div>
-    <div class="grid" id="grid">
-      <a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/quran-warsh-MC88" target="_blank" rel="noopener" aria-label="Open quran-warsh-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">01 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>quran warsh MC88</h3>
-        <p>Quran Warsh — MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/quran-warsh-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/ZKR-MC88" target="_blank" rel="noopener" aria-label="Open ZKR-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">02 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>ZKR MC88</h3>
-        <p>A focused MC88 web project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/ZKR-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/ALL-IN" target="_blank" rel="noopener" aria-label="Open ALL-IN on GitHub">
-      <div class="project-top">
-        <span class="project-index">03 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>ALL IN</h3>
-        <p>ALL-IN — a complete MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/ALL-IN</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/FAST-MC88" target="_blank" rel="noopener" aria-label="Open FAST-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">04 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>FAST MC88</h3>
-        <p>A fast utility from the MC88 universe.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/FAST-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/mohamed005cheikh-rgb" target="_blank" rel="noopener" aria-label="Open mohamed005cheikh-rgb on GitHub">
-      <div class="project-top">
-        <span class="project-index">05 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>mohamed005cheikh rgb</h3>
-        <p>The main MC88 GitHub profile project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/mohamed005cheikh-rgb</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/MOON-MC88" target="_blank" rel="noopener" aria-label="Open MOON-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">06 / Creative</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>MOON MC88</h3>
-        <p>MOON — an experimental MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/MOON-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/RMC88" target="_blank" rel="noopener" aria-label="Open RMC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">07 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>RMC88</h3>
-        <p>RMC88 — an MC88 utility project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/RMC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/SCANNER-MC88" target="_blank" rel="noopener" aria-label="Open SCANNER-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">08 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>SCANNER MC88</h3>
-        <p>Scanner — an MC88 tool.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/SCANNER-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/NTLAS-MC88" target="_blank" rel="noopener" aria-label="Open NTLAS-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">09 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>NTLAS MC88</h3>
-        <p>NTLAS — an MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/NTLAS-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/DATA-MC88" target="_blank" rel="noopener" aria-label="Open DATA-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">10 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>DATA MC88</h3>
-        <p>DATA — an MC88 data project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/DATA-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/MP-MC88" target="_blank" rel="noopener" aria-label="Open MP-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">11 / Creative</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>MP MC88</h3>
-        <p>MP — an experimental MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/MP-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/PIC-MC88" target="_blank" rel="noopener" aria-label="Open PIC-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">12 / Creative</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>PIC MC88</h3>
-        <p>PIC — an MC88 visual project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/PIC-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/BM-MC88" target="_blank" rel="noopener" aria-label="Open BM-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">13 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>BM MC88</h3>
-        <p>Bit_matrix</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/BM-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/SM-MC88" target="_blank" rel="noopener" aria-label="Open SM-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">14 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>SM MC88</h3>
-        <p>Subnetting master calculator</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/SM-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/DOCTOOLS-MC88" target="_blank" rel="noopener" aria-label="Open DOCTOOLS-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">15 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>DOCTOOLS MC88</h3>
-        <p>DOCTOOLS — an MC88 utility project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/DOCTOOLS-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/TSS-MC88" target="_blank" rel="noopener" aria-label="Open TSS-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">16 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>TSS MC88</h3>
-        <p>TSS — an MC88 web project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/TSS-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/PHARMA-MC88" target="_blank" rel="noopener" aria-label="Open PHARMA-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">17 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>PHARMA MC88</h3>
-        <p>PHARMA — an MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/PHARMA-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/SHOP-MC88" target="_blank" rel="noopener" aria-label="Open SHOP-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">18 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>SHOP MC88</h3>
-        <p>SHOP — an MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/SHOP-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/CLOCK-MC88" target="_blank" rel="noopener" aria-label="Open CLOCK-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">19 / Creative</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>CLOCK MC88</h3>
-        <p>CLOCK — an MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/CLOCK-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/RESTAU-MC88" target="_blank" rel="noopener" aria-label="Open RESTAU-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">20 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>RESTAU MC88</h3>
-        <p>RESTAU — an MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/RESTAU-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/cabinet-isi-2" target="_blank" rel="noopener" aria-label="Open cabinet-isi-2 on GitHub">
-      <div class="project-top">
-        <span class="project-index">21 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>cabinet isi 2</h3>
-        <p>site web professionnel pour cabinet médical</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/cabinet-isi-2</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/O-click" target="_blank" rel="noopener" aria-label="Open O-click on GitHub">
-      <div class="project-top">
-        <span class="project-index">22 / Tools</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>O click</h3>
-        <p>QR code generator</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/O-click</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/PC-MC88" target="_blank" rel="noopener" aria-label="Open PC-MC88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">23 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>PC MC88</h3>
-        <p>PC — an MC88 project.</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/PC-MC88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/WSR88" target="_blank" rel="noopener" aria-label="Open WSR88 on GitHub">
-      <div class="project-top">
-        <span class="project-index">24 / Web</span>
-        <span class="project-type">GITHUB ↗</span>
-      </div>
-      <div class="project-body">
-        <h3>WSR88</h3>
-        <p>Write Share Read</p>
-      </div>
-      <div class="project-bottom">
-        <span class="repo-url">github.com/mohamed005cheikh-rgb/WSR88</span>
-        <span class="open-arrow">↗</span>
-      </div>
-    </a>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="shell">
-    <div class="section-head reveal">
-      <div><div class="kicker"><span class="number">02 /</span> The Person Behind MC88</div><h2>Always building.</h2></div>
-      <p class="intro">Some projects are serious. Some are experimental. Some simply exist because I wanted to know whether I could build them.</p>
-    </div>
-    <div class="about">
-      <article class="panel reveal">
-        <h3>Curious.<br>Creative.<br>Always building.</h3>
-        <p>I'm Mohamed / Cheikh, known online as MC88. This website is my personal digital gallery — a place where I collect projects, experiments, ideas and work that I want to keep close.</p>
-        <div class="tags">
-          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span>
-          <span class="tag">UI Design</span><span class="tag">Streamlit</span><span class="tag">GitHub</span><span class="tag">Web Apps</span><span class="tag">Creative Code</span>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
-      </article>
-      <div class="stats reveal">
-        <div class="stat"><strong>24</strong><span>Repositories</span></div>
-        <div class="stat"><strong>23</strong><span>GitHub stars</span></div>
-        <div class="stat"><strong>∞</strong><span>Ideas</span></div>
-        <div class="stat"><strong>MC88</strong><span>Digital identity</span></div>
+
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Change visual theme">NEON</button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="mobileTheme" type="button">Change theme · NEON</button>
       </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="contact">
-  <div class="shell">
-    <div class="contact reveal">
-      <div class="kicker"><span class="number">03 /</span> Get In Touch</div>
-      <h2>Let's make something interesting.</h2>
-      <p>Whether you're a friend, university professor, recruiter, collaborator or someone who simply discovered this little corner of the internet — you're welcome.</p>
-      <div class="links">
-        <a class="btn primary" href="mailto:mohamed005cheikh@gmail.com">Email me ↗</a>
-        <a class="btn" href="https://wa.me/?text=Hello%20Mohamed%20%2F%20MC88" target="_blank" rel="noopener">WhatsApp ↗</a>
-        <a class="btn" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">GitHub ↗</a>
+  <main>
+    <section class="hero" id="home">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><i class="pulse"></i> ONLINE — BUILDING SOMETHING NEW</div>
+          <h1>
+            <span>My</span>
+            <em>Digital</em>
+            <span>Universe.</span>
+          </h1>
+          <p class="hero-copy">
+            A personal gallery of <strong>projects, experiments, ideas</strong> and things I've built along the way.
+            Welcome to the world of <strong>MOHAMED / CHEIKH — MC88.</strong>
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore my work ↘</a>
+            <a class="btn" href="#contact">Let's connect →</a>
+          </div>
+        </div>
+
+        <div class="hero-card reveal" aria-label="MC88 visual signature">
+          <div class="orbital"><i></i></div>
+          <div class="orbital two"><i></i></div>
+          <div class="hero-card-content">
+            <span class="mono">MCMC88DIGITAL / 01</span>
+            <div class="hero-card-title">Curious.<br>Creative.<br>Always building.</div>
+            <span class="scroll-note"><span class="scroll-line"></span> scroll to explore</span>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <section id="projects">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker"><span class="section-number">01 /</span> Selected Work</div>
+            <h2>Things I've built.</h2>
+          </div>
+          <p class="section-intro">
+            Websites, applications, experiments, tools and strange ideas that became real.
+            Public GitHub repositories are loaded automatically so this section stays current without editing the HTML.
+          </p>
+        </div>
+
+        <div class="filters reveal" id="filters" aria-label="Project filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="Web">Web</button>
+          <button class="filter" data-filter="Tools">Tools</button>
+          <button class="filter" data-filter="Creative">Creative</button>
+          <a class="filter" href="https://github.com/MCMC88" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <div class="repo-status" id="repoStatus" aria-live="polite">Connecting to GitHub…</div>
+        <div class="project-grid" id="projectGrid">
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+          <div class="skeleton"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-kicker"><span class="section-number">02 /</span> The Person Behind MC88</div>
+            <h2>Always building.</h2>
+          </div>
+          <p class="section-intro">Some projects are serious. Some are experimental. Some simply exist because I wanted to know whether I could build them.</p>
+        </div>
+
+        <div class="about">
+          <article class="about-card reveal">
+            <h3>Curious.<br>Creative.<br>Always building.</h3>
+            <p>
+              I'm Mohamed / Cheikh, known online as MC88. This website is my personal digital gallery —
+              a place where I collect projects, experiments, ideas and work that I want to keep close.
+            </p>
+            <div class="stack" aria-label="Skills">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+              <span class="tag">Python</span><span class="tag">UI Design</span><span class="tag">Streamlit</span>
+              <span class="tag">GitHub</span><span class="tag">Web Apps</span><span class="tag">Creative Code</span>
+            </div>
+          </article>
+
+          <div class="stats reveal">
+            <div class="stat"><strong id="statProjects">00</strong><span>Projects live</span></div>
+            <div class="stat"><strong id="statStars">00</strong><span>GitHub stars</span></div>
+            <div class="stat"><strong id="statLanguages">00</strong><span>Languages</span></div>
+            <div class="stat"><strong>∞</strong><span>Ideas</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell">
+        <div class="contact-box reveal">
+          <div class="section-kicker"><span class="section-number">03 /</span> Get In Touch</div>
+          <h2>Let's make something interesting.</h2>
+          <p>
+            Whether you're a friend, university professor, recruiter, collaborator or someone who simply
+            discovered this little corner of the internet — you're welcome.
+          </p>
+          <div class="contact-links">
+            <a class="btn primary" href="mailto:mohamed005cheikh@gmail.com">Email me ↗</a>
+            <a class="btn" href="https://wa.me/?text=Hello%20Mohamed%20%2F%20MC88" target="_blank" rel="noopener">WhatsApp ↗</a>
+            <a class="btn" href="https://github.com/MCMC88" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>MC88 — DIGITAL UNIVERSE</span>
+      <span>© 2026 Mohamed / Cheikh · All rights reserved · <a href="mailto:mohamed005cheikh@gmail.com">mohamed005cheikh@gmail.com</a> · by MC88</span>
     </div>
-  </div>
-</section>
-</main>
+  </footer>
 
-<footer>
-  <div class="shell footer-row">
-    <span>MC88 — DIGITAL UNIVERSE</span>
-    <span>© 2026 Mohamed / Cheikh · All rights reserved · <a href="mailto:mohamed005cheikh@gmail.com">mohamed005cheikh@gmail.com</a> · by MC88</span>
-  </div>
-</footer>
+  <script>
+    /* ==========================================================
+       MC88 DIGITAL UNIVERSE
+       One-file site. No build step. No backend. No configuration
+       is required for the GitHub project feed.
 
-<script>
-const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
-const $ = (s,r=document)=>r.querySelector(s);
+       The PDF identifies the brand as MC88 / MCMC88, so the public
+       GitHub feed below uses that username.
+       ========================================================== */
 
-const buttons = $$('.filter[data-filter]');
-const cards = $$('.project');
-buttons.forEach(btn => btn.addEventListener('click', () => {
-  buttons.forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const filter=btn.dataset.filter;
-  let count=0;
-  cards.forEach(card => {
-    const show=filter==='all'||card.dataset.category===filter;
-    card.classList.toggle('hidden',!show);
-    if(show) count++;
-  });
-  $('#repoCount').textContent=`${count} repositories · all links are embedded in this HTML`;
-});
+    const GITHUB_USERNAME = "MCMC88";
+    const API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&sort=updated&direction=desc`;
 
-const themes=['neon','editorial','aurora'];
-let themeIndex=Number(localStorage.getItem('mc88-theme')||0)%themes.length;
-const themeButton=$('#theme');
-const mobileTheme=$('#mobileTheme');
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-function applyTheme(){
-  const name=themes[themeIndex];
-  document.documentElement.dataset.theme=name==='neon'?'':name;
-  themeButton.textContent=name==='neon'?'◐':name==='editorial'?'☼':'✦';
-  themeButton.title=`Theme: ${name.toUpperCase()} — click to change`;
-  themeButton.setAttribute('aria-label',`Theme ${name}. Click to change theme.`);
-  mobileTheme.textContent=`${name==='neon'?'◐':name==='editorial'?'☼':'✦'}  Theme: ${name.toUpperCase()} · tap to change`;
-  localStorage.setItem('mc88-theme',String(themeIndex));
-}
-function nextTheme(){
-  themeIndex=(themeIndex+1)%themes.length;
-  applyTheme();
-}
-themeButton.addEventListener('click',nextTheme);
-mobileTheme.addEventListener('click',nextTheme);
-applyTheme();
+    const projectGrid = $("#projectGrid");
+    const repoStatus = $("#repoStatus");
+    const statProjects = $("#statProjects");
+    const statStars = $("#statStars");
+    const statLanguages = $("#statLanguages");
 
-const menu=$('#menu'), mobile=$('#mobile');
-menu.addEventListener('click',()=>{
-  const open=mobile.classList.toggle('open');
-  menu.setAttribute('aria-expanded',String(open));
-  menu.textContent=open?'×':'☰';
-});
-$$('#mobile a').forEach(a=>a.addEventListener('click',()=>{
-  mobile.classList.remove('open'); menu.setAttribute('aria-expanded','false'); menu.textContent='☰';
-}));
+    let repositories = [];
+    let activeFilter = "all";
 
-function progress(){
-  const max=document.documentElement.scrollHeight-innerHeight;
-  $('#progress').style.width=max>0?`${scrollY/max*100}%`:'0%';
-}
-addEventListener('scroll',progress,{passive:true}); progress();
+    const escapeHTML = value => String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
 
-let observer;
-function reveal(){
-  observer?.disconnect();
-  observer=new IntersectionObserver(entries=>entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}
-  }),{threshold:.07});
-  $$('.reveal').forEach(el=>observer.observe(el));
-}
-reveal();
-</script>
+    function categoryFor(repo) {
+      const text = [
+        repo.name, repo.description, repo.language,
+        ...(repo.topics || [])
+      ].join(" ").toLowerCase();
+
+      if (/(design|art|creative|animation|visual|portfolio|game|canvas)/.test(text)) return "Creative";
+      if (/(tool|utility|cli|converter|generator|script|automation|bot)/.test(text)) return "Tools";
+      return "Web";
+    }
+
+    function languageClass(language) {
+      const map = {
+        JavaScript: "#f7df1e", TypeScript: "#3178c6", Python: "#3776ab",
+        HTML: "#e34f26", CSS: "#1572b6", Java: "#b07219", C: "#555555",
+        "C++": "#f34b7d", PHP: "#777bb4", Ruby: "#701516", Go: "#00add8",
+        Rust: "#dea584", Dart: "#00b4ab", Kotlin: "#7f52ff"
+      };
+      return map[language] || "var(--accent)";
+    }
+
+    function formatDate(date) {
+      const d = new Date(date);
+      return new Intl.DateTimeFormat(undefined, { month: "short", year: "numeric" }).format(d);
+    }
+
+    function repoCard(repo, index) {
+      const category = categoryFor(repo);
+      const description = repo.description || "An experiment from the MC88 digital universe.";
+      const language = repo.language || "Code";
+      const homepage = repo.homepage && /^https?:\/\//i.test(repo.homepage) ? repo.homepage : "";
+
+      return `
+        <article class="project reveal" data-category="${category}">
+          <div class="project-top">
+            <span class="project-index">${String(index + 1).padStart(2, "0")} / ${category}</span>
+            <span class="repo-type">${repo.fork ? "Fork" : "Public"}</span>
+          </div>
+
+          <h3>${escapeHTML(repo.name.replaceAll("-", " "))}</h3>
+          <p>${escapeHTML(description)}</p>
+
+          <div class="project-bottom">
+            <div class="meta">
+              <span><i class="language-dot" style="background:${languageClass(language)}"></i>${escapeHTML(language)}</span>
+              <span>★ ${repo.stargazers_count}</span>
+              <span>↗ ${repo.forks_count}</span>
+              <span>${formatDate(repo.updated_at)}</span>
+            </div>
+            <div style="display:flex;gap:12px">
+              <a class="project-link" href="${repo.html_url}" target="_blank" rel="noopener">Code ↗</a>
+              ${homepage ? `<a class="project-link" href="${homepage}" target="_blank" rel="noopener">Live ↗</a>` : ""}
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderProjects() {
+      const filtered = activeFilter === "all"
+        ? repositories
+        : repositories.filter(repo => categoryFor(repo) === activeFilter);
+
+      if (!filtered.length) {
+        projectGrid.innerHTML = `<div class="empty">No projects match this filter yet.</div>`;
+        return;
+      }
+
+      projectGrid.innerHTML = filtered.map(repoCard).join("");
+      observeReveals();
+    }
+
+    function updateStats() {
+      const stars = repositories.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+      const languages = new Set(repositories.map(r => r.language).filter(Boolean)).size;
+
+      statProjects.textContent = String(repositories.length).padStart(2, "0");
+      statStars.textContent = String(stars).padStart(2, "0");
+      statLanguages.textContent = String(languages).padStart(2, "0");
+    }
+
+    async function loadGitHub() {
+      const cached = localStorage.getItem("mc88-github-cache");
+      const cacheTime = Number(localStorage.getItem("mc88-github-cache-time") || 0);
+
+      if (cached && Date.now() - cacheTime < 10 * 60 * 1000) {
+        try {
+          repositories = JSON.parse(cached);
+          repoStatus.textContent = `${repositories.length} public projects · synced recently`;
+          updateStats();
+          renderProjects();
+          return;
+        } catch (_) {}
+      }
+
+      try {
+        const response = await fetch(API_URL, {
+          headers: { Accept: "application/vnd.github+json" }
+        });
+        if (!response.ok) throw new Error(`GitHub returned ${response.status}`);
+        const data = await response.json();
+
+        repositories = data
+          .filter(repo => !repo.archived && !repo.fork)
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+        localStorage.setItem("mc88-github-cache", JSON.stringify(repositories));
+        localStorage.setItem("mc88-github-cache-time", String(Date.now()));
+
+        repoStatus.textContent = `${repositories.length} public projects · live from GitHub`;
+        updateStats();
+        renderProjects();
+      } catch (error) {
+        console.warn("GitHub feed unavailable:", error);
+        repoStatus.textContent = "GitHub feed unavailable right now · showing a fallback project list";
+
+        repositories = [
+          {
+            name: "Digital Universe",
+            description: "The personal portfolio and creative home of MC88.",
+            language: "HTML",
+            stargazers_count: 0,
+            forks_count: 0,
+            updated_at: new Date().toISOString(),
+            html_url: `https://github.com/${GITHUB_USERNAME}`,
+            homepage: "",
+            fork: false
+          }
+        ];
+
+        updateStats();
+        renderProjects();
+      }
+    }
+
+    $$("#filters .filter[data-filter]").forEach(button => {
+      button.addEventListener("click", () => {
+        $$("#filters .filter[data-filter]").forEach(b => b.classList.remove("active"));
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        renderProjects();
+      });
+    });
+
+    const themeNames = ["neon", "editorial", "aurora"];
+    let themeIndex = Number(localStorage.getItem("mc88-theme-index") || 0);
+
+    function applyTheme() {
+      const theme = themeNames[themeIndex % themeNames.length];
+      document.documentElement.dataset.theme = theme === "neon" ? "" : theme;
+      $("#themeBtn").textContent = theme.toUpperCase();
+      $("#mobileTheme").textContent = `Change theme · ${theme.toUpperCase()}`;
+      localStorage.setItem("mc88-theme-index", String(themeIndex % themeNames.length));
+    }
+
+    function nextTheme() {
+      themeIndex = (themeIndex + 1) % themeNames.length;
+      applyTheme();
+    }
+
+    $("#themeBtn").addEventListener("click", nextTheme);
+    $("#mobileTheme").addEventListener("click", nextTheme);
+    applyTheme();
+
+    const menuBtn = $("#menuBtn");
+    const mobileMenu = $("#mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(open));
+      menuBtn.textContent = open ? "×" : "☰";
+    });
+
+    $$("#mobileMenu a").forEach(link => link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.textContent = "☰";
+    }));
+
+    function updateProgress() {
+      const scrollTop = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      $("#progress").style.width = height > 0 ? `${(scrollTop / height) * 100}%` : "0%";
+    }
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    updateProgress();
+
+    let observer;
+    function observeReveals() {
+      if (observer) observer.disconnect();
+      observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .08 });
+      $$(".reveal").forEach(el => observer.observe(el));
+    }
+
+    observeReveals();
+    loadGitHub();
+  </script>
 </body>
 </html>
