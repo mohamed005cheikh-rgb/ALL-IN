@@ -168,7 +168,6 @@
   .btn-primary { background: var(--accent); color: var(--on-accent); border-color: transparent; }
   .btn-primary:hover { filter: brightness(1.1); transform: scale(1.02); }
 
-  /* 3D Universe Animation to replace Terminal Card */
   .universe-wrapper {
     display: flex; justify-content: center; align-items: center;
     height: 100%; min-height: 350px; perspective: 1000px;
@@ -235,7 +234,6 @@
   .project-meta { display: flex; align-items: center; gap: 12px; }
   .lang-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); display: inline-block; margin-right: 5px; }
 
-  /* link overlay covers whole card */
   .card-link-overlay { position: absolute; inset: 0; z-index: 1; }
 
   /* ABOUT */
@@ -379,9 +377,9 @@
           </div>
           <div class="stats-grid">
             <div class="stat-box"><span class="stat-val" id="statRepos">00</span><span class="stat-lbl">Projects Live</span></div>
-            <div class="stat-box"><span class="stat-val" id="statStars">03</span><span class="stat-lbl">Visual Worlds</span></div>
+            <div class="stat-box"><span class="stat-val">03</span><span class="stat-lbl">Visual Worlds</span></div>
             <div class="stat-box"><span class="stat-val">MC88</span><span class="stat-lbl">Signature</span></div>
-            <div class="stat-box"><span class="stat-val" id="statLangs">00</span><span class="stat-lbl">Ideas</span></div>
+            <div class="stat-box"><span class="stat-val">♾️</span><span class="stat-lbl">Ideas</span></div>
           </div>
         </div>
       </div>
@@ -483,7 +481,6 @@
       const filtered = reposData.filter(r => activeFilter === 'all' || getCategory(r.name) === activeFilter);
       
       grid.innerHTML = filtered.map(repo => {
-        // Direct website link logic prioritizing GitHub pages
         const pagesUrl = `https://${GITHUB_USER}.github.io/${repo.name}/`;
         const category = getCategory(repo.name);
         return `
@@ -523,11 +520,9 @@
         const data = await res.json();
         reposData = data.filter(r => !r.fork && !HIDDEN_REPOS.includes(r.name.toLowerCase()));
       } catch (err) {
-        // Fallback dummy data if GitHub API rate limits
         reposData = [{ name: "SCANNER-MC88", description: "QR code scanner using camera.", language: "JavaScript", stargazers_count: 2 }, { name: "RESTAU-MC88", description: "Menu and ordering interface.", language: "HTML", stargazers_count: 1 }];
       } finally {
         document.getElementById('statRepos').textContent = reposData.length.toString().padStart(2, '0');
-        document.getElementById('statLangs').textContent = new Set(reposData.map(r => r.language).filter(Boolean)).size.toString().padStart(2, '0');
         renderProjects();
       }
     }
