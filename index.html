@@ -1,1488 +1,677 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08090d">
+<meta name="description" content="MC88 Digital Universe — projects, experiments, tools, ideas and creative work by Mohamed / Cheikh.">
 <title>MC88 — Digital Universe</title>
-<meta name="description" content="MOHAMED / CHEIKH — MC88 Digital Portfolio, Projects & Creative Work">
-<meta name="author" content="Mohamed Cheikh — MC88">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@latest"></script>
 <style>
-
-/* ====================================================
-   MC88 — DIGITAL UNIVERSE
-   By MC88 | mohamed005cheikh@gmail.com
-   ==================================================== */
-
-/* ── RESET ── */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{min-height:100dvh;overflow-x:hidden}
+:root {
+  --bg:#08090d; --bg2:#0e1017; --card:rgba(255,255,255,.055); --card2:rgba(255,255,255,.09);
+  --text:#f7f8fb; --muted:#9da5b5; --line:rgba(255,255,255,.11);
+  --a:#7c5cff; --b:#00e5ff; --good:#62f3a4; --max:1180px;
+}
+html[data-theme="editorial"] {
+  --bg:#f2eee5; --bg2:#e7e1d5; --card:rgba(20,20,18,.055); --card2:rgba(20,20,18,.09);
+  --text:#171717; --muted:#69655e; --line:rgba(20,20,18,.14); --a:#111; --b:#b56b35; --good:#27764d;
+}
+html[data-theme="aurora"] {
+  --bg:#041116; --bg2:#091b21; --card:rgba(87,247,203,.055); --card2:rgba(87,247,203,.095);
+  --text:#effffb; --muted:#9bb8b3; --line:rgba(87,247,203,.13); --a:#57f7cb; --b:#a47cff; --good:#57f7cb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-width:320px;overflow-x:hidden;background:
+radial-gradient(circle at 10% 8%,color-mix(in srgb,var(--a) 16%,transparent),transparent 31rem),
+radial-gradient(circle at 92% 24%,color-mix(in srgb,var(--b) 12%,transparent),transparent 28rem),var(--bg);
+color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55;transition:background .3s,color .3s}
 a{color:inherit;text-decoration:none}
-button,input{font:inherit;border:none;cursor:pointer}
-img{display:block;max-width:100%}
-ul{list-style:none}
+button{font:inherit;color:inherit}
+::selection{background:var(--a);color:var(--bg)}
+.shell{width:min(calc(100% - 28px),var(--max));margin:auto}
+.progress{position:fixed;z-index:1000;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b));box-shadow:0 0 18px color-mix(in srgb,var(--a) 55%,transparent)}
 
-/* ── CUSTOM PROPERTIES ── */
-:root{
-  /* NEON (default) */
-  --bg:#030308;
-  --bg2:#070710;
-  --surface:#0e0e1a;
-  --surface2:#13132a;
-  --text:#f0f0ff;
-  --text2:#9a9ab8;
-  --text3:#55556a;
-  --accent:#7c5cff;
-  --accent2:#00e5ff;
-  --accent3:#ff3ecf;
-  --a1r:124;--a1g:92;--a1b:255;
-  --a2r:0;--a2g:229;--a2b:255;
-  --border:rgba(120,100,255,.15);
-  --border2:rgba(255,255,255,.07);
-  --r-xl:28px;--r-lg:20px;--r-md:14px;--r-sm:8px;
-  --ease:cubic-bezier(.22,1,.36,1);
-  --ease2:cubic-bezier(.65,0,.35,1);
-  --font-display:"Space Grotesk",sans-serif;
-  --font-body:"DM Sans",sans-serif;
-  --font-serif:"Playfair Display",serif;
-  --font-mono:"IBM Plex Mono",monospace;
-  --font-exp:"Syne",sans-serif;
-  --dur:.65s;
-  --nav-h:72px;
-  --glow:0 0 60px rgba(var(--a1r),var(--a1g),var(--a1b),.25);
-  --glow2:0 0 40px rgba(var(--a2r),var(--a2g),var(--a2b),.2);
-}
-body.editorial{
-  --bg:#f0ebe3;--bg2:#ebe4db;--surface:#faf7f2;--surface2:#f2ede6;
-  --text:#14120e;--text2:#6b6358;--text3:#a09890;
-  --accent:#8b5e2c;--accent2:#c89050;--accent3:#4a3020;
-  --a1r:139;--a1g:94;--a1b:44;
-  --a2r:200;--a2g:144;--a2b:80;
-  --border:rgba(139,94,44,.14);--border2:rgba(20,18,14,.07);
-  --font-display:"Playfair Display",serif;
-  --font-body:"DM Sans",sans-serif;
-  --glow:0 8px 40px rgba(139,94,44,.12);
-  --glow2:0 4px 20px rgba(200,144,80,.08);
-}
-body.aurora{
-  --bg:#08050f;--bg2:#0d0918;--surface:#120e20;--surface2:#18132d;
-  --text:#fef8ff;--text2:#c4b0d8;--text3:#7a6890;
-  --accent:#ee5fa7;--accent2:#7b6fff;--accent3:#30eed4;
-  --a1r:238;--a1g:95;--a1b:167;
-  --a2r:123;--a2g:111;--a2b:255;
-  --border:rgba(238,95,167,.15);--border2:rgba(255,255,255,.06);
-  --font-display:"Syne",sans-serif;
-  --font-body:"DM Sans",sans-serif;
-  --glow:0 0 80px rgba(238,95,167,.3);
-  --glow2:0 0 50px rgba(123,111,255,.2);
-}
+header{position:fixed;z-index:900;left:0;right:0;top:10px;pointer-events:none}
+.nav{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 10px 9px 13px;border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--bg) 78%,transparent);backdrop-filter:blur(18px) saturate(1.25);box-shadow:0 14px 42px rgba(0,0,0,.12)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.045em;min-width:0}
+.mark{width:37px;height:37px;flex:0 0 37px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--b));color:#06070a;font-size:11px;font-weight:950}
+.brand-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.navlinks{display:flex;align-items:center;gap:3px}
+.navlinks a{padding:9px 11px;border-radius:999px;color:var(--muted);font-size:12px;font-weight:800}
+.navlinks a:hover{background:var(--card2);color:var(--text)}
+.theme-icon{width:38px;height:38px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--card);cursor:pointer;font-size:17px;transition:.2s}
+.theme-icon:hover{transform:rotate(15deg);background:var(--card2);border-color:color-mix(in srgb,var(--a) 55%,var(--line))}
+.menu{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:var(--card);cursor:pointer}
+.mobile{display:none;margin-top:8px;padding:7px;border:1px solid var(--line);border-radius:20px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(18px);box-shadow:0 22px 55px rgba(0,0,0,.2)}
+.mobile.open{display:grid}
+.mobile a,.mobile button{border:0;background:transparent;text-align:left;padding:13px;border-radius:13px;color:var(--muted);font-weight:800}
+.mobile a:hover,.mobile button:hover{background:var(--card);color:var(--text)}
 
-/* ── BODY ── */
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--font-body);
-  font-size:16px;
-  line-height:1.6;
-  transition:background .8s var(--ease),color .8s var(--ease);
-}
-
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
-
-/* ────────────────────────────────────────────────
-   BACKGROUND CANVAS
-──────────────────────────────────────────────── */
-#bgCanvas{
-  position:fixed;inset:0;z-index:-2;
-  pointer-events:none;
-  width:100%;height:100%;
-}
-.noise-overlay{
-  position:fixed;inset:0;z-index:-1;
-  pointer-events:none;
-  opacity:.025;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:200px;
-}
-
-/* ── CURSOR ── */
-#cursor{
-  position:fixed;width:12px;height:12px;
-  border-radius:50%;background:var(--accent);
-  transform:translate(-50%,-50%);
-  pointer-events:none;z-index:9999;
-  transition:transform .1s,background .3s,width .3s,height .3s,border-radius .3s;
-  mix-blend-mode:difference;
-}
-#cursor-trail{
-  position:fixed;width:36px;height:36px;
-  border:1.5px solid rgba(var(--a1r),var(--a1g),var(--a1b),.4);
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  pointer-events:none;z-index:9998;
-  transition:transform .18s var(--ease),opacity .3s;
-}
-body:has(.project-card:hover) #cursor{
-  width:60px;height:60px;
-  border-radius:50%;background:transparent;
-  border:2px solid var(--accent);
-}
-@media(hover:none){#cursor,#cursor-trail{display:none}}
-
-/* ────────────────────────────────────────────────
-   NAVBAR
-──────────────────────────────────────────────── */
-.navbar{
-  position:fixed;top:0;left:0;right:0;
-  height:var(--nav-h);
-  z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(18px,4vw,60px);
-  border-bottom:1px solid transparent;
-  transition:border-color .4s,backdrop-filter .4s,background .4s;
-}
-.navbar.scrolled{
-  border-color:var(--border);
-  backdrop-filter:blur(28px) saturate(1.6);
-  background:color-mix(in srgb,var(--bg) 70%,transparent);
-}
-
-.logo{
-  display:flex;align-items:center;gap:11px;
-  font-family:var(--font-display);font-weight:700;
-  letter-spacing:-.02em;
-}
-.logo-mark{
-  position:relative;
-  width:42px;height:42px;border-radius:13px;
-  display:grid;place-items:center;
-  overflow:hidden;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:var(--glow);
-  transition:box-shadow .4s;
-}
-.logo-mark::before{
-  content:"";position:absolute;inset:-2px;
-  background:conic-gradient(from 0deg,var(--accent),var(--accent2),var(--accent3),var(--accent));
-  border-radius:14px;z-index:-1;
-  animation:spin 6s linear infinite;
-}
-.logo-mark span{color:#fff;font-family:var(--font-serif);font-size:17px;font-style:italic;position:relative;z-index:1}
-.logo-text{display:flex;flex-direction:column;line-height:1}
-.logo-text strong{font-size:14px;letter-spacing:-.01em}
-.logo-text small{font-family:var(--font-mono);font-size:8px;letter-spacing:.2em;color:var(--text3);margin-top:3px}
-
-.nav-links{display:flex;gap:4px;align-items:center}
-.nav-links a{
-  padding:8px 14px;border-radius:100px;
-  font-size:13px;font-weight:500;color:var(--text2);
-  position:relative;
-  transition:color .3s,background .3s;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:4px;left:50%;right:50%;
-  height:2px;border-radius:2px;background:var(--accent);
-  transition:left .35s var(--ease),right .35s var(--ease);
-}
-.nav-links a:hover,
-.nav-links a.active{color:var(--text)}
-.nav-links a.active::after{left:18px;right:18px}
-
-.nav-right{display:flex;align-items:center;gap:8px}
-
-.theme-btn{
-  display:flex;align-items:center;gap:7px;
-  padding:8px 14px;border-radius:100px;
-  border:1px solid var(--border);
-  background:color-mix(in srgb,var(--surface) 80%,transparent);
-  color:var(--text2);font-size:12px;font-weight:500;
-  transition:border-color .3s,color .3s,transform .3s var(--ease),background .3s;
-}
-.theme-btn:hover{transform:translateY(-2px);color:var(--text);border-color:color-mix(in srgb,var(--accent) 50%,var(--border))}
-.theme-dot-btn{
-  width:8px;height:8px;border-radius:50%;
-  background:var(--accent);
-  box-shadow:0 0 10px var(--accent);
-  animation:pulseDot 2s infinite;
-}
-
-.menu-btn{
-  display:none;width:40px;height:40px;border-radius:12px;
-  border:1px solid var(--border);background:var(--surface);
-  color:var(--text);place-items:center;
-}
-
-/* ────────────────────────────────────────────────
-   HERO
-──────────────────────────────────────────────── */
-.hero{
-  min-height:100dvh;
-  display:grid;place-items:center;
-  padding:calc(var(--nav-h) + 40px) clamp(18px,5vw,60px) 80px;
-  position:relative;overflow:hidden;
-}
-.hero-inner{
-  max-width:1320px;width:100%;
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:clamp(40px,6vw,100px);
-  align-items:center;
-}
-.hero-copy{position:relative}
-
-.eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:7px 14px;border-radius:100px;
-  border:1px solid var(--border);
-  background:color-mix(in srgb,var(--surface) 70%,transparent);
-  font-family:var(--font-mono);font-size:10px;letter-spacing:.15em;
-  color:var(--text2);text-transform:uppercase;
-  margin-bottom:28px;
-  animation:slideUp .9s var(--ease) both;
-}
-.status-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:#36e69b;box-shadow:0 0 10px #36e69b;
-  animation:pulseDot 2.2s infinite;
-}
-@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
-
-.hero-h1{
-  font-family:var(--font-display);
-  font-size:clamp(3.8rem,9.5vw,9.5rem);
-  line-height:.87;letter-spacing:-.065em;
-  animation:heroIn 1.1s var(--ease) .08s both;
-}
-.hero-h1 .word{display:inline-block;overflow:hidden}
-.hero-h1 .word span{display:inline-block;animation:wordUp 1s var(--ease) both}
-.hero-h1 .word:nth-child(1) span{animation-delay:.05s}
-.hero-h1 .word:nth-child(2) span{animation-delay:.15s}
-.hero-h1 .word:nth-child(3) span{animation-delay:.25s}
-@keyframes wordUp{from{transform:translateY(105%)}to{transform:translateY(0)}}
-
-.h1-gradient{
-  background:linear-gradient(100deg,var(--text) 0%,var(--accent2) 40%,var(--accent) 70%,var(--accent3) 100%);
-  background-size:300% auto;
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:gradFlow 7s linear infinite;
-  display:inline-block;
-}
-@keyframes gradFlow{to{background-position:300% center}}
-
-.hero-sub{
-  margin-top:26px;max-width:540px;
-  color:var(--text2);font-size:16px;line-height:1.85;
-  animation:slideUp .9s var(--ease) .35s both;
-}
-.hero-sub strong{color:var(--text)}
-
-.hero-cta{
-  display:flex;gap:12px;flex-wrap:wrap;
-  margin-top:36px;
-  animation:slideUp .9s var(--ease) .5s both;
-}
-
-/* ── BUTTONS ── */
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:13px 22px;border-radius:100px;
-  font-size:13px;font-weight:600;
-  transition:transform .4s var(--ease),box-shadow .4s;
-  position:relative;overflow:hidden;
-}
-.btn::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(255,255,255,.08);
-  transform:scaleX(0);transform-origin:left;
-  transition:transform .4s var(--ease);
-}
-.btn:hover::before{transform:scaleX(1)}
-.btn:hover{transform:translateY(-4px) scale(1.02)}
-.btn-p{
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#fff;
-  box-shadow:0 12px 40px rgba(var(--a1r),var(--a1g),var(--a1b),.3);
-}
-.btn-p:hover{box-shadow:0 20px 60px rgba(var(--a1r),var(--a1g),var(--a1b),.45)}
-.btn-s{
-  border:1px solid var(--border);
-  color:var(--text);
-  background:color-mix(in srgb,var(--surface) 80%,transparent);
-  backdrop-filter:blur(12px);
-}
-
-/* ── HERO VISUAL ── */
-.hero-visual{
-  position:relative;min-height:520px;
-  display:flex;align-items:center;justify-content:center;
-  animation:slideUp 1s var(--ease) .2s both;
-}
-
-/* ── RINGS ── */
-.ring-wrap{position:relative;width:420px;height:420px}
-@media(max-width:1000px){.ring-wrap{width:320px;height:320px}}
-@media(max-width:700px){.ring-wrap{width:280px;height:280px}}
-
-.ring{
-  position:absolute;inset:0;border-radius:50%;
-  border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
-  animation:ringRot 20s linear infinite;
-}
-.ring:nth-child(2){inset:38px;border-style:dashed;border-color:color-mix(in srgb,var(--accent2) 22%,transparent);animation-duration:30s;animation-direction:reverse}
-.ring:nth-child(3){inset:76px;border-color:color-mix(in srgb,var(--accent3) 18%,transparent);animation-duration:25s}
-@keyframes ringRot{to{transform:rotate(360deg)}}
-
-.orbit-node{
-  position:absolute;
-  width:54px;height:54px;border-radius:50%;
-  display:grid;place-items:center;
-  background:var(--surface2);
-  border:1px solid var(--border);
-  color:var(--accent2);
-  box-shadow:0 0 30px rgba(var(--a2r),var(--a2g),var(--a2b),.18);
-  animation:counterRot 20s linear infinite;
-  transition:box-shadow .4s,border-color .4s;
-}
-.orbit-node:hover{
-  box-shadow:0 0 50px rgba(var(--a2r),var(--a2g),var(--a2b),.5);
-  border-color:var(--accent2);
-}
-@keyframes counterRot{to{transform:rotate(-360deg)}}
-.n1{top:-27px;left:50%;margin-left:-27px}
-.n2{right:-27px;top:50%;margin-top:-27px}
-.n3{bottom:-27px;left:50%;margin-left:-27px}
-.n4{left:-27px;top:50%;margin-top:-27px}
-
-.core{
-  position:absolute;
-  width:200px;height:200px;
-  left:50%;top:50%;transform:translate(-50%,-50%);
-  border-radius:50%;
-  display:grid;place-items:center;
-  background:radial-gradient(circle at 35% 30%,var(--surface2),var(--bg));
-  border:1px solid var(--border);
-  box-shadow:
-    0 0 0 1px color-mix(in srgb,var(--accent) 20%,transparent),
-    0 0 80px rgba(var(--a1r),var(--a1g),var(--a1b),.25),
-    inset 0 0 40px rgba(var(--a2r),var(--a2g),var(--a2b),.06);
-  animation:corePulse 4.5s ease-in-out infinite;
-}
-@media(max-width:1000px){.core{width:150px;height:150px}}
-@media(max-width:700px){.core{width:130px;height:130px}}
-@keyframes corePulse{
-  50%{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 30%,transparent),0 0 120px rgba(var(--a1r),var(--a1g),var(--a1b),.4),inset 0 0 60px rgba(var(--a2r),var(--a2g),var(--a2b),.1)}
-}
-.core-text{display:flex;flex-direction:column;align-items:center;text-align:center}
-.core-mc{
-  font-family:var(--font-serif);font-style:italic;
-  font-size:clamp(42px,8vw,68px);
-  font-weight:700;line-height:1;
-  background:linear-gradient(135deg,var(--accent2),var(--accent),var(--accent3));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  animation:gradFlow 6s linear infinite;
-}
-.core-sub{font-family:var(--font-mono);font-size:9px;letter-spacing:.3em;color:var(--text3);margin-top:6px}
-
-/* ────────────────────────────────────────────────
-   SCROLL MARQUEE
-──────────────────────────────────────────────── */
-.marquee-wrap{
-  overflow:hidden;padding:20px 0;
-  border-top:1px solid var(--border2);
-  border-bottom:1px solid var(--border2);
-}
-.marquee-track{
-  display:flex;gap:0;
-  width:max-content;
-  animation:marquee 20s linear infinite;
-}
-.marquee-track:hover{animation-play-state:paused}
-@keyframes marquee{to{transform:translateX(-50%)}}
-.marquee-item{
-  display:flex;align-items:center;gap:16px;
-  padding:0 32px;
-  font-family:var(--font-mono);font-size:10px;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:var(--text3);white-space:nowrap;
-}
-.marquee-dot{width:4px;height:4px;border-radius:50%;background:var(--accent);opacity:.6}
-
-/* ────────────────────────────────────────────────
-   PROJECTS
-──────────────────────────────────────────────── */
-.projects-section{
-  padding:clamp(80px,10vw,140px) clamp(18px,5vw,60px);
-}
-.sec-inner{max-width:1320px;margin:auto}
-
-.sec-head{
-  display:flex;justify-content:space-between;align-items:flex-end;
-  gap:30px;margin-bottom:50px;flex-wrap:wrap;
-}
-.sec-kicker{
-  font-family:var(--font-mono);font-size:10px;
-  letter-spacing:.22em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:14px;
-}
-.sec-title{
-  font-family:var(--font-display);
-  font-size:clamp(2.8rem,5.5vw,5.5rem);
-  line-height:.9;letter-spacing:-.055em;
-}
-.sec-desc{color:var(--text2);font-size:14px;line-height:1.8;max-width:340px}
-
-/* controls */
-.controls{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:14px;margin-bottom:32px;
-}
-.filters{display:flex;gap:6px;flex-wrap:wrap}
-.filter{
-  padding:8px 15px;border-radius:100px;
-  border:1px solid var(--border);background:transparent;
-  color:var(--text2);font-size:11px;font-weight:500;
-  transition:all .3s var(--ease);
-}
-.filter:hover{border-color:color-mix(in srgb,var(--accent) 50%,var(--border));color:var(--text)}
-.filter.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.search-box{
-  display:flex;align-items:center;gap:8px;
-  padding:9px 15px;border-radius:100px;
-  border:1px solid var(--border);background:var(--surface);
-  color:var(--text2);min-width:200px;
-  transition:border-color .3s;
-}
-.search-box:focus-within{border-color:var(--accent)}
-.search-box input{
-  border:none;outline:none;background:transparent;
-  color:var(--text);font-size:13px;width:100%;
-}
-.search-box input::placeholder{color:var(--text3)}
-
-/* ── GRID ── */
-.proj-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-@media(max-width:1100px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.proj-grid{grid-template-columns:1fr;gap:14px}}
-
-/* ── CARD ── */
-.proj-card{
-  position:relative;
-  border:1px solid var(--border2);
-  border-radius:var(--r-xl);
-  background:color-mix(in srgb,var(--surface) 95%,transparent);
-  overflow:hidden;
-  transform:translateY(50px) scale(.96);
-  opacity:0;
-  transition:
-    transform .7s var(--ease),
-    opacity .7s var(--ease),
-    border-color .4s,
-    box-shadow .5s var(--ease);
-  will-change:transform;
-}
-.proj-card.in{transform:translateY(0) scale(1);opacity:1}
-.proj-card:hover{
-  border-color:color-mix(in srgb,var(--accent) 40%,var(--border2));
-  box-shadow:0 30px 80px rgba(0,0,0,.2),var(--glow);
-  transform:translateY(-10px) rotateX(1.5deg) scale(1.01);
-}
-body.editorial .proj-card{border-radius:6px;background:var(--surface)}
-body.editorial .proj-card:hover{box-shadow:0 20px 60px rgba(20,18,14,.1);transform:translateY(-6px)}
-body.aurora .proj-card{border-radius:32px}
-body.aurora .proj-card:hover{transform:translateY(-12px) rotate(-.3deg)}
-
-.proj-card.featured{grid-column:span 2}
-@media(max-width:620px){.proj-card.featured{grid-column:span 1}}
-
-/* card image banner */
-.card-img{
-  height:220px;
-  position:relative;overflow:hidden;
-  display:flex;align-items:flex-end;padding:18px;
-  background:
-    radial-gradient(circle at 20% 25%,var(--c1,#7c5cff66) 0%,transparent 50%),
-    radial-gradient(circle at 80% 75%,var(--c2,#00e5ff44) 0%,transparent 50%),
-    linear-gradient(135deg,var(--surface2),var(--bg));
-  transition:height .4s var(--ease);
-}
-.proj-card.featured .card-img{height:280px}
-@media(max-width:620px){.proj-card.featured .card-img{height:200px}}
-
-/* shimmer on hover */
-.card-img::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.07) 50%,transparent 70%);
-  transform:translateX(-120%);
-  transition:transform .8s var(--ease);
-}
-.proj-card:hover .card-img::after{transform:translateX(120%)}
-
-.card-num{
-  position:absolute;top:14px;right:16px;
-  font-family:var(--font-mono);font-size:9px;
-  letter-spacing:.1em;color:rgba(255,255,255,.5);
-}
-body.editorial .card-num{color:rgba(20,18,14,.4)}
-
-.card-icon{
-  width:54px;height:54px;border-radius:16px;
-  display:grid;place-items:center;
-  background:rgba(0,0,0,.22);backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.14);
-  color:#fff;
-  transition:transform .4s var(--ease);
-}
-body.editorial .card-icon{background:rgba(255,255,255,.5);color:var(--accent)}
-.proj-card:hover .card-icon{transform:scale(1.08) rotate(-4deg)}
-
-.card-body{padding:18px 18px 14px}
-.card-type{
-  font-family:var(--font-mono);font-size:9px;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:8px;
-}
-.card-name{
-  font-family:var(--font-display);font-size:20px;font-weight:600;
-  margin-bottom:8px;line-height:1.15;
-}
-.proj-card.featured .card-name{font-size:26px}
-.card-desc{color:var(--text2);font-size:13px;line-height:1.65;min-height:42px}
-
-.card-foot{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-top:16px;
-}
-.card-tags{display:flex;gap:5px;flex-wrap:wrap}
-.card-tag{
-  padding:4px 8px;border-radius:6px;
-  font-family:var(--font-mono);font-size:8px;
-  letter-spacing:.08em;text-transform:uppercase;
-  background:color-mix(in srgb,var(--text) 6%,transparent);
-  color:var(--text3);
-  border:1px solid var(--border2);
-}
-.card-open{
-  width:36px;height:36px;border-radius:50%;
-  display:grid;place-items:center;
-  background:var(--text);color:var(--bg);
-  flex-shrink:0;
-  transition:transform .4s var(--ease),background .3s;
-}
-.card-open:hover{
-  transform:rotate(-42deg) scale(1.15);
-  background:var(--accent2);color:#000;
-}
-body.editorial .card-open{background:var(--accent);color:#fff}
-
-/* empty state */
-.empty-state{
-  grid-column:1/-1;
-  padding:80px 20px;text-align:center;
-  color:var(--text3);display:flex;flex-direction:column;
-  align-items:center;gap:14px;
-}
-.empty-state p{font-size:14px}
-
-/* ────────────────────────────────────────────────
-   ABOUT
-──────────────────────────────────────────────── */
-.about-section{
-  padding:clamp(80px,10vw,140px) clamp(18px,5vw,60px);
-  border-top:1px solid var(--border2);
-  position:relative;overflow:hidden;
-}
-.about-inner{
-  max-width:1320px;margin:auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
-}
-@media(max-width:900px){.about-inner{grid-template-columns:1fr;gap:50px}}
-
-.about-title{
-  font-family:var(--font-display);
-  font-size:clamp(3rem,6.5vw,6.5rem);
-  line-height:.88;letter-spacing:-.06em;
-}
-.about-title em{color:var(--accent);font-style:normal}
-.about-body{
-  color:var(--text2);line-height:1.9;font-size:15px;
-  margin-top:24px;max-width:560px;
-}
-.about-body + .about-body{margin-top:16px}
-
-/* stats */
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.stat{
-  padding:26px 22px;border-radius:var(--r-lg);
-  border:1px solid var(--border2);background:var(--surface);
-  transition:transform .45s var(--ease),border-color .3s,box-shadow .45s;
-  position:relative;overflow:hidden;
-}
-.stat::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 0% 0%,color-mix(in srgb,var(--accent) 8%,transparent),transparent 60%);
-  opacity:0;transition:opacity .4s;
-}
-.stat:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:var(--glow)}
-.stat:hover::before{opacity:1}
-.stat-num{
-  font-family:var(--font-display);font-size:clamp(2rem,4vw,2.8rem);
-  font-weight:700;letter-spacing:-.04em;line-height:1;
-  background:linear-gradient(135deg,var(--text),var(--accent2));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.stat-lbl{
-  margin-top:6px;
-  font-family:var(--font-mono);font-size:9px;
-  letter-spacing:.18em;text-transform:uppercase;
-  color:var(--text3);
-}
-
-/* ── skills cloud ── */
-.skills-cloud{
-  display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;
-}
-.skill-chip{
-  padding:7px 13px;border-radius:100px;
-  border:1px solid var(--border);
-  font-size:12px;font-weight:500;color:var(--text2);
-  background:color-mix(in srgb,var(--surface) 60%,transparent);
-  transition:all .35s var(--ease);
-  cursor:default;
-}
-.skill-chip:hover{
-  border-color:var(--accent);color:var(--text);
-  background:color-mix(in srgb,var(--accent) 10%,transparent);
-  transform:translateY(-3px);
-}
-
-/* ────────────────────────────────────────────────
-   CONTACT
-──────────────────────────────────────────────── */
-.contact-section{
-  padding:clamp(80px,10vw,140px) clamp(18px,5vw,60px);
-  text-align:center;position:relative;
-}
-.contact-inner{max-width:900px;margin:auto}
-.contact-title{
-  font-family:var(--font-display);
-  font-size:clamp(3.5rem,9vw,9rem);
-  letter-spacing:-.07em;line-height:.88;
-}
-.contact-sub{
-  color:var(--text2);max-width:520px;margin:24px auto 36px;
-  line-height:1.8;font-size:15px;
-}
-.contact-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-
-/* decorative blur behind contact */
-.contact-section::before{
-  content:'';
-  position:absolute;left:50%;top:50%;
-  width:600px;height:400px;
-  border-radius:50%;
-  background:radial-gradient(circle,rgba(var(--a1r),var(--a1g),var(--a1b),.07),transparent 70%);
-  transform:translate(-50%,-50%);
-  pointer-events:none;
-  animation:breathe 6s ease-in-out infinite;
-}
-@keyframes breathe{50%{transform:translate(-50%,-50%) scale(1.15)}}
-
-/* ────────────────────────────────────────────────
-   FOOTER
-──────────────────────────────────────────────── */
-footer{
-  padding:28px clamp(18px,5vw,60px);
-  border-top:1px solid var(--border2);
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:16px;
-  color:var(--text3);
-  font-family:var(--font-mono);font-size:9px;letter-spacing:.1em;
-}
-.footer-brand{color:var(--text);font-weight:600;font-size:11px}
-.footer-copy{text-align:center}
-.footer-links{display:flex;gap:18px}
-.footer-links a{transition:color .3s}
-.footer-links a:hover{color:var(--accent)}
-
-/* ────────────────────────────────────────────────
-   THEME PANEL
-──────────────────────────────────────────────── */
-.theme-panel{
-  position:fixed;right:22px;bottom:22px;z-index:90;
-  padding:8px;border-radius:20px;
-  border:1px solid var(--border);
-  background:color-mix(in srgb,var(--surface) 90%,transparent);
-  backdrop-filter:blur(28px);
-  box-shadow:0 20px 60px rgba(0,0,0,.25);
-  display:flex;gap:4px;
-  transform:translateY(120px);opacity:0;
-  transition:transform .6s var(--ease),opacity .6s var(--ease);
-}
-.theme-panel.show{transform:translateY(0);opacity:1}
-.t-choice{
-  display:flex;align-items:center;gap:7px;
-  padding:8px 12px;border-radius:13px;
-  background:transparent;color:var(--text2);font-size:11px;font-weight:500;
-  transition:all .3s;
-}
-.t-choice:hover,.t-choice.active{
-  background:color-mix(in srgb,var(--accent) 14%,transparent);
-  color:var(--text);
-}
-.t-dot{width:8px;height:8px;border-radius:50%}
-
-/* ── TOAST ── */
-.toast{
-  position:fixed;left:50%;bottom:28px;z-index:200;
-  transform:translate(-50%,80px);opacity:0;
-  padding:10px 18px;border-radius:100px;
-  background:var(--text);color:var(--bg);
-  font-size:12px;font-weight:600;
-  transition:transform .5s var(--ease),opacity .5s;
-  pointer-events:none;white-space:nowrap;
-}
-.toast.show{transform:translate(-50%,0);opacity:1}
-
-/* ────────────────────────────────────────────────
-   MOBILE MENU
-──────────────────────────────────────────────── */
-@media(max-width:720px){
-  .nav-links{
-    position:fixed;top:calc(var(--nav-h) + 8px);
-    left:14px;right:14px;
-    flex-direction:column;gap:4px;
-    background:color-mix(in srgb,var(--surface) 95%,transparent);
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:10px;
-    backdrop-filter:blur(28px);
-    opacity:0;pointer-events:none;
-    transform:translateY(-16px) scale(.97);
-    transition:opacity .4s var(--ease),transform .4s var(--ease);
-  }
-  .nav-links.open{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}
-  .nav-links a{padding:13px 16px;border-radius:12px;font-size:14px}
-  .nav-links a::after{display:none}
-  .nav-links a.active{background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--text)}
-  .menu-btn{display:grid}
-  .theme-btn{display:none}
-  .theme-panel{left:14px;right:14px;justify-content:center;bottom:14px}
-}
-
-/* ────────────────────────────────────────────────
-   EDITORIAL OVERRIDES
-──────────────────────────────────────────────── */
-body.editorial .background-orbs{display:none}
-body.editorial .noise-overlay{opacity:.05}
-body.editorial .marquee-wrap{background:var(--surface2)}
-body.editorial .hero-h1{font-style:italic}
-body.editorial .core{background:radial-gradient(circle at 35% 30%,#fff,var(--bg2));box-shadow:0 0 0 1px var(--border),0 20px 60px rgba(0,0,0,.08)}
-body.editorial .orbit-node{background:#fff;color:var(--accent);box-shadow:0 4px 20px rgba(0,0,0,.08)}
-body.editorial .ring{border-color:rgba(139,94,44,.15)}
-
-/* ────────────────────────────────────────────────
-   AURORA OVERRIDES
-──────────────────────────────────────────────── */
-body.aurora .hero-h1{font-family:"Syne",sans-serif;font-weight:800}
-body.aurora .sec-title{font-family:"Syne",sans-serif;font-weight:800}
-body.aurora .about-title{font-family:"Syne",sans-serif;font-weight:800}
-body.aurora .contact-title{font-family:"Syne",sans-serif;font-weight:800}
-
-/* ────────────────────────────────────────────────
-   ANIMATIONS
-──────────────────────────────────────────────── */
-@keyframes slideUp{
-  from{opacity:0;transform:translateY(28px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@keyframes heroIn{
-  from{opacity:0;transform:translateY(35px) scale(.97);filter:blur(8px)}
-  to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
-}
+.hero{min-height:100svh;display:grid;align-items:center;padding:125px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:45px;align-items:end}
+.eyebrow,.kicker{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.17em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--good);box-shadow:0 0 0 0 color-mix(in srgb,var(--good) 55%,transparent);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{margin:21px 0 20px;font-size:clamp(4rem,12vw,9.2rem);line-height:.8;letter-spacing:-.08em;font-weight:950}
+h1 .outline{display:block;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--text) 70%,transparent)}
+h1 .gradient{display:block;background:linear-gradient(100deg,var(--text),var(--a),var(--b));background-size:180% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 7s ease infinite}
+@keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.hero-copy{max-width:660px;color:var(--muted);font-size:clamp(15px,2vw,19px)}
+.hero-copy strong{color:var(--text)}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:27px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:47px;padding:0 17px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:12px;font-weight:900;transition:.2s}
+.btn:hover{transform:translateY(-2px);background:var(--card2);border-color:color-mix(in srgb,var(--a) 55%,var(--line))}
+.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--a),var(--b));color:#06070a;box-shadow:0 14px 35px color-mix(in srgb,var(--a) 22%,transparent)}
+.visual{position:relative;min-height:315px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,var(--card2),var(--card));box-shadow:0 28px 75px rgba(0,0,0,.25);overflow:hidden;transform:rotate(2deg);transition:.35s}
+.visual:hover{transform:rotate(0) translateY(-5px)}
+.orbit{position:absolute;inset:15%;border:1px dashed color-mix(in srgb,var(--text) 23%,transparent);border-radius:50%;animation:spin 20s linear infinite}
+.orbit.two{inset:29%;animation-duration:13s;animation-direction:reverse}
+.orbit i{position:absolute;top:2px;left:50%;width:9px;height:9px;border-radius:50%;background:var(--b);box-shadow:0 0 22px var(--b)}
 @keyframes spin{to{transform:rotate(360deg)}}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.visual-content{position:absolute;inset:0;padding:23px;display:flex;flex-direction:column;justify-content:space-between;z-index:2}
+.mono{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;color:var(--muted)}
+.visual-title{font-size:clamp(29px,4vw,46px);font-weight:950;line-height:.92;letter-spacing:-.06em}
+.scroll{color:var(--muted);font-size:11px;font-weight:800;display:flex;align-items:center;gap:9px}
+.scroll i{width:40px;height:1px;background:var(--line)}
 
-/* scroll reveal */
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.reveal.in{opacity:1;transform:translateY(0)}
+section{padding:90px 0;scroll-margin-top:88px}
+.section-head{display:grid;grid-template-columns:.6fr 1fr;gap:30px;align-items:end;margin-bottom:32px}
+.number{color:var(--a);font:900 11px ui-monospace,monospace;letter-spacing:.1em}
+h2{margin:8px 0 0;font-size:clamp(2.6rem,6vw,5.4rem);line-height:.88;letter-spacing:-.07em}
+.intro{margin:0;color:var(--muted);font-size:15px;max-width:670px}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.filter{border:1px solid var(--line);border-radius:999px;padding:9px 13px;background:var(--card);color:var(--muted);font-size:11px;font-weight:900;cursor:pointer}
+.filter:hover,.filter.active{color:var(--text);background:color-mix(in srgb,var(--a) 12%,var(--card));border-color:color-mix(in srgb,var(--a) 55%,var(--line))}
+.repo-count{color:var(--muted);font-size:11px;margin-bottom:15px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.project{position:relative;display:flex;flex-direction:column;min-height:300px;padding:21px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(155deg,color-mix(in srgb,var(--a) 5%,var(--card)),var(--card));overflow:hidden;transition:transform .25s,border-color .25s,background .25s}
+.project::after{content:"";position:absolute;width:190px;height:190px;right:-105px;top:-105px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--b) 22%,transparent),transparent 68%);pointer-events:none}
+.project:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--a) 52%,var(--line));background:var(--card2)}
+.project-top,.project-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.project-index,.project-type,.repo-url{font-size:10px;color:var(--muted);font-weight:850}
+.project-index{font-family:ui-monospace,monospace}
+.project-type{border:1px solid var(--line);padding:5px 8px;border-radius:999px;letter-spacing:.07em}
+.project-body{margin-top:48px}
+.project h3{margin:0 0 10px;font-size:25px;line-height:.95;letter-spacing:-.045em;text-transform:none}
+.project p{margin:0;color:var(--muted);font-size:12px;line-height:1.65}
+.project-bottom{margin-top:auto;padding-top:24px;border-top:1px solid var(--line)}
+.repo-url{max-width:85%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.open-arrow{font-size:18px;font-weight:900;transition:transform .2s}
+.project:hover .open-arrow{transform:translate(3px,-3px)}
 
-/* ── BACKGROUND ORBS ── */
-.background-orbs{
-  position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;
-}
-.orb{
-  position:absolute;border-radius:50%;
-  filter:blur(90px);opacity:.35;
-  animation:orbFloat ease-in-out infinite;
-  will-change:transform;
-}
-.orb1{
-  width:700px;height:700px;
-  left:-150px;top:-150px;
-  background:radial-gradient(circle,rgba(var(--a1r),var(--a1g),var(--a1b),.5),transparent 70%);
-  animation-duration:18s;
-}
-.orb2{
-  width:600px;height:600px;
-  right:-100px;top:30%;
-  background:radial-gradient(circle,rgba(var(--a2r),var(--a2g),var(--a2b),.4),transparent 70%);
-  animation-duration:22s;animation-delay:-8s;
-}
-.orb3{
-  width:500px;height:500px;
-  bottom:-100px;left:35%;
-  background:radial-gradient(circle,rgba(var(--a1r),var(--a1g),var(--a1b),.3),transparent 70%);
-  animation-duration:16s;animation-delay:-4s;
-}
-@keyframes orbFloat{
-  0%,100%{transform:translate(0,0)}
-  33%{transform:translate(30px,-20px)}
-  66%{transform:translate(-20px,30px)}
-}
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}
+.panel{padding:clamp(24px,5vw,47px);border:1px solid var(--line);border-radius:29px;background:var(--card)}
+.panel h3{margin:0 0 17px;font-size:clamp(32px,5vw,59px);line-height:.9;letter-spacing:-.07em}
+.panel p{margin:0 0 13px;color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:24px}
+.tag{padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--muted);font-size:10px;font-weight:850}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{min-height:165px;padding:21px;border:1px solid var(--line);border-radius:22px;background:var(--card);display:flex;flex-direction:column;justify-content:space-between}
+.stat strong{font-size:clamp(34px,5vw,55px);line-height:.9;letter-spacing:-.06em}
+.stat span{color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
 
-/* ── GRID BG ── */
-.bg-grid{
-  position:fixed;inset:0;z-index:-1;pointer-events:none;
-  opacity:.06;
-  background-image:linear-gradient(rgba(255,255,255,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.15) 1px,transparent 1px);
-  background-size:56px 56px;
-  mask-image:linear-gradient(to bottom,transparent,rgba(0,0,0,.8) 15%,rgba(0,0,0,.8) 60%,transparent);
+.contact{position:relative;overflow:hidden;padding:clamp(29px,7vw,70px);border:1px solid var(--line);border-radius:33px;background:
+radial-gradient(circle at 87% 18%,color-mix(in srgb,var(--b) 21%,transparent),transparent 26%),
+radial-gradient(circle at 8% 90%,color-mix(in srgb,var(--a) 21%,transparent),transparent 30%),var(--card)}
+.contact p{max-width:650px;color:var(--muted);font-size:15px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+footer{border-top:1px solid var(--line);padding:25px 0 34px;color:var(--muted);font-size:10px}
+.footer-row{display:flex;justify-content:space-between;gap:15px}
+footer a:hover{color:var(--text)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.hidden{display:none!important}
+
+@media(max-width:900px){
+  .hero-grid,.about{grid-template-columns:1fr}
+  .visual{max-width:620px;min-height:260px}
+  .section-head{grid-template-columns:1fr;gap:12px}
+  .grid{grid-template-columns:1fr 1fr}
 }
-body.editorial .bg-grid{opacity:.04;background-image:linear-gradient(rgba(0,0,0,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.12) 1px,transparent 1px)}
-
-/* ── PROGRESS BAR ── */
-#progress{
-  position:fixed;top:0;left:0;z-index:200;
-  height:2px;
-  background:linear-gradient(to right,var(--accent),var(--accent2),var(--accent3));
-  width:0%;
-  transition:width .1s linear;
+@media(max-width:680px){
+  .shell{width:min(calc(100% - 20px),var(--max))}
+  header{top:7px}
+  .nav{padding:8px 8px 8px 11px}
+  .navlinks{display:none}
+  .menu{display:grid;place-items:center}
+  .theme-icon{width:38px;height:38px}
+  .brand-name{font-size:12px}
+  .hero{padding-top:106px}
+  h1{font-size:clamp(3.8rem,19vw,6rem)}
+  .hero-copy{font-size:14px}
+  .actions .btn{width:100%}
+  .visual{min-height:225px;transform:none}
+  section{padding:70px 0}
+  .grid{grid-template-columns:1fr}
+  .project{min-height:270px}
+  .stats{gap:8px}
+  .stat{min-height:135px}
+  .footer-row{flex-direction:column;align-items:flex-start}
+  .links .btn{flex:1 1 140px}
 }
-
-/* ── NEON GLOW TEXT ── */
-body.theme-neon .sec-title,
-body.theme-neon .contact-title{
-  text-shadow:0 0 80px rgba(var(--a2r),var(--a2g),var(--a2b),.08);
-}
-
-/* ── SECTION DIVIDER ── */
-.divider{
-  max-width:1320px;margin:0 auto;
-  height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);
-}
-
-/* ── SCROLL TO TOP ── */
-#scrollTop{
-  position:fixed;right:22px;bottom:90px;z-index:90;
-  width:42px;height:42px;border-radius:50%;
-  display:grid;place-items:center;
-  background:var(--surface);
-  border:1px solid var(--border);
-  color:var(--text2);
-  opacity:0;transform:translateY(10px);
-  transition:all .4s var(--ease);
-}
-#scrollTop.show{opacity:1;transform:translateY(0)}
-#scrollTop:hover{color:var(--accent);border-color:var(--accent);box-shadow:var(--glow);transform:translateY(-3px)}
-
-/* ────────────────────────────────────────────────
-   MOBILE PERFORMANCE
-   (only kicks in on small/touch screens — desktop
-   look is completely untouched)
-──────────────────────────────────────────────── */
-@media(max-width:720px){
-  /* blur() is one of the most expensive CSS effects on mobile GPUs —
-     three animated 90px-blur orbs were the single biggest lag source */
-  .orb{filter:blur(45px);opacity:.28}
-  .orb1{animation-duration:26s}
-  .orb2{animation-duration:30s}
-  .orb3{animation-duration:24s}
-
-  /* backdrop-filter blur is also very costly on mobile Safari/Chrome,
-     and it was recalculating on every scroll frame via .navbar.scrolled */
-  .navbar.scrolled{backdrop-filter:blur(12px) saturate(1.4)}
-  .theme-panel{backdrop-filter:blur(14px)}
-  .nav-links{backdrop-filter:blur(14px)}
-  .search-box,.btn-s,.card-icon{backdrop-filter:none}
-
-  /* the animated fractal-noise overlay is cheap to paint once but
-     pointless on small screens — remove it entirely */
-  .noise-overlay{display:none}
-}
-
-/* ── REDUCE MOTION ── */
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.01ms!important;
-  }
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
 }
-
 </style>
 </head>
-<body class="theme-neon">
+<body>
+<div class="progress" id="progress"></div>
 
-<!-- PROGRESS BAR -->
-<div id="progress"></div>
-
-<!-- CURSOR -->
-<div id="cursor"></div>
-<div id="cursor-trail"></div>
-
-<!-- BACKGROUND -->
-<div class="background-orbs">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="orb orb3"></div>
-</div>
-<div class="bg-grid"></div>
-<div class="noise-overlay"></div>
-
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <a href="#home" class="logo">
-    <div class="logo-mark">
-      <span>MC</span>
-    </div>
-    <div class="logo-text">
-      <strong>MC88</strong>
-      <small>DIGITAL UNIVERSE</small>
-    </div>
-  </a>
-
-  <div class="nav-links" id="navLinks">
-    <a href="#home" class="active">Home</a>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <div class="nav-right">
-    <button class="theme-btn" id="themeBtn" aria-label="Change theme">
-      <span class="theme-dot-btn"></span>
-      <span id="themeLabel">NEON</span>
-      <i data-lucide="palette" style="width:14px;height:14px"></i>
-    </button>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu">
-      <i data-lucide="menu"></i>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="eyebrow">
-        <span class="status-dot"></span>
-        ONLINE — BUILDING SOMETHING NEW
+<header>
+  <div class="shell">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="MC88 home">
+        <span class="mark">MC88</span><span class="brand-name">Digital Universe</span>
+      </a>
+      <div class="navlinks">
+        <a href="#home">Home</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a>
       </div>
-
-      <h1 class="hero-h1">
-        <div class="word"><span>My</span></div>
-        <div class="word"><span class="h1-gradient">Digital</span></div>
-        <div class="word"><span>Universe.</span></div>
-      </h1>
-
-      <p class="hero-sub">
-        A personal gallery of projects, experiments,
-        ideas and things I've built along the way.<br><br>
-        Welcome to the world of <strong>MOHAMED / CHEIKH</strong> — <strong>MC88</strong>.
-      </p>
-
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-p">
-          Explore my work
-          <i data-lucide="arrow-up-right" style="width:16px;height:16px"></i>
-        </a>
-        <a href="#contact" class="btn btn-s">
-          Let's connect
-          <i data-lucide="mail" style="width:15px;height:15px"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="ring-wrap">
-        <div class="ring"></div>
-        <div class="ring"></div>
-        <div class="ring"></div>
-
-        <div class="orbit-node n1"><i data-lucide="code-2" style="width:20px;height:20px"></i></div>
-        <div class="orbit-node n2"><i data-lucide="globe" style="width:20px;height:20px"></i></div>
-        <div class="orbit-node n3"><i data-lucide="sparkles" style="width:20px;height:20px"></i></div>
-        <div class="orbit-node n4"><i data-lucide="cpu" style="width:20px;height:20px"></i></div>
-
-        <div class="core">
-          <div class="core-text">
-            <span class="core-mc">MC</span>
-            <small class="core-sub">MC88</small>
-          </div>
-        </div>
-      </div>
+      <button class="theme-icon" id="theme" type="button" title="Switch theme" aria-label="Switch theme">◐</button>
+      <button class="menu" id="menu" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    </nav>
+    <div class="mobile" id="mobile">
+      <a href="#home">Home</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a>
+      <button id="mobileTheme" type="button">◐ &nbsp; Switch theme</button>
     </div>
   </div>
 </header>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track" id="marqueeTrack"></div>
-</div>
-
-<!-- PROJECTS -->
-<section class="projects-section" id="projects">
-  <div class="sec-inner">
-    <div class="sec-head reveal">
-      <div>
-        <div class="sec-kicker">01 / Selected Work</div>
-        <h2 class="sec-title">Things I've<br>built.</h2>
-      </div>
-      <p class="sec-desc">Websites, applications, experiments, tools and strange ideas that became real.</p>
-    </div>
-
-    <div class="controls reveal">
-      <div class="filters" id="filters">
-        <button class="filter active" data-f="all">All</button>
-        <button class="filter" data-f="web">Web</button>
-        <button class="filter" data-f="tool">Tools</button>
-        <button class="filter" data-f="creative">Creative</button>
-        <button class="filter" data-f="github">GitHub</button>
-      </div>
-      <label class="search-box">
-        <i data-lucide="search" style="width:15px;height:15px;flex-shrink:0"></i>
-        <input type="search" id="searchInp" placeholder="Search projects...">
-      </label>
-    </div>
-
-    <div class="proj-grid" id="projGrid"></div>
-  </div>
-</section>
-
-<!-- DIVIDER -->
-<div class="divider" style="padding:0 clamp(18px,5vw,60px)"><div style="height:1px;background:linear-gradient(to right,transparent,var(--border),transparent)"></div></div>
-
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="about-inner">
+<main>
+<section class="hero" id="home">
+  <div class="shell hero-grid">
     <div class="reveal">
-      <div class="sec-kicker">02 / The Person Behind MC88</div>
-      <h2 class="about-title">
-        Curious.<br>
-        Creative.<br>
-        <em>Always building.</em>
-      </h2>
-      <p class="about-body">
-        I'm Mohamed / Cheikh, known online as MC88. This website is my personal digital gallery — a place where I collect projects, experiments, ideas and work that I want to keep close.
-      </p>
-      <p class="about-body">
-        Some projects are serious. Some are experimental. Some simply exist because I wanted to know whether I could build them.
-      </p>
-      <div class="skills-cloud">
-        <span class="skill-chip">HTML</span>
-        <span class="skill-chip">CSS</span>
-        <span class="skill-chip">JavaScript</span>
-        <span class="skill-chip">Python</span>
-        <span class="skill-chip">UI Design</span>
-        <span class="skill-chip">Streamlit</span>
-        <span class="skill-chip">GitHub</span>
-        <span class="skill-chip">Web Apps</span>
-        <span class="skill-chip">Creative Code</span>
+      <div class="eyebrow"><i class="dot"></i> ONLINE — BUILDING SOMETHING NEW</div>
+      <h1><span class="outline">My</span><span class="gradient">Digital</span><span class="outline">Universe.</span></h1>
+      <p class="hero-copy">A personal gallery of <strong>projects, experiments, ideas</strong> and things I've built along the way. Welcome to the world of <strong>MOHAMED / CHEIKH — MC88.</strong></p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore my work ↘</a>
+        <a class="btn" href="#contact">Let's connect →</a>
       </div>
     </div>
-
-    <div class="stats reveal" style="transition-delay:.15s">
-      <div class="stat">
-        <div class="stat-num" id="statN">00</div>
-        <div class="stat-lbl">Projects Live</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">03</div>
-        <div class="stat-lbl">Visual Worlds</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">MC88</div>
-        <div class="stat-lbl">Signature</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-lbl">Ideas</div>
+    <div class="visual reveal">
+      <div class="orbit"><i></i></div><div class="orbit two"><i></i></div>
+      <div class="visual-content">
+        <span class="mono">MCMC88DIGITAL / 01</span>
+        <div class="visual-title">Curious.<br>Creative.<br>Always building.</div>
+        <span class="scroll"><i></i> scroll to explore</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-inner reveal">
-    <div class="sec-kicker">03 / Get In Touch</div>
-    <h2 class="contact-title">Let's make<br>something<br>interesting.</h2>
-    <p class="contact-sub">
-      Whether you're a friend, university professor, recruiter, collaborator
-      or someone who simply discovered this little corner of the internet — you're welcome.
-    </p>
-    <div class="contact-btns">
-      <a href="mailto:mohamed005cheikh@gmail.com" class="btn btn-p">
-        <i data-lucide="mail" style="width:16px;height:16px"></i>
-        Email me
-      </a>
-      <a href="https://wa.me/22230726475" target="_blank" rel="noopener" class="btn btn-s">
-        <i data-lucide="message-circle" style="width:16px;height:16px"></i>
-        WhatsApp
-      </a>
-      <a href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener" class="btn btn-s">
-        <i data-lucide="github" style="width:16px;height:16px"></i>
-        GitHub
-      </a>
+<section id="projects">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div><div class="kicker"><span class="number">01 /</span> Selected Work</div><h2>Things I've built.</h2></div>
+      <p class="intro">All <strong>24 repositories</strong> from the MC88 GitHub profile are included directly in this page. Tap any project card and it opens that project on GitHub immediately.</p>
+    </div>
+
+    <div class="filters reveal">
+      <button class="filter active" data-filter="all">All · 24</button>
+      <button class="filter" data-filter="Web">Web</button>
+      <button class="filter" data-filter="Tools">Tools</button>
+      <button class="filter" data-filter="Creative">Creative</button>
+      <a class="filter" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+
+    <div class="repo-count" id="repoCount">24 repositories · all links are embedded in this HTML</div>
+    <div class="grid" id="grid">
+      <a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/quran-warsh-MC88" target="_blank" rel="noopener" aria-label="Open quran-warsh-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">01 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>quran warsh MC88</h3>
+        <p>Quran Warsh — MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/quran-warsh-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/ZKR-MC88" target="_blank" rel="noopener" aria-label="Open ZKR-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">02 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>ZKR MC88</h3>
+        <p>A focused MC88 web project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/ZKR-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/ALL-IN" target="_blank" rel="noopener" aria-label="Open ALL-IN on GitHub">
+      <div class="project-top">
+        <span class="project-index">03 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>ALL IN</h3>
+        <p>ALL-IN — a complete MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/ALL-IN</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/FAST-MC88" target="_blank" rel="noopener" aria-label="Open FAST-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">04 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>FAST MC88</h3>
+        <p>A fast utility from the MC88 universe.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/FAST-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/mohamed005cheikh-rgb" target="_blank" rel="noopener" aria-label="Open mohamed005cheikh-rgb on GitHub">
+      <div class="project-top">
+        <span class="project-index">05 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>mohamed005cheikh rgb</h3>
+        <p>The main MC88 GitHub profile project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/mohamed005cheikh-rgb</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/MOON-MC88" target="_blank" rel="noopener" aria-label="Open MOON-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">06 / Creative</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>MOON MC88</h3>
+        <p>MOON — an experimental MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/MOON-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/RMC88" target="_blank" rel="noopener" aria-label="Open RMC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">07 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>RMC88</h3>
+        <p>RMC88 — an MC88 utility project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/RMC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/SCANNER-MC88" target="_blank" rel="noopener" aria-label="Open SCANNER-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">08 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>SCANNER MC88</h3>
+        <p>Scanner — an MC88 tool.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/SCANNER-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/NTLAS-MC88" target="_blank" rel="noopener" aria-label="Open NTLAS-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">09 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>NTLAS MC88</h3>
+        <p>NTLAS — an MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/NTLAS-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/DATA-MC88" target="_blank" rel="noopener" aria-label="Open DATA-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">10 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>DATA MC88</h3>
+        <p>DATA — an MC88 data project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/DATA-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/MP-MC88" target="_blank" rel="noopener" aria-label="Open MP-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">11 / Creative</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>MP MC88</h3>
+        <p>MP — an experimental MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/MP-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/PIC-MC88" target="_blank" rel="noopener" aria-label="Open PIC-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">12 / Creative</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>PIC MC88</h3>
+        <p>PIC — an MC88 visual project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/PIC-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/BM-MC88" target="_blank" rel="noopener" aria-label="Open BM-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">13 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>BM MC88</h3>
+        <p>Bit_matrix</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/BM-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/SM-MC88" target="_blank" rel="noopener" aria-label="Open SM-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">14 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>SM MC88</h3>
+        <p>Subnetting master calculator</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/SM-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/DOCTOOLS-MC88" target="_blank" rel="noopener" aria-label="Open DOCTOOLS-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">15 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>DOCTOOLS MC88</h3>
+        <p>DOCTOOLS — an MC88 utility project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/DOCTOOLS-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/TSS-MC88" target="_blank" rel="noopener" aria-label="Open TSS-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">16 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>TSS MC88</h3>
+        <p>TSS — an MC88 web project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/TSS-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/PHARMA-MC88" target="_blank" rel="noopener" aria-label="Open PHARMA-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">17 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>PHARMA MC88</h3>
+        <p>PHARMA — an MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/PHARMA-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/SHOP-MC88" target="_blank" rel="noopener" aria-label="Open SHOP-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">18 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>SHOP MC88</h3>
+        <p>SHOP — an MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/SHOP-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Creative" href="https://github.com/mohamed005cheikh-rgb/CLOCK-MC88" target="_blank" rel="noopener" aria-label="Open CLOCK-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">19 / Creative</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>CLOCK MC88</h3>
+        <p>CLOCK — an MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/CLOCK-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/RESTAU-MC88" target="_blank" rel="noopener" aria-label="Open RESTAU-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">20 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>RESTAU MC88</h3>
+        <p>RESTAU — an MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/RESTAU-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/cabinet-isi-2" target="_blank" rel="noopener" aria-label="Open cabinet-isi-2 on GitHub">
+      <div class="project-top">
+        <span class="project-index">21 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>cabinet isi 2</h3>
+        <p>site web professionnel pour cabinet médical</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/cabinet-isi-2</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Tools" href="https://github.com/mohamed005cheikh-rgb/O-click" target="_blank" rel="noopener" aria-label="Open O-click on GitHub">
+      <div class="project-top">
+        <span class="project-index">22 / Tools</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>O click</h3>
+        <p>QR code generator</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/O-click</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/PC-MC88" target="_blank" rel="noopener" aria-label="Open PC-MC88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">23 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>PC MC88</h3>
+        <p>PC — an MC88 project.</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/PC-MC88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
+<a class="project reveal" data-category="Web" href="https://github.com/mohamed005cheikh-rgb/WSR88" target="_blank" rel="noopener" aria-label="Open WSR88 on GitHub">
+      <div class="project-top">
+        <span class="project-index">24 / Web</span>
+        <span class="project-type">GITHUB ↗</span>
+      </div>
+      <div class="project-body">
+        <h3>WSR88</h3>
+        <p>Write Share Read</p>
+      </div>
+      <div class="project-bottom">
+        <span class="repo-url">github.com/mohamed005cheikh-rgb/WSR88</span>
+        <span class="open-arrow">↗</span>
+      </div>
+    </a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<section id="about">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div><div class="kicker"><span class="number">02 /</span> The Person Behind MC88</div><h2>Always building.</h2></div>
+      <p class="intro">Some projects are serious. Some are experimental. Some simply exist because I wanted to know whether I could build them.</p>
+    </div>
+    <div class="about">
+      <article class="panel reveal">
+        <h3>Curious.<br>Creative.<br>Always building.</h3>
+        <p>I'm Mohamed / Cheikh, known online as MC88. This website is my personal digital gallery — a place where I collect projects, experiments, ideas and work that I want to keep close.</p>
+        <div class="tags">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span>
+          <span class="tag">UI Design</span><span class="tag">Streamlit</span><span class="tag">GitHub</span><span class="tag">Web Apps</span><span class="tag">Creative Code</span>
+        </div>
+      </article>
+      <div class="stats reveal">
+        <div class="stat"><strong>24</strong><span>Repositories</span></div>
+        <div class="stat"><strong>23</strong><span>GitHub stars</span></div>
+        <div class="stat"><strong>∞</strong><span>Ideas</span></div>
+        <div class="stat"><strong>MC88</strong><span>Digital identity</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="shell">
+    <div class="contact reveal">
+      <div class="kicker"><span class="number">03 /</span> Get In Touch</div>
+      <h2>Let's make something interesting.</h2>
+      <p>Whether you're a friend, university professor, recruiter, collaborator or someone who simply discovered this little corner of the internet — you're welcome.</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:mohamed005cheikh@gmail.com">Email me ↗</a>
+        <a class="btn" href="https://wa.me/?text=Hello%20Mohamed%20%2F%20MC88" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a class="btn" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
 <footer>
-  <div><span class="footer-brand">MC88</span> &nbsp;—&nbsp; DIGITAL UNIVERSE</div>
-  <div class="footer-copy">© 2026 Mohamed / Cheikh · All rights reserved · <a href="mailto:mohamed005cheikh@gmail.com" style="transition:color .3s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color=''">mohamed005cheikh@gmail.com</a> · by MC88</div>
-  <div class="footer-links">
-    <a href="mailto:mohamed005cheikh@gmail.com">Email</a>
-    <a href="https://wa.me/22230726475" target="_blank">WhatsApp</a>
-    <a href="https://github.com/mohamed005cheikh-rgb" target="_blank">GitHub</a>
+  <div class="shell footer-row">
+    <span>MC88 — DIGITAL UNIVERSE</span>
+    <span>© 2026 Mohamed / Cheikh · All rights reserved · <a href="mailto:mohamed005cheikh@gmail.com">mohamed005cheikh@gmail.com</a> · by MC88</span>
   </div>
 </footer>
 
-<!-- THEME PANEL -->
-<div class="theme-panel" id="themePanel">
-  <button class="t-choice active" data-t="theme-neon">
-    <span class="t-dot" style="background:#7c5cff;box-shadow:0 0 8px #7c5cff"></span>
-    Neon
-  </button>
-  <button class="t-choice" data-t="editorial">
-    <span class="t-dot" style="background:#8b5e2c;box-shadow:0 0 8px #8b5e2c"></span>
-    Editorial
-  </button>
-  <button class="t-choice" data-t="aurora">
-    <span class="t-dot" style="background:#ee5fa7;box-shadow:0 0 8px #ee5fa7"></span>
-    Aurora
-  </button>
-</div>
-
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<!-- SCROLL TOP -->
-<button id="scrollTop" aria-label="Back to top">
-  <i data-lucide="chevron-up" style="width:18px;height:18px"></i>
-</button>
-
 <script>
-/* ══════════════════════════════════════════
-   MC88 DIGITAL UNIVERSE — JAVASCRIPT
-   By MC88 | mohamed005cheikh@gmail.com
-══════════════════════════════════════════ */
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const $ = (s,r=document)=>r.querySelector(s);
 
-/* ── REPOSITORIES ── */
-const REPOS = [
-  {name:"PHARMA-MC88",url:"https://mohamed005cheikh-rgb.github.io/PHARMA-MC88/",cat:"web",type:"Web Application",desc:"Pharmacy management project designed as a practical digital solution.",icon:"heart-pulse",tags:["HTML","CSS","JS"],featured:true,visible:true,colors:["#00e5ff","#7c5cff"]},
-  {name:"SHOP-MC88",url:"https://mohamed005cheikh-rgb.github.io/SHOP-MC88/",cat:"web",type:"E-Commerce",desc:"A complete shopping experience exploring modern interface design.",icon:"shopping-cart",tags:["WEB","UI"],featured:false,visible:true,colors:["#ff39d7","#7c5cff"]},
-  {name:"CLOCK-MC88",url:"https://mohamed005cheikh-rgb.github.io/CLOCK-MC88/",cat:"creative",type:"Interactive Experiment",desc:"A visual clock and time experience built for the web.",icon:"clock-3",tags:["JS","TIME"],featured:false,visible:true,colors:["#00d9ff","#2563eb"]},
-  {name:"ALL-IN",url:"https://mohamed005cheikh-rgb.github.io/ALL-IN/",cat:"web",type:"Web Platform",desc:"An experimental all-in-one digital platform.",icon:"layers-3",tags:["WEB","APP"],featured:false,visible:false,colors:["#7c5cff","#ff39d7"]},
-  {name:"MOON-MC88",url:"https://mohamed005cheikh-rgb.github.io/MOON-MC88/",cat:"creative",type:"Creative Project",desc:"An experimental visual project inspired by the moon and night.",icon:"moon",tags:["ART","WEB"],featured:false,visible:true,colors:["#312e81","#00d9ff"]},
-  {name:"RESTAU-MC88",url:"https://mohamed005cheikh-rgb.github.io/RESTAU-MC88/",cat:"web",type:"Restaurant App",desc:"A restaurant interface concept with a focus on presentation.",icon:"utensils",tags:["UI","WEB"],featured:false,visible:true,colors:["#ff4d4d","#ff9f43"]},
-  {name:"cabinet-isi-2",url:"https://mohamed005cheikh-rgb.github.io/cabinet-isi-2/",cat:"web",type:"Medical Cabinet",desc:"A digital interface created for a medical cabinet concept.",icon:"stethoscope",tags:["WEB","UI"],featured:false,visible:true,colors:["#00e5ff","#22c55e"]},
-  {name:"NTLAS-MC88",url:"https://mohamed005cheikh-rgb.github.io/NTLAS-MC88/",cat:"creative",type:"Atlas Project",desc:"An interactive geographical and visual experiment.",icon:"map",tags:["MAP","WEB"],featured:false,visible:true,colors:["#22c55e","#00d9ff"]},
-  {name:"mohamed005cheikh-rgb",url:"https://github.com/mohamed005cheikh-rgb/mohamed005cheikh-rgb",cat:"github",type:"GitHub Profile",desc:"My main GitHub profile and development universe.",icon:"github",tags:["GITHUB","CODE"],featured:false,visible:true,colors:["#ffffff","#7c5cff"]},
-  {name:"PIC-MC88",url:"https://mohamed005cheikh-rgb.github.io/PIC-MC88/",cat:"creative",type:"Photo Gallery",desc:"A visual gallery experiment for images and creative work.",icon:"images",tags:["PHOTO","UI"],featured:false,visible:true,colors:["#ff39d7","#00d9ff"]},
-  {name:"RMC88",url:"https://github.com/mohamed005cheikh-rgb/RMC88",cat:"creative",type:"Creative Project",desc:"Another experimental piece from the MC88 collection.",icon:"sparkles",tags:["ART","WEB"],featured:false,visible:true,colors:["#7c5cff","#ff39d7"]},
-  {name:"ATT",url:"https://att-mc88.streamlit.app/",cat:"tool",type:"Streamlit Application",desc:"An interactive Python-powered application.",icon:"terminal",tags:["PYTHON","APP"],featured:false,visible:false,colors:["#ff4ecd","#00d9ff"]},
-  {name:"MP-MC88",url:"https://mohamed005cheikh-rgb.github.io/MP-MC88/",cat:"web",type:"Web Project",desc:"A modern experimental project from the MC88 collection.",icon:"music",tags:["HTML","WEB"],featured:false,visible:true,colors:["#00d9ff","#7c5cff"]},
-  {name:"DOCTOOLS-MC88",url:"https://mohamed005cheikh-rgb.github.io/DOCTOOLS-MC88/",cat:"tool",type:"Document Tools",desc:"A collection of useful tools presented through a web interface.",icon:"file-cog",tags:["TOOLS","WEB"],featured:false,visible:true,colors:["#22c55e","#00d9ff"]},
-  {name:"0-click",url:"https://mohamed005cheikh-rgb.github.io/0-click/",cat:"tool",type:"Quick Tool",desc:"A lightweight experiment focused on simple interactions.",icon:"mouse-pointer-click",tags:["TOOL","JS"],featured:false,visible:false,colors:["#ff39d7","#ff9f43"]},
-  {name:"PC-MC88",url:"https://mohamed005cheikh-rgb.github.io/PC-MC88/",cat:"web",type:"Web Project",desc:"A personal project exploring interface and interaction.",icon:"monitor",tags:["WEB","UI"],featured:false,visible:true,colors:["#00e5ff","#7c5cff"]},
-  {name:"BM-MC88",url:"https://mohamed005cheikh-rgb.github.io/BM-MC88/",cat:"creative",type:"Creative Project",desc:"A visual experiment from the MC88 archive.",icon:"sparkles",tags:["ART","WEB"],featured:false,visible:true,colors:["#ff39d7","#7c5cff"]},
-  {name:"WSR88",url:"https://mohamed005cheikh-rgb.github.io/WSR88/",cat:"web",type:"Web Project",desc:"An experimental web experience.",icon:"globe",tags:["WEB","UI"],featured:false,visible:true,colors:["#00d9ff","#22c55e"]},
-  {name:"STYLE_88",url:"https://mohamed005cheikh-rgb.github.io/STYLE_88/",cat:"creative",type:"Design Experiment",desc:"A project dedicated to visual style and interface experimentation.",icon:"palette",tags:["STYLE","UI"],featured:false,visible:false,colors:["#ff39d7","#ff9f43"]},
-  {name:"TFT-MC",url:"https://mohamed005cheikh-rgb.github.io/TFT-MC/",cat:"web",type:"Web Experience",desc:"An experimental interface created as part of the MC88 collection.",icon:"layout-dashboard",tags:["WEB","UI"],featured:false,visible:false,colors:["#7c5cff","#00e5ff"]},
-  {name:"SM-MC88",url:"https://mohamed005cheikh-rgb.github.io/SM-MC88/",cat:"creative",type:"Creative Experience",desc:"A visual project exploring motion, style and interaction.",icon:"wand-sparkles",tags:["MOTION","WEB"],featured:false,visible:true,colors:["#ff39d7","#00d9ff"]},
-  {name:"DATA-MC88",url:"https://mohamed005cheikh-rgb.github.io/DATA-MC88/",cat:"tool",type:"Data Project",desc:"A project exploring data and digital information.",icon:"database",tags:["DATA","WEB"],featured:false,visible:true,colors:["#00d9ff","#7c5cff"]},
-];
-
-/* ── STATE ── */
-let filter = "all", search = "", theme = "theme-neon";
-const themes = [
-  {id:"theme-neon",label:"NEON"},
-  {id:"editorial",label:"EDITORIAL"},
-  {id:"aurora",label:"AURORA"}
-];
-
-/* ── DOM REFS ── */
-const projGrid = document.getElementById("projGrid");
-const searchInp = document.getElementById("searchInp");
-const statN = document.getElementById("statN");
-const themeBtn = document.getElementById("themeBtn");
-const themePanel = document.getElementById("themePanel");
-const themeLabel = document.getElementById("themeLabel");
-const toast = document.getElementById("toast");
-const navbar = document.getElementById("navbar");
-const navLinks = document.getElementById("navLinks");
-const menuBtn = document.getElementById("menuBtn");
-const scrollTopBtn = document.getElementById("scrollTop");
-
-/* ── LUCIDE ── */
-function icons(){if(typeof lucide!=="undefined")lucide.createIcons()}
-
-/* ── MARQUEE ── */
-function buildMarquee(){
-  const items=["Web Design","Creative Code","UI / UX","Front-End","JavaScript","Python","Experiments","Digital Art","MC88","Innovation","Open Source","GitHub"];
-  const track=document.getElementById("marqueeTrack");
-  let html="";
-  for(let i=0;i<2;i++){
-    items.forEach(t=>{
-      html+=`<span class="marquee-item"><span class="marquee-dot"></span>${t}</span>`;
-    });
-  }
-  track.innerHTML=html;
-}
-buildMarquee();
-
-/* ── RENDER PROJECTS ── */
-function render(){
-  const visible = REPOS.filter(r=>{
-    if(!r.visible) return false;
-    if(filter!=="all" && r.cat!==filter) return false;
-    const hay=(r.name+" "+r.desc+" "+r.tags.join(" ")).toLowerCase();
-    return hay.includes(search.toLowerCase());
+const buttons = $$('.filter[data-filter]');
+const cards = $$('.project');
+buttons.forEach(btn => btn.addEventListener('click', () => {
+  buttons.forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const filter=btn.dataset.filter;
+  let count=0;
+  cards.forEach(card => {
+    const show=filter==='all'||card.dataset.category===filter;
+    card.classList.toggle('hidden',!show);
+    if(show) count++;
   });
-
-  const total = REPOS.filter(r=>r.visible).length;
-  statN.textContent = String(total).padStart(2,"0");
-
-  if(!visible.length){
-    projGrid.innerHTML=`<div class="empty-state"><i data-lucide="search-x" style="width:40px;height:40px;opacity:.4"></i><p>No projects found. Try a different search or filter.</p></div>`;
-    icons(); return;
-  }
-
-  projGrid.innerHTML="";
-  visible.forEach((r,i)=>{
-    const el=document.createElement("article");
-    el.className="proj-card"+(r.featured?" featured":"");
-    el.style.setProperty("--c1",r.colors[0]+"44");
-    el.style.setProperty("--c2",r.colors[1]+"33");
-    el.style.transitionDelay=`${Math.min(i*.06,.5)}s`;
-    el.innerHTML=`
-      <div class="card-img">
-        <span class="card-num">${String(i+1).padStart(2,"0")}</span>
-        <div class="card-icon"><i data-lucide="${r.icon}" style="width:22px;height:22px"></i></div>
-      </div>
-      <div class="card-body">
-        <div class="card-type">${r.type}</div>
-        <h3 class="card-name">${r.name}</h3>
-        <p class="card-desc">${r.desc}</p>
-        <div class="card-foot">
-          <div class="card-tags">${r.tags.map(t=>`<span class="card-tag">${t}</span>`).join("")}</div>
-          <a class="card-open" href="${r.url}" target="_blank" rel="noopener" aria-label="Open ${r.name}">
-            <i data-lucide="arrow-up-right" style="width:16px;height:16px"></i>
-          </a>
-        </div>
-      </div>`;
-    projGrid.appendChild(el);
-    requestAnimationFrame(()=>requestAnimationFrame(()=>el.classList.add("in")));
-  });
-  icons();
-}
-
-/* ── FILTERS ── */
-document.querySelectorAll(".filter").forEach(b=>{
-  b.addEventListener("click",()=>{
-    document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
-    b.classList.add("active");
-    filter=b.dataset.f;
-    render();
-    vibe(10);
-  });
-});
-searchInp.addEventListener("input",e=>{search=e.target.value;render()});
-
-/* ── THEME ── */
-function setTheme(t){
-  theme=t;
-  document.body.classList.remove(...themes.map(x=>x.id));
-  document.body.classList.add(t);
-  const found=themes.find(x=>x.id===t);
-  themeLabel.textContent=found.label;
-  document.querySelectorAll(".t-choice").forEach(b=>b.classList.toggle("active",b.dataset.t===t));
-  localStorage.setItem("mc88-theme",t);
-  showToast(`${found.label} theme activated`);
-  vibe(18);
-}
-
-themeBtn.addEventListener("click",()=>{
-  themePanel.classList.toggle("show");
-  vibe(10);
-});
-document.querySelectorAll(".t-choice").forEach(b=>{
-  b.addEventListener("click",()=>setTheme(b.dataset.t));
+  $('#repoCount').textContent=`${count} repositories · all links are embedded in this HTML`;
 });
 
-/* keyboard T to cycle themes */
-document.addEventListener("keydown",e=>{
-  if(document.activeElement.tagName==="INPUT") return;
-  if(e.key==="/"){e.preventDefault();searchInp.focus()}
-  if(e.key.toLowerCase()==="t"){
-    const idx=themes.findIndex(x=>x.id===theme);
-    setTheme(themes[(idx+1)%themes.length].id);
-  }
-  if(e.key==="Escape"){themePanel.classList.remove("show")}
+const themes=['neon','editorial','aurora'];
+let themeIndex=Number(localStorage.getItem('mc88-theme')||0)%themes.length;
+const themeButton=$('#theme');
+const mobileTheme=$('#mobileTheme');
+
+function applyTheme(){
+  const name=themes[themeIndex];
+  document.documentElement.dataset.theme=name==='neon'?'':name;
+  themeButton.textContent=name==='neon'?'◐':name==='editorial'?'☼':'✦';
+  themeButton.title=`Theme: ${name.toUpperCase()} — click to change`;
+  themeButton.setAttribute('aria-label',`Theme ${name}. Click to change theme.`);
+  mobileTheme.textContent=`${name==='neon'?'◐':name==='editorial'?'☼':'✦'}  Theme: ${name.toUpperCase()} · tap to change`;
+  localStorage.setItem('mc88-theme',String(themeIndex));
+}
+function nextTheme(){
+  themeIndex=(themeIndex+1)%themes.length;
+  applyTheme();
+}
+themeButton.addEventListener('click',nextTheme);
+mobileTheme.addEventListener('click',nextTheme);
+applyTheme();
+
+const menu=$('#menu'), mobile=$('#mobile');
+menu.addEventListener('click',()=>{
+  const open=mobile.classList.toggle('open');
+  menu.setAttribute('aria-expanded',String(open));
+  menu.textContent=open?'×':'☰';
 });
+$$('#mobile a').forEach(a=>a.addEventListener('click',()=>{
+  mobile.classList.remove('open'); menu.setAttribute('aria-expanded','false'); menu.textContent='☰';
+}));
 
-/* close panel clicking outside */
-document.addEventListener("click",e=>{
-  if(!themeBtn.contains(e.target)&&!themePanel.contains(e.target)){
-    themePanel.classList.remove("show");
-  }
-});
-
-/* restore saved theme */
-const saved=localStorage.getItem("mc88-theme");
-if(saved&&themes.some(t=>t.id===saved)) setTheme(saved);
-
-/* ── TOAST ── */
-let toastT;
-function showToast(msg){
-  toast.textContent=msg;
-  toast.classList.add("show");
-  clearTimeout(toastT);
-  toastT=setTimeout(()=>toast.classList.remove("show"),2000);
+function progress(){
+  const max=document.documentElement.scrollHeight-innerHeight;
+  $('#progress').style.width=max>0?`${scrollY/max*100}%`:'0%';
 }
+addEventListener('scroll',progress,{passive:true}); progress();
 
-/* ── VIBRATE ── */
-function vibe(ms=12){if("vibrate"in navigator)navigator.vibrate(ms)}
-
-/* ── CURSOR ──
-   FIX: this used to run unconditionally on every device, attaching a
-   pointermove listener + an infinite requestAnimationFrame loop that
-   wrote to two elements' inline styles on every single frame — even
-   though the cursor is CSS-hidden on touch screens. That's the #1
-   cause of the phone-browser jank: constant style writes for a
-   feature mobile never even renders. Now it only initializes on
-   devices that actually have a fine, hover-capable pointer (i.e. a
-   real mouse/trackpad). Desktop behavior is 100% unchanged. */
-const hasFinePointer = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
-if(hasFinePointer){
-  const cur=document.getElementById("cursor");
-  const trail=document.getElementById("cursor-trail");
-  let cx=0,cy=0,tx=0,ty=0;
-  window.addEventListener("pointermove",e=>{
-    cx=e.clientX;cy=e.clientY;
-    cur.style.left=cx+"px";cur.style.top=cy+"px";
-  });
-  function animTrail(){
-    tx+=(cx-tx)*.1;ty+=(cy-ty)*.1;
-    trail.style.left=tx+"px";trail.style.top=ty+"px";
-    requestAnimationFrame(animTrail);
-  }
-  animTrail();
+let observer;
+function reveal(){
+  observer?.disconnect();
+  observer=new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}
+  }),{threshold:.07});
+  $$('.reveal').forEach(el=>observer.observe(el));
 }
-
-/* ── SCROLL PROGRESS ──
-   FIX: previously ran full style/class work on every native scroll
-   event with no throttling, which can queue up dozens of times per
-   second on mobile and fight the browser's compositor during a
-   swipe. Now batched to one update per animation frame. */
-const prog=document.getElementById("progress");
-let scrollTicking=false;
-function updateScrollUI(){
-  const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
-  prog.style.width=pct+"%";
-  navbar.classList.toggle("scrolled",window.scrollY>20);
-  scrollTopBtn.classList.toggle("show",window.scrollY>400);
-  scrollTicking=false;
-}
-window.addEventListener("scroll",()=>{
-  if(!scrollTicking){
-    requestAnimationFrame(updateScrollUI);
-    scrollTicking=true;
-  }
-},{passive:true});
-
-/* ── SCROLL TOP ── */
-scrollTopBtn.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"});vibe(8)});
-
-/* ── MOBILE MENU ── */
-menuBtn.addEventListener("click",()=>{navLinks.classList.toggle("open");vibe(10)});
-document.querySelectorAll(".nav-links a").forEach(a=>{
-  a.addEventListener("click",()=>navLinks.classList.remove("open"));
-});
-
-/* ── NAV ACTIVE ── */
-const sections=document.querySelectorAll("header[id],section[id]");
-const navAs=document.querySelectorAll(".nav-links a");
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      navAs.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));
-    }
-  });
-},{rootMargin:"-25% 0px -60% 0px"});
-sections.forEach(s=>obs.observe(s));
-
-/* ── SCROLL REVEAL ── */
-const revealObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");revealObs.unobserve(e.target)}});
-},{rootMargin:"0px 0px -60px 0px"});
-document.querySelectorAll(".reveal").forEach(el=>revealObs.observe(el));
-
-/* ── MAGNETIC BUTTONS ── (desktop-only, matches the fine-pointer gate above) */
-function initMagnetic(){
-  if(!hasFinePointer) return;
-  document.querySelectorAll(".btn").forEach(el=>{
-    el.addEventListener("pointermove",e=>{
-      const r=el.getBoundingClientRect();
-      const x=e.clientX-r.left-r.width/2;
-      const y=e.clientY-r.top-r.height/2;
-      el.style.transform=`translate(${x*.1}px,${y*.1}px) translateY(-4px) scale(1.02)`;
-    });
-    el.addEventListener("pointerleave",()=>{el.style.transform=""});
-  });
-}
-
-/* ── INIT ── */
-render();
-icons();
-setTimeout(initMagnetic,100);
-
-/* ── COUNTER ANIMATION ── */
-function animCount(el,target,duration=1200){
-  const start=performance.now();
-  const isNum=!isNaN(parseInt(target));
-  if(!isNum) return;
-  const n=parseInt(target);
-  function step(now){
-    const t=Math.min((now-start)/duration,1);
-    const ease=1-Math.pow(1-t,3);
-    el.textContent=String(Math.round(ease*n)).padStart(2,"0");
-    if(t<1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const total=REPOS.filter(r=>r.visible).length;
-      animCount(statN,total);
-    }
-  });
-},{threshold:.5}).observe(statN);
-
+reveal();
 </script>
 </body>
 </html>
