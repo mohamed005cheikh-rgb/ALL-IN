@@ -861,12 +861,15 @@ footer{
 .modal-body table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:.9rem;display:block;overflow-x:auto}
 .modal-body th,.modal-body td{border:1px solid var(--border);padding:8px 12px;text-align:left}
 
+/* ---- Modal footer with paired actions (Return / Visit) ---- */
 .modal-footer{
   flex-shrink:0;
   padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px));
   border-top:1px solid var(--border);
   background:var(--bg-elevated);
-  display:flex;justify-content:flex-end;
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
 }
 
 /* Modal loading + empty states */
@@ -894,7 +897,11 @@ footer{
   .modal-overlay.active .modal{transform:translateY(0)}
   .modal-body{padding:20px}
   .modal-header{padding:16px 18px}
-  .modal-footer{padding:14px 18px calc(14px + env(safe-area-inset-bottom,0px))}
+  .modal-footer{
+    padding:14px 18px calc(14px + env(safe-area-inset-bottom,0px));
+    flex-direction:column;
+    gap:10px;
+  }
   .modal-footer .btn{width:100%}
 }
 /* Backdrop blur only on desktop — it is expensive on mobile GPUs */
@@ -1194,6 +1201,10 @@ footer{
     <div class="modal-body" id="modalBody"></div>
 
     <footer class="modal-footer">
+      <!-- Return to browsing the portfolio without visiting the live site -->
+      <button class="btn" id="modalReturnBtn" type="button">
+        <span aria-hidden="true">←</span> Return to portfolio
+      </button>
       <a href="#" id="liveLink" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
         Visit live website <span class="arrow" aria-hidden="true">↗</span>
       </a>
@@ -1290,6 +1301,7 @@ footer{
   const modalTitle = $('#modalTitle');
   const modalBody = $('#modalBody');
   const modalClose = $('#modalClose');
+  const modalReturnBtn = $('#modalReturnBtn');
   const liveLink = $('#liveLink');
   const themeColorMeta = $('#themeColorMeta');
   const themeLabel = $('#themeLabel');
@@ -1507,7 +1519,9 @@ footer{
     trapFocus(e);
   }
 
+  // Both the X button and the "Return to portfolio" button close the modal
   modalClose.addEventListener('click', closeModal);
+  modalReturnBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
