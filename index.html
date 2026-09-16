@@ -12,11 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Fraunces:wght@600;700;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@500;700&family=Zilla+Slab:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ============================================================
-           MC88 PORTFOLIO — DESIGN SYSTEM
-           Edit project data in the CONFIG object near the bottom.
-           ============================================================ */
-
         :root,
         html[data-theme="signal"] {
             --bg: #060a12;
@@ -148,19 +143,6 @@
             z-index: 0;
             opacity: .9;
         }
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 20;
-            opacity: 0;
-            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), transparent 0, transparent 20%, rgba(255, 255, 255, .035) 100%);
-            transition: opacity .4s ease;
-        }
-        body.cursor-active::after {
-            opacity: 1;
-        }
         main,
         header,
         footer {
@@ -274,9 +256,7 @@
             gap: 12px;
             padding: 8px 12px 8px 18px;
             margin: 0 20px;
-            background: color-mix(in srgb, var(--bg) 78%, transparent);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: var(--bg-elevated);
             border: var(--border-w) solid var(--border);
             border-radius: var(--radius);
             box-shadow: 0 12px 40px rgba(0, 0, 0, .08);
@@ -639,29 +619,6 @@
             font-size: 1rem;
             max-width: 62ch;
         }
-        .filters {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-        }
-        .filter-btn {
-            padding: 8px 14px;
-            border-radius: 999px;
-            border: var(--border-w) solid var(--border);
-            background: var(--surface);
-            color: var(--text-muted);
-            font-size: .75rem;
-            font-weight: 800;
-            transition: all .25s ease;
-        }
-        .filter-btn.active,
-        .filter-btn:hover {
-            color: var(--text);
-            border-color: var(--accent);
-            background: var(--surface-hover);
-        }
 
         .project-grid {
             display: grid;
@@ -670,7 +627,7 @@
         }
         .project-card {
             grid-column: span 4;
-            min-height: 330px;
+            min-height: 280px;
             background: var(--bg-elevated);
             border: var(--border-w) solid var(--border);
             border-radius: var(--radius);
@@ -682,14 +639,14 @@
             flex-direction: column;
             justify-content: flex-end;
             isolation: isolate;
-            transition: transform .55s cubic-bezier(.2, .8, .2, 1), border-color .4s ease, box-shadow .5s ease;
+            transition: transform .45s cubic-bezier(.2, .8, .2, 1), border-color .4s ease, box-shadow .5s ease;
             opacity: 0;
             transform: translateY(35px);
         }
         .project-card.is-visible {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: calc(var(--i, 0)*55ms);
+            transition-delay: calc(var(--i, 0)*50ms);
         }
         .project-card:nth-child(1),
         .project-card:nth-child(6) {
@@ -730,14 +687,6 @@
         .project-card:hover .project-visual::before {
             transform: scale(1.16);
         }
-        .project-number {
-            position: absolute;
-            top: 18px;
-            left: 20px;
-            font: 800 .7rem var(--font-mono);
-            color: var(--text-muted);
-            z-index: 2;
-        }
         .project-arrow {
             position: absolute;
             top: 16px;
@@ -749,7 +698,6 @@
             display: grid;
             place-items: center;
             background: color-mix(in srgb, var(--bg) 50%, transparent);
-            backdrop-filter: blur(10px);
             transition: transform .4s ease, background .3s ease, color .3s ease;
             z-index: 2;
         }
@@ -798,30 +746,10 @@
             background: linear-gradient(to top, var(--bg-elevated) 65%, transparent);
             z-index: 1;
         }
-        .project-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        .project-tag {
-            font: 800 .61rem var(--font-mono);
-            padding: 5px 8px;
-            border-radius: 999px;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
         .project-title {
             font-size: 1.5rem;
             margin-bottom: 8px;
-        }
-        .project-desc {
-            color: var(--text-muted);
-            font-size: .84rem;
-            max-width: 54ch;
-            margin-bottom: 17px;
+            word-break: break-word;
         }
         .project-footer {
             display: flex;
@@ -832,27 +760,16 @@
             font-size: .72rem;
             color: var(--text-muted);
         }
-        .project-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .lang-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-        }
         .project-link {
             font-weight: 800;
             color: var(--text);
             transition: color .25s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
         .project-card:hover .project-link {
             color: var(--accent);
-        }
-        .project-card.is-hidden {
-            display: none;
         }
 
         .about-grid {
@@ -881,20 +798,6 @@
             font-size: 1.35rem;
             line-height: 1.45;
             color: var(--text);
-        }
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin-top: 26px;
-        }
-        .tag {
-            padding: 7px 11px;
-            border-radius: 999px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            font: 700 .68rem var(--font-mono);
-            color: var(--text-muted);
         }
         .stats-grid {
             display: grid;
@@ -926,12 +829,6 @@
 
         .contact-card {
             padding: clamp(28px, 5vw, 52px);
-        }
-        .contact-intro {
-            max-width: 60ch;
-            color: var(--text-muted);
-            margin-bottom: 28px;
-            font-size: 1.02rem;
         }
         .contact-rows {
             display: flex;
@@ -999,39 +896,6 @@
             transform: none;
         }
 
-        .cursor-dot,
-        .cursor-ring {
-            position: fixed;
-            pointer-events: none;
-            z-index: 2000;
-            display: none;
-        }
-        .cursor-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--accent);
-            transform: translate(-50%, -50%);
-        }
-        .cursor-ring {
-            width: 32px;
-            height: 32px;
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            opacity: .45;
-            transition: width .25s ease, height .25s ease, opacity .25s ease;
-        }
-        body.cursor-ready .cursor-dot,
-        body.cursor-ready .cursor-ring {
-            display: block;
-        }
-        body.cursor-hover .cursor-ring {
-            width: 52px;
-            height: 52px;
-            opacity: .9;
-        }
-
         .toast {
             position: fixed;
             left: 50%;
@@ -1076,8 +940,7 @@
                 gap: 5px;
                 margin: 8px 10px 0;
                 padding: 9px;
-                background: color-mix(in srgb, var(--bg) 92%, transparent);
-                backdrop-filter: blur(20px);
+                background: var(--bg-elevated);
                 border: var(--border-w) solid var(--border);
                 border-radius: var(--radius);
             }
@@ -1136,7 +999,7 @@
             .project-card,
             .project-card:nth-child(n) {
                 grid-column: 1;
-                min-height: 320px;
+                min-height: 280px;
             }
             .project-content {
                 padding: 21px;
@@ -1155,12 +1018,6 @@
             }
             .scroll-hint {
                 display: none;
-            }
-        }
-        @media(pointer:coarse) {
-            .cursor-dot,
-            .cursor-ring {
-                display: none !important;
             }
         }
         @media(prefers-reduced-motion:reduce) {
@@ -1201,8 +1058,6 @@
 <body>
     <div class="progress-bar" id="progressBar"></div>
     <div class="scroll-hint">Scroll</div>
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1215,13 +1070,13 @@
     <header class="site-header">
         <div class="shell" style="padding:0">
             <nav class="nav">
-                <a class="brand magnetic" href="#home" aria-label="MC88 home">
+                <a class="brand" href="#home" aria-label="MC88 home">
                     <span class="brand-mark">MC</span><span>MC88</span>
                 </a>
                 <div class="nav-links" id="navLinks">
                     <a href="#work" data-nav>Work</a><a href="#about" data-nav>About</a><a href="#contact" data-nav>Contact</a>
                 </div>
-                <button class="theme-toggle-btn desktop-theme magnetic" id="desktopThemeBtn" type="button">
+                <button class="theme-toggle-btn desktop-theme" id="desktopThemeBtn" type="button">
                     <span class="indicator"></span><span class="theme-label">Theme</span>
                 </button>
                 <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Open menu">☰</button>
@@ -1245,8 +1100,8 @@
                     <p class="hero-role hero-line" style="--d:2"><span>Mohamed Cheikh / MC88</span></p>
                     <p class="hero-desc hero-line" style="--d:3"><span>A focused collection of interfaces, applications, tools and experiments — shaped through code, design and curiosity.</span></p>
                     <div class="cta-group hero-line" style="--d:4">
-                        <a class="btn btn-primary magnetic" href="#work">View selected work <span class="arrow">↗</span></a>
-                        <a class="btn magnetic" href="#contact">Start a conversation <span class="arrow">↗</span></a>
+                        <a class="btn btn-primary" href="#work">View selected work <span class="arrow">↗</span></a>
+                        <a class="btn" href="#contact">Start a conversation <span class="arrow">↗</span></a>
                     </div>
                 </div>
                 <div class="hero-visual" aria-hidden="true" id="heroVisual">
@@ -1265,12 +1120,6 @@
                     <span class="section-label">01 / Selected work</span>
                     <div><h2 class="section-title">A growing body of work.</h2><p class="section-sub">Interfaces, practical tools and creative experiments — each built to solve a problem, test an idea or explore a new direction.</p></div>
                 </div>
-                <div class="filters reveal" aria-label="Project filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="interfaces">Web</button>
-                    <button class="filter-btn" data-filter="tools">Tools</button>
-                    <button class="filter-btn" data-filter="experiments">Creative</button>
-                </div>
                 <div class="project-grid" id="projectGrid" aria-live="polite"></div>
             </div>
         </section>
@@ -1285,10 +1134,6 @@
                     <article class="about-card reveal">
                         <p>I'm Mohamed Cheikh, known online as MC88. I build digital products, interfaces and experiments that sit at the intersection of practical utility and visual craft.</p>
                         <p>This portfolio documents the work rather than dressing it up: shipped projects, prototypes, tools and small technical explorations that helped me learn something new.</p>
-                        <div class="tech-tags">
-                            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Python</span>
-                            <span class="tag">UI Design</span><span class="tag">Streamlit</span><span class="tag">GitHub</span><span class="tag">Web Apps</span><span class="tag">Creative Code</span>
-                        </div>
                     </article>
                     <div class="stats-grid">
                         <div class="stat-box reveal"><span class="stat-val" id="statRepos">00</span><span class="stat-lbl">Visible projects</span></div>
@@ -1310,15 +1155,15 @@
                     <div class="contact-rows">
                         <div class="contact-row">
                             <div class="contact-id"><span class="contact-icon"><svg class="icon"><use href="#icon-mail"/></svg></span><div><div class="contact-label">Email</div><div class="contact-value">mohamed005cheikh@gmail.com</div></div></div>
-                            <a class="btn magnetic" href="mailto:mohamed005cheikh@gmail.com">Send email <span class="arrow">↗</span></a>
+                            <a class="btn" href="mailto:mohamed005cheikh@gmail.com">Send email <span class="arrow">↗</span></a>
                         </div>
                         <div class="contact-row">
                             <div class="contact-id"><span class="contact-icon"><svg class="icon"><use href="#icon-whatsapp"/></svg></span><div><div class="contact-label">WhatsApp</div><div class="contact-value">+222 30 73 64 75</div></div></div>
-                            <a class="btn magnetic" href="https://wa.me/22230736475" target="_blank" rel="noopener">Message <span class="arrow">↗</span></a>
+                            <a class="btn" href="https://wa.me/22230736475" target="_blank" rel="noopener">Message <span class="arrow">↗</span></a>
                         </div>
                         <div class="contact-row">
                             <div class="contact-id"><span class="contact-icon"><svg class="icon"><use href="#icon-github"/></svg></span><div><div class="contact-label">GitHub</div><div class="contact-value">mohamed005cheikh-rgb</div></div></div>
-                            <a class="btn magnetic" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">Profile <span class="arrow">↗</span></a>
+                            <a class="btn" href="https://github.com/mohamed005cheikh-rgb" target="_blank" rel="noopener">Profile <span class="arrow">↗</span></a>
                         </div>
                     </div>
                 </div>
@@ -1331,80 +1176,43 @@
     </footer>
 
     <script>
-        /* ============================================================
-           CONFIGURATION
-           This is the only area you should normally edit.
-           ============================================================ */
         const CONFIG = {
             githubUser: "mohamed005cheikh-rgb",
-
-            // ──────────────────────────────────────────────────────
-            // PROJECTS — Edit each repository separately.
-            //
-            // • To HIDE a project:          set hidden: true
-            // • To SHOW a project:          set hidden: false
-            // • To ADD a new project:       add a new entry
-            // • To set a direct live URL:   add liveUrl: "https://…"
-            // • To set a custom description: add description: "…"
-            // ──────────────────────────────────────────────────────
             projects: {
-                // ── Web / Interfaces ──
-                "pharma-mc88": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "A practical web interface for organizing pharmacy-related information." },
-                "shop-mc88": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "A commerce-focused interface exploring product discovery and purchase flows." },
-                "restau-mc88": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "A responsive restaurant interface built around clear menus and ordering flows." },
-                "cabinet-isi-2": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "A service-oriented website interface with a clear information architecture." },
-                "quran-warsh-mc88": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "A focused reading experience for Quran content in the Warsh tradition." },
-                "zkr-mc88": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "A lightweight interface for daily remembrance and focused reading." },
-                "wsr88": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "A writing and publishing interface for creating, sharing and reading content." },
-                "pic-mc88": { category: "interfaces", hidden: false, liveUrl: "",
-                    description: "An image-focused web interface for browsing and viewing visual content." },
-
-                // ── Tools ──
-                "sm-mc88": { category: "tools", hidden: false, liveUrl: "",
-                    description: "A social media management utility for streamlining posting workflows." },
-                "scanner-mc88": { category: "tools", hidden: false, liveUrl: "",
-                    description: "A focused browser utility for scanning QR codes directly from a camera." },
-                "doctools-mc88": { category: "tools", hidden: false, liveUrl: "",
-                    description: "A collection of browser-based utilities for everyday document workflows." },
-                "data-mc88": { category: "tools", hidden: false, liveUrl: "",
-                    description: "A small data-focused project for exploring, transforming or presenting information." },
-                "rmc88": { category: "tools", hidden: false, liveUrl: "",
-                    description: "A resource management tool for organizing and tracking information." },
-                "tss-mc88": { category: "tools", hidden: false, liveUrl: "",
-                    description: "A task and scheduling system designed for practical daily use." },
-
-                // ── Experiments ──
-                "clock-mc88": { category: "experiments", hidden: false, liveUrl: "",
-                    description: "An experimental clock interface exploring time visualization." },
-                "moon-mc88": { category: "experiments", hidden: false, liveUrl: "",
-                    description: "A creative visualization project inspired by lunar phases." },
-                "bm-mc88": { category: "experiments", hidden: false, liveUrl: "",
-                    description: "An experimental bookmark manager for organizing web content." },
-                "jetli-mc88": { category: "experiments", hidden: false, liveUrl: "",
-                    description: "A creative experiment in motion and interface design." },
-
-                // ── Hidden repos (not shown) ──
-                "mohamed005cheikh-rgb": { category: "experiments", hidden: true },
-                "all-in": { category: "experiments", hidden: true },
-                "all-in-mc88": { category: "experiments", hidden: true },
-                "all": { category: "experiments", hidden: true },
-                "att": { category: "experiments", hidden: true },
-                "0-click": { category: "experiments", hidden: true }
+                "tv88-pro": { hidden: false },
+                "wsr88": { hidden: false },
+                "j-e-tais-la--95-mc88": { hidden: false },
+                "jetli-mc88": { hidden: false },
+                "quran-hafs-mc88": { 
+                    hidden: false, 
+                    title: "Quran Hafs", 
+                    liveUrl: "https://mohamed005cheikh-rgb.github.io/quran-hafs-MC88/" 
+                },
+                "zkr-mc88": { hidden: false },
+                "fast-mc88": { hidden: false },
+                "moon-mc88": { hidden: false },
+                "rmc88": { hidden: false },
+                "scanner-mc88": { hidden: false },
+                "ntlas-mc88": { hidden: false },
+                "data-mc88": { hidden: false },
+                "mp-mc88": { hidden: false },
+                "pic-mc88": { hidden: false },
+                "bm-mc88": { hidden: false },
+                "sm-mc88": { hidden: false },
+                "doctools-mc88": { hidden: false },
+                "tss-mc88": { hidden: false },
+                "pharma-mc88": { hidden: false },
+                "shop-mc88": { hidden: false },
+                "clock-mc88": { hidden: false },
+                "restau-mc88": { hidden: false },
+                "cabinet-isi-2": { hidden: false },
+                "pc-mc88": { hidden: false }
             },
-
             themes: ["signal", "terminal", "paper", "dune", "studio"]
         };
 
         const state = {
             repos: [],
-            activeFilter: "all",
             themeIndex: Number(localStorage.getItem("mc88-theme-index") || 0) % CONFIG.themes.length
         };
 
@@ -1412,14 +1220,7 @@
         const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
         const apiUrl = `https://api.github.com/users/${CONFIG.githubUser}/repos?per_page=100&sort=updated`;
 
-        function getCategory(repo) {
-            const name = repo.name.toLowerCase();
-            return CONFIG.projects[name]?.category || "experiments";
-        }
-
         function getProjectUrl(repo) {
-            // Priority: explicit liveUrl in CONFIG → GitHub homepage field → GitHub Pages convention.
-            // Never links to the GitHub repository itself.
             const name = repo.name.toLowerCase();
             const config = CONFIG.projects[name];
             return (config?.liveUrl && config.liveUrl.trim()) || repo.homepage || `https://${CONFIG.githubUser}.github.io/${repo.name}/`;
@@ -1435,29 +1236,21 @@
             }[char]));
         }
 
-        function projectDescription(repo) {
-            const name = repo.name.toLowerCase();
-            const config = CONFIG.projects[name];
-            return config?.description || repo.description || `${repo.language || "Web"} project built as part of an ongoing technical exploration.`;
-        }
-
         function projectCard(repo, index) {
-            const category = getCategory(repo);
+            const name = repo.name.toLowerCase();
+            const config = CONFIG.projects[name] || {};
             const url = getProjectUrl(repo);
-            const language = repo.language || "Web";
-            const title = repo.name.replaceAll("-", " ");
+            // Use custom title if provided, otherwise format the repo name
+            const title = config.title || repo.name.replaceAll("-", " ");
+            
             return `
-        <article class="project-card reveal" style="--i:${index}" data-category="${category}">
+        <article class="project-card reveal" style="--i:${index}">
           <a href="${escapeHTML(url)}" target="_blank" rel="noopener" aria-label="Open ${escapeHTML(title)} in new tab"></a>
           <div class="project-visual"><div class="project-art"></div></div>
-          <span class="project-number">${String(index + 1).padStart(2, "0")}</span>
           <span class="project-arrow"><svg class="icon"><use href="#icon-external"/></svg></span>
           <div class="project-content">
-            <div class="project-header"><span class="project-tag">${category}</span><span style="font:700 .62rem var(--font-mono);color:var(--text-muted)">${escapeHTML(language)}</span></div>
             <h3 class="project-title">${escapeHTML(title)}</h3>
-            <p class="project-desc">${escapeHTML(projectDescription(repo))}</p>
             <div class="project-footer">
-              <span class="project-meta"><span class="lang-dot"></span>Live project</span>
               <span class="project-link">Open ↗</span>
             </div>
           </div>
@@ -1466,25 +1259,18 @@
 
         function renderProjects() {
             const grid = $("#projectGrid");
-            const filtered = state.repos.filter(repo =>
-                state.activeFilter === "all" || getCategory(repo) === state.activeFilter
-            );
-
-            grid.innerHTML = filtered.length ?
-                filtered.map((repo, index) => projectCard(repo, index)).join("") :
-                `<div class="project-card is-visible" style="grid-column:1/-1;min-height:180px"><div class="project-content"><h3 class="project-title">No projects in this category.</h3><p class="project-desc">Try another filter.</p></div></div>`;
+            grid.innerHTML = state.repos.length ?
+                state.repos.map((repo, index) => projectCard(repo, index)).join("") :
+                `<div class="project-card is-visible" style="grid-column:1/-1;min-height:180px"><div class="project-content"><h3 class="project-title">No projects found.</h3></div></div>`;
 
             observeReveals(grid);
-            bindMagnetic(grid);
         }
 
         async function loadRepos() {
-            const fallback = [
-                { name: "scanner-mc88", description: "QR code scanner using camera.", language: "JavaScript", homepage: "",
-                    html_url: "https://github.com/mohamed005cheikh-rgb/scanner-mc88" },
-                { name: "restau-mc88", description: "Menu and ordering interface.", language: "HTML", homepage: "",
-                    html_url: "https://github.com/mohamed005cheikh-rgb/restau-mc88" }
-            ];
+            const fallback = Object.keys(CONFIG.projects).map(name => ({
+                name: name,
+                homepage: ""
+            }));
 
             try {
                 const response = await fetch(apiUrl, { headers: { Accept: "application/vnd.github+json" } });
@@ -1510,7 +1296,6 @@
             renderProjects();
         }
 
-        /* ---------- THEME ENGINE ---------- */
         function applyTheme(event) {
             state.themeIndex = (state.themeIndex + 1) % CONFIG.themes.length;
             localStorage.setItem("mc88-theme-index", state.themeIndex);
@@ -1530,7 +1315,6 @@
         $("#desktopThemeBtn").addEventListener("click", applyTheme);
         $("#mobileThemeBtn").addEventListener("click", applyTheme);
 
-        /* ---------- MOBILE NAV ---------- */
         const menuToggle = $("#menuToggle");
         const mobileDrawer = $("#mobileDrawer");
         menuToggle.addEventListener("click", () => {
@@ -1544,15 +1328,6 @@
             menuToggle.setAttribute("aria-expanded", "false");
         }));
 
-        /* ---------- FILTERS ---------- */
-        $$(".filter-btn").forEach(button => button.addEventListener("click", () => {
-            $$(".filter-btn").forEach(b => b.classList.remove("active"));
-            button.classList.add("active");
-            state.activeFilter = button.dataset.filter;
-            renderProjects();
-        }));
-
-        /* ---------- SCROLL PROGRESS + ACTIVE NAV ---------- */
         const sections = $$("main section[id]");
         const navLinks = $$("[data-nav]");
 
@@ -1572,9 +1347,7 @@
         }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
         sections.forEach(section => navObserver.observe(section));
 
-        /* ---------- REVEAL SYSTEM ---------- */
         let revealObserver;
-
         function observeReveals(root = document) {
             if (!("IntersectionObserver" in window)) {
                 $$(".reveal", root).forEach(el => el.classList.add("is-visible"));
@@ -1596,75 +1369,7 @@
         }
         observeReveals();
 
-        /* ---------- POINTER / MAGNETIC MICRO-INTERACTIONS ---------- */
-        function bindMagnetic(root = document) {
-            if (!matchMedia("(pointer:fine)").matches) return;
-            $$(".magnetic", root).forEach(el => {
-                if (el.dataset.magneticBound) return;
-                el.dataset.magneticBound = "1";
-                el.addEventListener("mousemove", e => {
-                    const r = el.getBoundingClientRect();
-                    const x = (e.clientX - r.left - r.width / 2) * .12;
-                    const y = (e.clientY - r.top - r.height / 2) * .12;
-                    el.style.transform = `translate(${x}px,${y}px)`;
-                });
-                el.addEventListener("mouseleave", () => el.style.transform = "");
-            });
-        }
-        bindMagnetic();
-
-        if (matchMedia("(pointer:fine)").matches) {
-            document.body.classList.add("cursor-ready");
-            const dot = $("#cursorDot"),
-                ring = $("#cursorRing");
-            let mouseX = innerWidth / 2,
-                mouseY = innerHeight / 2,
-                ringX = mouseX,
-                ringY = mouseY;
-
-            window.addEventListener("mousemove", e => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                dot.style.left = `${mouseX}px`;
-                dot.style.top = `${mouseY}px`;
-                document.body.style.setProperty("--mx", `${mouseX}px`);
-                document.body.style.setProperty("--my", `${mouseY}px`);
-                document.body.classList.add("cursor-active");
-            }, { passive: true });
-
-            const animateCursor = () => {
-                ringX += (mouseX - ringX) * .14;
-                ringY += (mouseY - ringY) * .14;
-                ring.style.left = `${ringX}px`;
-                ring.style.top = `${ringY}px`;
-                requestAnimationFrame(animateCursor);
-            };
-            animateCursor();
-
-            document.addEventListener("mouseover", e => {
-                if (e.target.closest("a,button,.project-card")) document.body.classList.add("cursor-hover");
-            });
-            document.addEventListener("mouseout", e => {
-                if (e.target.closest("a,button,.project-card")) document.body.classList.remove("cursor-hover");
-            });
-        }
-
-        /* ---------- HERO DEPTH ---------- */
-        const heroVisual = $("#heroVisual"),
-            visualFrame = $("#visualFrame");
-        if (matchMedia("(pointer:fine)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            heroVisual.addEventListener("mousemove", e => {
-                const r = heroVisual.getBoundingClientRect();
-                const x = (e.clientX - r.left) / r.width - .5;
-                const y = (e.clientY - r.top) / r.height - .5;
-                visualFrame.style.transform = `rotateX(${y * -7}deg) rotateY(${x * 9}deg)`;
-            });
-            heroVisual.addEventListener("mouseleave", () => visualFrame.style.transform = "");
-        }
-
-        /* ---------- TOAST ---------- */
         let toastTimer;
-
         function showToast(message) {
             const toast = $("#toast");
             toast.textContent = message;
@@ -1673,7 +1378,6 @@
             toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
         }
 
-        /* ---------- INITIAL LOAD ---------- */
         requestAnimationFrame(() => {
             document.documentElement.classList.add("is-ready");
             updateScrollUI();
