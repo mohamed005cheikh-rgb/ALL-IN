@@ -21,6 +21,8 @@
 <style>
 /* ============================================================
    1. DESIGN TOKENS / THEMES
+   I use five themes. Each one is a set of CSS variables.
+   Switching a theme = switching the [data-theme] attribute.
    ============================================================ */
 :root,
 html[data-theme="signal"]{
@@ -184,7 +186,7 @@ body{
   min-height:100%;
   transition:background-color .45s ease,color .45s ease;
 }
-/* Scroll lock used while the modal is open (preserves scroll position) */
+/* I lock the scroll while the modal is open, and I keep the scroll position */
 body.is-locked{position:fixed;inset:0;width:100%;overflow:hidden}
 
 a{color:inherit;text-decoration:none}
@@ -200,7 +202,7 @@ p{text-wrap:pretty}
 .icon{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
-/* Pause every infinite animation inside an off-screen container (perf) */
+/* I pause every infinite animation inside an off-screen container (helps old phones) */
 .is-paused *,
 .is-paused *::before,
 .is-paused *::after,
@@ -208,7 +210,8 @@ p{text-wrap:pretty}
 .is-paused::after{animation-play-state:paused !important}
 
 /* ============================================================
-   3. BACKGROUND FX LAYER (composited once, no scroll repaint)
+   3. BACKGROUND FX LAYER
+   I paint this layer once — no repaint on scroll.
    ============================================================ */
 .fx-layer{
   position:fixed;
@@ -379,7 +382,7 @@ main,header,footer{position:relative;z-index:1}
 .menu-toggle[aria-expanded="true"] .burger::before{transform:translateY(6px) rotate(45deg)}
 .menu-toggle[aria-expanded="true"] .burger::after{transform:translateY(-6px) rotate(-45deg)}
 
-/* Mobile drawer (animated, no display:none flicker) */
+/* Mobile drawer — animated, no display:none flicker */
 .mobile-drawer{
   display:flex;flex-direction:column;gap:5px;
   margin:8px 10px 0;
@@ -657,7 +660,7 @@ section{padding:130px 0;scroll-margin-top:96px}
 .project-link{color:var(--text);transition:color .25s ease}
 .project-index{opacity:.6}
 
-/* Read more button (sits under the card) */
+/* Read more button — sits under the card */
 .read-more-btn{
   display:flex;align-items:center;justify-content:center;gap:8px;
   width:100%;min-height:46px;
@@ -675,7 +678,7 @@ section{padding:130px 0;scroll-margin-top:96px}
 .read-more-btn:hover{background:var(--surface-hover);border-color:var(--accent);color:var(--text);transform:translateY(-2px)}
 .read-more-btn:active{transform:translateY(0) scale(.99)}
 
-/* Hover-only effects (prevents sticky hover on touch devices) */
+/* Hover effects only for real pointers — no sticky hover on touch */
 @media (hover:hover) and (pointer:fine){
   .project-card:hover{transform:translateY(-8px);border-color:var(--border-strong);box-shadow:var(--shadow-card-hover)}
   .project-card:hover .project-visual::before{transform:scale(1.15)}
@@ -763,7 +766,7 @@ footer{
 }
 
 /* ============================================================
-   11. MODAL (README VIEWER)
+   11. MODAL — README VIEWER
    ============================================================ */
 .modal-overlay{
   position:fixed;inset:0;z-index:1000;
@@ -861,7 +864,7 @@ footer{
 .modal-body table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:.9rem;display:block;overflow-x:auto}
 .modal-body th,.modal-body td{border:1px solid var(--border);padding:8px 12px;text-align:left}
 
-/* ---- Modal footer with paired actions (Return / Visit) ---- */
+/* Modal footer — paired actions (Return / Visit) */
 .modal-footer{
   flex-shrink:0;
   padding:16px 22px calc(16px + env(safe-area-inset-bottom,0px));
@@ -872,7 +875,7 @@ footer{
   gap:10px;
 }
 
-/* Modal loading + empty states */
+/* Loading + empty states */
 .modal-state{text-align:center;padding:56px 20px}
 .spinner{
   width:28px;height:28px;margin:0 auto 16px;
@@ -921,7 +924,7 @@ footer{
 .reveal.is-visible{opacity:1;transform:none}
 .project-item.reveal{--reveal-delay:calc(min(var(--i,0),8) * 55ms)}
 
-/* Theme switch circular reveal (View Transitions API) */
+/* Theme switch circular reveal — uses View Transitions API */
 @media (prefers-reduced-motion:no-preference){
   ::view-transition-old(root){animation:none}
   ::view-transition-new(root){animation:themeReveal .55s cubic-bezier(.2,.8,.2,1)}
@@ -998,7 +1001,7 @@ footer{
   ::view-transition-new(root){animation:none !important}
 }
 
-/* Fallback for browsers without color-mix / modern color functions */
+/* Fallback for browsers without modern color functions */
 @supports not (background:color-mix(in srgb,red,blue)){
   .nav,.mobile-drawer,.project-card,.about-card,.stat-box,.contact-card,.modal{background-color:var(--bg-elevated)}
 }
@@ -1218,7 +1221,7 @@ footer{
   <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="m4 6 8 7 8-7"/></symbol>
   <symbol id="icon-whatsapp" viewBox="0 0 24 24"><path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.6z"/><path d="M8.5 9.5c.3 2.6 2.4 4.7 5 5"/></symbol>
   <symbol id="icon-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.2-4-2-6-2m12 3v-3c0-.8.3-1.4.7-1.8-2.4-.3-5-1.2-5-5.4 0-1.2.4-2.1 1.1-2.9-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10 10 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.7 1.1 2.9 0 4.2-2.6 5.1-5 5.4.4.4.8 1.1.8 2.2V19"/></symbol>
-  <symbol id="icon-doc" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
+  <symbol id="icon-doc" viewBox="0 0 24 24"><path d="M14 3H6v12h12V7z"/><path d="M14 3v4h4M9 12h6M9 16h6"/></symbol>
 </svg>
 
 <script>
@@ -1226,40 +1229,67 @@ footer{
   'use strict';
 
   /* ==========================================================
-     CONFIG — project links are untouched
+     CONFIG — the only part I ever need to touch.
      ========================================================== */
   const CONFIG = {
     githubUser: 'mohamed005cheikh-rgb',
-    projects: {
-      'tv88-pro': { hidden: false },
-      'wsr88': { hidden: false },
-      'j-e-tais-la--95-mc88': { hidden: false },
-      'jetli-mc88': { hidden: false },
+
+    /* ----------------------------------------------------------
+       MY PROJECT LIST
+       I paste one link per line. The order here is the order
+       on the page. I can add up to 50 (or more) whenever I want.
+       I can paste either a full GitHub URL or just the repo name.
+       ---------------------------------------------------------- */
+    projects: [
+      // --- Original projects ---
+      'tv88-pro',
+      'wsr88',
+      'j-e-tais-la--95-mc88',
+      'jetli-mc88',
+      'quran-hafs-mc88',
+      'zkr-mc88',
+      'fast-mc88',
+      'moon-mc88',
+      'rmc88',
+      'scanner-mc88',
+      'ntlas-mc88',
+      'data-mc88',
+      'mp-mc88',
+      'pic-mc88',
+      'bm-mc88',
+      'sm-mc88',
+      'doctools-mc88',
+      'tss-mc88',
+      'pharma-mc88',
+      'shop-mc88',
+      'clock-mc88',
+      'restau-mc88',
+      'cabinet-isi-2',
+      'pc-mc88',
+
+      // --- New projects ---
+      'PIN88-MC88',
+      'MORSE88-MC88',
+      'INK88-MC88',
+      'DB88-MC88',
+      'SYMBOLES88-MC88'
+
+      // I keep pasting new links above this line. Nothing else to do.
+    ],
+
+    /* ----------------------------------------------------------
+       OPTIONAL OVERRIDES
+       Only for projects that need a custom title or a custom
+       live URL. Everything else works fine without an entry here.
+       ---------------------------------------------------------- */
+    overrides: {
       'quran-hafs-mc88': {
-        hidden: false,
         title: 'Quran Hafs',
         liveUrl: 'https://mohamed005cheikh-rgb.github.io/quran-hafs-MC88/'
-      },
-      'zkr-mc88': { hidden: false },
-      'fast-mc88': { hidden: false },
-      'moon-mc88': { hidden: false },
-      'rmc88': { hidden: false },
-      'scanner-mc88': { hidden: false },
-      'ntlas-mc88': { hidden: false },
-      'data-mc88': { hidden: false },
-      'mp-mc88': { hidden: false },
-      'pic-mc88': { hidden: false },
-      'bm-mc88': { hidden: false },
-      'sm-mc88': { hidden: false },
-      'doctools-mc88': { hidden: false },
-      'tss-mc88': { hidden: false },
-      'pharma-mc88': { hidden: false },
-      'shop-mc88': { hidden: false },
-      'clock-mc88': { hidden: false },
-      'restau-mc88': { hidden: false },
-      'cabinet-isi-2': { hidden: false },
-      'pc-mc88': { hidden: false }
+      }
+      // I add a line here only when a project needs it.
     },
+
     themes: ['signal', 'terminal', 'paper', 'dune', 'studio'],
     themeColors: {
       signal: '#060a12',
@@ -1319,9 +1349,9 @@ footer{
 
   function getProjectUrl(repo) {
     const key = repo.name.toLowerCase();
-    const cfg = CONFIG.projects[key];
-    // Priority: explicit liveUrl -> GitHub homepage field -> GitHub Pages convention
-    return (cfg && cfg.liveUrl && cfg.liveUrl.trim()) ||
+    const cfg = CONFIG.overrides[key] || {};
+    // Priority: my explicit liveUrl -> GitHub homepage field -> GitHub Pages convention
+    return (cfg.liveUrl && cfg.liveUrl.trim()) ||
       repo.homepage ||
       `https://${CONFIG.githubUser}/${repo.name}/`;
   }
@@ -1335,7 +1365,7 @@ footer{
   }
 
   /* ==========================================================
-     THEME
+     THEME — five themes, cycled by a button click
      ========================================================== */
   function updateThemeColor() {
     const theme = CONFIG.themes[state.themeIndex];
@@ -1353,6 +1383,7 @@ footer{
       updateThemeColor();
     };
 
+    // Circular reveal from the click point, when the browser supports it
     const canTransition = typeof document.startViewTransition === 'function' &&
       !REDUCED_MOTION && event && typeof event.clientX === 'number';
 
@@ -1391,7 +1422,6 @@ footer{
     link.addEventListener('click', () => setDrawer(false));
   });
 
-  // Close the drawer on Escape or when resizing to desktop
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && drawer.classList.contains('active')) {
       setDrawer(false);
@@ -1404,7 +1434,7 @@ footer{
   });
 
   /* ==========================================================
-     MODAL (README VIEWER)
+     MODAL — README VIEWER
      ========================================================== */
   const modalSkeleton = `
     <div class="modal-state">
@@ -1418,7 +1448,7 @@ footer{
       <p class="hint">The repository does not contain a readable README.md file.</p>
     </div>`;
 
-  /** Minimal sanitizer for rendered markdown (defence in depth). */
+  /** Minimal sanitizer for rendered markdown — extra safety on top of marked. */
   function sanitize(fragment) {
     fragment.querySelectorAll('script,iframe,object,embed,form,style,link,meta,base').forEach((n) => n.remove());
     fragment.querySelectorAll('*').forEach((el) => {
@@ -1528,7 +1558,7 @@ footer{
 
   async function openReadmeModal(repo) {
     const key = repo.name.toLowerCase();
-    const cfg = CONFIG.projects[key] || {};
+    const cfg = CONFIG.overrides[key] || {};
     const title = cfg.title || formatTitle(repo.name);
     const url = getProjectUrl(repo);
 
@@ -1568,7 +1598,7 @@ footer{
         window.marked.setOptions({ gfm: true, breaks: true, headerIds: false, mangle: false });
         html = window.marked.parse(markdown);
       } else {
-        // Graceful fallback if the markdown library did not load
+        // Fallback if the markdown library did not load
         html = `<pre><code>${escapeHTML(markdown)}</code></pre>`;
       }
 
@@ -1589,7 +1619,7 @@ footer{
      ========================================================== */
   function projectCard(repo, index) {
     const key = repo.name.toLowerCase();
-    const cfg = CONFIG.projects[key] || {};
+    const cfg = CONFIG.overrides[key] || {};
     const url = getProjectUrl(repo);
     const title = cfg.title || formatTitle(repo.name);
     const description = (repo.description || cfg.description || '').trim();
@@ -1650,7 +1680,7 @@ footer{
     measure();
   }
 
-  // Event delegation for the "Project details" buttons (no inline handlers, no escaping bugs)
+  // I use one event listener for all the "Project details" buttons.
   grid.addEventListener('click', (e) => {
     const button = e.target.closest('.read-more-btn');
     if (!button) return;
@@ -1659,11 +1689,29 @@ footer{
   });
 
   /* ==========================================================
-     DATA LOADING
+     DATA LOADING — GitHub API
      ========================================================== */
   async function loadRepos() {
     renderSkeletons();
 
+    // I build the wanted list from my CONFIG.projects array. Order matters.
+    const wanted = CONFIG.projects
+      .map((entry) => {
+        const s = String(entry).trim();
+        if (!s) return null;
+        // I accept both a full GitHub link or just the repo name.
+        const m = s.match(/github\.com\/[^\/]+\/([^\/\?#]+)/i);
+        return (m ? m[1] : s).toLowerCase();
+      })
+      .filter(Boolean);
+
+    if (!wanted.length) {
+      state.repos = [];
+      renderProjects();
+      return;
+    }
+
+    const orderIndex = new Map(wanted.map((name, i) => [name, i]));
     let repos = [];
 
     try {
@@ -1676,18 +1724,18 @@ footer{
 
       const data = await response.json();
 
-      repos = data.filter((repo) => {
-        if (repo.fork) return false;
-        const cfg = CONFIG.projects[repo.name.toLowerCase()];
-        return cfg && !cfg.hidden;
-      });
+      // I keep only the repos in my list, and I sort them by my own order.
+      repos = data
+        .filter((repo) => !repo.fork && orderIndex.has(repo.name.toLowerCase()))
+        .sort((a, b) =>
+          orderIndex.get(a.name.toLowerCase()) - orderIndex.get(b.name.toLowerCase())
+        );
     } catch (error) {
       console.warn('GitHub projects could not be loaded:', error);
       showToast('Offline mode · saved project list');
 
-      repos = Object.keys(CONFIG.projects)
-        .filter((name) => !CONFIG.projects[name].hidden)
-        .map((name) => ({ name, homepage: '', description: '' }));
+      // Offline fallback: I still show my list, just without descriptions.
+      repos = wanted.map((name) => ({ name, homepage: '', description: '' }));
     }
 
     state.repos = repos;
@@ -1700,7 +1748,7 @@ footer{
   }
 
   /* ==========================================================
-     SCROLL: PROGRESS BAR + HEADER AUTO-HIDE
+     SCROLL — PROGRESS BAR + HEADER AUTO-HIDE
      ========================================================== */
   const docEl = document.documentElement;
   let maxScroll = 0;
@@ -1725,7 +1773,7 @@ footer{
 
       paintProgress();
 
-      // Auto-hide the header while scrolling down (never while the drawer is open)
+      // I hide the header while scrolling down, but never while the drawer is open.
       if (!drawer.classList.contains('active')) {
         const goingDown = y > lastScrollY + 6;
         const goingUp = y < lastScrollY - 6;
@@ -1733,7 +1781,7 @@ footer{
         else if (goingUp || y < 120) headerEl.classList.remove('is-hidden');
       }
 
-      // Fade the decorative scroll hint once the hero is behind us
+      // I fade the decorative scroll hint once the hero is behind us
       const hint = document.querySelector('.scroll-hint');
       if (hint) hint.classList.toggle('is-hidden', y > window.innerHeight * 0.6);
 
@@ -1753,7 +1801,7 @@ footer{
     }, 120);
   }, { passive: true });
 
-  // Recompute measurements whenever the page height changes (grid render, fonts, etc.)
+  // I recompute measurements whenever the page height changes
   if ('ResizeObserver' in window) {
     const ro = new ResizeObserver(() => {
       measure();
@@ -1763,7 +1811,7 @@ footer{
   }
 
   /* ==========================================================
-     OBSERVERS: REVEAL + ACTIVE NAV + PAUSE OFF-SCREEN ANIMATIONS
+     OBSERVERS — reveal, active nav, pause off-screen animations
      ========================================================== */
   let revealObserver = null;
 
@@ -1788,7 +1836,7 @@ footer{
     });
   }
 
-  // Pause infinite animations for off-screen blocks (big win on low-end phones)
+  // I pause infinite animations for off-screen blocks — big help on old phones
   let liveObserver = null;
 
   function observeLive(root = document) {
@@ -1805,7 +1853,7 @@ footer{
     $$('[data-live]', root).forEach((el) => liveObserver.observe(el));
   }
 
-  // Highlight the nav link matching the section in view
+  // I highlight the nav link that matches the section in view
   const sections = $$('main section[id]');
   const navLinks = $$('[data-nav]');
 
@@ -1823,7 +1871,7 @@ footer{
   }
 
   /* ==========================================================
-     HERO PARALLAX (desktop pointers only)
+     HERO PARALLAX — desktop pointers only
      ========================================================== */
   (function initHeroParallax() {
     if (REDUCED_MOTION || !FINE_POINTER) return;
